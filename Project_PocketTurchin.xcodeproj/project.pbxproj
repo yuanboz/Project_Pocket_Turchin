@@ -13,6 +13,7 @@
 		BAE81BD025A4C79B005C43A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAE81BCE25A4C79B005C43A3 /* Main.storyboard */; };
 		BAE81BD225A4C79C005C43A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAE81BD125A4C79C005C43A3 /* Assets.xcassets */; };
 		BAE81BD525A4C79C005C43A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAE81BD325A4C79C005C43A3 /* LaunchScreen.storyboard */; };
+		BAE81BE825A4D54D005C43A3 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81BE725A4D54D005C43A3 /* LaunchScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		BAE81BD125A4C79C005C43A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAE81BD425A4C79C005C43A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAE81BD625A4C79C005C43A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAE81BE725A4D54D005C43A3 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				BAE81BD125A4C79C005C43A3 /* Assets.xcassets */,
 				BAE81BD325A4C79C005C43A3 /* LaunchScreen.storyboard */,
 				BAE81BD625A4C79C005C43A3 /* Info.plist */,
+				BAE81BE725A4D54D005C43A3 /* LaunchScreenViewController.swift */,
 			);
 			path = Project_PocketTurchin;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			files = (
 				BAE81BCD25A4C79B005C43A3 /* ViewController.swift in Sources */,
 				BAE81BC925A4C79B005C43A3 /* AppDelegate.swift in Sources */,
+				BAE81BE825A4D54D005C43A3 /* LaunchScreenViewController.swift in Sources */,
 				BAE81BCB25A4C79B005C43A3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
