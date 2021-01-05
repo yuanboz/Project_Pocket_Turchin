@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
     }
     
-    func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
+    func changeRootViewController(_ vc: UIViewController, animated: Bool = true, options: UIView.AnimationOptions) {
         guard let window = self.window else {
             return
         }
@@ -28,7 +28,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         UIView.transition(with: window,
                           duration: 0.5,
-                          options: [.transitionCrossDissolve],
+//                          options: [.transitionCrossDissolve],
+                          options: options,
                           animations: nil,
                           completion: nil
         )

@@ -28,7 +28,7 @@ class LaunchScreenViewController: UIViewController {
             self.animate()
         })
     }
-    
+
     private func animate() {
         UIView.animate(withDuration: 1.0, animations: {
             let size = self.view.frame.width * 3
@@ -47,8 +47,8 @@ class LaunchScreenViewController: UIViewController {
             }, completion: { done in
                 if done {
                     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                    let mainTabBarCOntroller = storyBoard.instantiateViewController(identifier: "tabBarController")
-                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarCOntroller)
+                    let loginVC = storyBoard.instantiateViewController(identifier: "loginVC")
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginVC, options: .transitionCrossDissolve)
                 }
             })
         })
