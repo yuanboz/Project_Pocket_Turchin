@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 
 class LoginViewController: UIViewController {
     
@@ -40,7 +41,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginTapped(_ sender: UIButton) {
-        
         // Check the input
         let error = validateFields()
         if error != nil {
@@ -57,10 +57,31 @@ class LoginViewController: UIViewController {
                     self.errorLabel.text = err!.localizedDescription
                     self.errorLabel.alpha = 1
                 } else {
+                    // Save username and user type to UserDefaults
+                    let defaults = UserDefaults.standard
+                    let uid = res!.user.uid
+                    let db = Firestore.firestore()
+                    db.collection("users").whereField("uid",isEqualTo: uid).getDocuments { (querySnapshot, err) in
+                        if let err = err {
+                            print("Error getting documents: \(err)")
+                        } else {
+                            for doc in querySnapshot!.documents {
+                                let data = doc.data()
+                                let firstName = data["firstName"] as! String
+                                let lastName = data["lastName"] as! String
+                                let userName = firstName + lastName.dropLast(3)
+                                defaults.set(userName,forKey: "username")
+                            }
+                        }
+                    }
+                    defaults.set(false, forKey: "guest")
+                    
+                    //Transition to the home screen
                     Utilities.transitionToHome()
                 }
             
             }
         }
     }
+    
 }

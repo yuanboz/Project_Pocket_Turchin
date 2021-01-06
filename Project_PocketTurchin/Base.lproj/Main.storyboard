@@ -26,9 +26,8 @@
         <!--Navigation Controller-->
         <scene sceneID="EJw-GZ-ily">
             <objects>
-                <navigationController storyboardIdentifier="loginVC" id="UDv-CL-8O3" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="loginVC" navigationBarHidden="YES" id="UDv-CL-8O3" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jt1-K6-wvR">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -264,17 +263,55 @@
             </objects>
             <point key="canvasLocation" x="903" y="1407"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="EDc-JY-lhL">
             <objects>
-                <viewController id="Q6V-k4-Wl7" sceneMemberID="viewController">
+                <viewController id="Q6V-k4-Wl7" customClass="ProfileViewController" customModule="Project_PocketTurchin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b3q-7h-dAL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="profileima" translatesAutoresizingMaskIntoConstraints="NO" id="zp8-ZD-Bna">
+                                <rect key="frame" x="132" y="238" width="150" height="96"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FE4-bs-iZx">
+                                <rect key="frame" x="186" y="374" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bIX-2a-tgA">
+                                <rect key="frame" x="30" y="445" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="NcX-Sx-WAY"/>
+                                </constraints>
+                                <state key="normal" title="Sign out"/>
+                                <connections>
+                                    <action selector="signOutButtonTapped:" destination="Q6V-k4-Wl7" eventType="touchUpInside" id="l6W-qe-nT4"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="yRg-Bw-Vfv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bIX-2a-tgA" firstAttribute="top" secondItem="FE4-bs-iZx" secondAttribute="bottom" constant="50" id="2HH-Ah-XUd"/>
+                            <constraint firstItem="bIX-2a-tgA" firstAttribute="centerX" secondItem="b3q-7h-dAL" secondAttribute="centerX" id="DRP-M3-gUa"/>
+                            <constraint firstItem="FE4-bs-iZx" firstAttribute="centerX" secondItem="b3q-7h-dAL" secondAttribute="centerX" id="OmN-dx-TOJ"/>
+                            <constraint firstItem="FE4-bs-iZx" firstAttribute="top" secondItem="zp8-ZD-Bna" secondAttribute="bottom" constant="40" id="Ubz-nf-Hnn"/>
+                            <constraint firstItem="zp8-ZD-Bna" firstAttribute="centerX" secondItem="b3q-7h-dAL" secondAttribute="centerX" id="Z7Y-1O-5ID"/>
+                            <constraint firstItem="bIX-2a-tgA" firstAttribute="leading" secondItem="yRg-Bw-Vfv" secondAttribute="leading" constant="30" id="fSV-KH-sS4"/>
+                            <constraint firstItem="zp8-ZD-Bna" firstAttribute="leading" secondItem="yRg-Bw-Vfv" secondAttribute="leading" constant="132" id="tNQ-hq-8FY"/>
+                            <constraint firstItem="zp8-ZD-Bna" firstAttribute="top" secondItem="yRg-Bw-Vfv" secondAttribute="top" constant="150" id="uWw-gs-MHo"/>
+                            <constraint firstItem="yRg-Bw-Vfv" firstAttribute="trailing" secondItem="bIX-2a-tgA" secondAttribute="trailing" constant="30" id="yJW-xb-axM"/>
+                            <constraint firstItem="yRg-Bw-Vfv" firstAttribute="trailing" secondItem="zp8-ZD-Bna" secondAttribute="trailing" constant="132" id="zFA-NE-IO3"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ewD-5j-dYe"/>
+                    <connections>
+                        <outlet property="imaProfile" destination="zp8-ZD-Bna" id="jcN-rN-089"/>
+                        <outlet property="signOutButton" destination="bIX-2a-tgA" id="6yY-ul-Q31"/>
+                        <outlet property="userNameLabel" destination="FE4-bs-iZx" id="duu-Yd-K0j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9MU-4O-F07" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -289,7 +326,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gWk-MR-raH">
-                                <rect key="frame" x="30" y="128" width="354" height="230.5"/>
+                                <rect key="frame" x="30" y="84" width="354" height="230.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f7K-TH-gth">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -353,7 +390,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zcG-JE-aan">
-                                <rect key="frame" x="30" y="128" width="354" height="370.5"/>
+                                <rect key="frame" x="30" y="84" width="354" height="370.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="44d-ec-Xj4">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -426,6 +463,7 @@
     <resources>
         <image name="filleduser" width="50" height="50"/>
         <image name="hollowuser" width="50" height="50"/>
+        <image name="profileima" width="96" height="96"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

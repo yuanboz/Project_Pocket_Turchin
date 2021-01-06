@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		BAE81BC925A4C79B005C43A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81BC825A4C79B005C43A3 /* AppDelegate.swift */; };
 		BAE81BCB25A4C79B005C43A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81BCA25A4C79B005C43A3 /* SceneDelegate.swift */; };
-		BAE81BCD25A4C79B005C43A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81BCC25A4C79B005C43A3 /* ViewController.swift */; };
 		BAE81BD025A4C79B005C43A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAE81BCE25A4C79B005C43A3 /* Main.storyboard */; };
 		BAE81BD225A4C79C005C43A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAE81BD125A4C79C005C43A3 /* Assets.xcassets */; };
 		BAE81BD525A4C79C005C43A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAE81BD325A4C79C005C43A3 /* LaunchScreen.storyboard */; };
@@ -20,6 +19,8 @@
 		BAE81C1225A4FD9A005C43A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C1125A4FD9A005C43A3 /* LoginViewController.swift */; };
 		BAE81C1525A4FDA4005C43A3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C1425A4FDA4005C43A3 /* SignUpViewController.swift */; };
 		BAE81C1825A538E6005C43A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAE81C1725A538E6005C43A3 /* GoogleService-Info.plist */; };
+		BAE81C3425A611D4005C43A3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C3325A611D4005C43A3 /* ProfileViewController.swift */; };
+		BAE81C3825A63DDA005C43A3 /* bgVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BAE81C3725A63DDA005C43A3 /* bgVideo.mp4 */; };
 		BF287C437987D8FC5140834F /* Pods_Project_PocketTurchin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +31,6 @@
 		BAE81BC525A4C79B005C43A3 /* Project_PocketTurchin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_PocketTurchin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE81BC825A4C79B005C43A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAE81BCA25A4C79B005C43A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BAE81BCC25A4C79B005C43A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BAE81BCF25A4C79B005C43A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BAE81BD125A4C79C005C43A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAE81BD425A4C79C005C43A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +42,8 @@
 		BAE81C1125A4FD9A005C43A3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BAE81C1425A4FDA4005C43A3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BAE81C1725A538E6005C43A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BAE81C3325A611D4005C43A3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BAE81C3725A63DDA005C43A3 /* bgVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bgVideo.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		BAE81BC725A4C79B005C43A3 /* Project_PocketTurchin */ = {
 			isa = PBXGroup;
 			children = (
+				BAE81C3625A63DCC005C43A3 /* Media */,
 				BAE81C0125A4EC24005C43A3 /* ViewController */,
 				BAE81BFD25A4EB95005C43A3 /* Helper */,
 				BAE81BC825A4C79B005C43A3 /* AppDelegate.swift */,
@@ -112,7 +115,7 @@
 			children = (
 				BAE81BE725A4D54D005C43A3 /* LaunchScreenViewController.swift */,
 				BAE81C0725A4F0EE005C43A3 /* Login */,
-				BAE81BCC25A4C79B005C43A3 /* ViewController.swift */,
+				BAE81C3125A5508B005C43A3 /* Gallery */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -127,13 +130,28 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		BAE81C3125A5508B005C43A3 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				BAE81C3325A611D4005C43A3 /* ProfileViewController.swift */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
+		BAE81C3625A63DCC005C43A3 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				BAE81C3725A63DDA005C43A3 /* bgVideo.mp4 */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
 		FC4D4077D7381E8D0901173E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				29B64F887204433D9D4240F8 /* Pods-Project_PocketTurchin.debug.xcconfig */,
 				964BE37BD557CE476DC56881 /* Pods-Project_PocketTurchin.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -196,6 +214,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAE81C3825A63DDA005C43A3 /* bgVideo.mp4 in Resources */,
 				BAE81BD525A4C79C005C43A3 /* LaunchScreen.storyboard in Resources */,
 				BAE81C1825A538E6005C43A3 /* GoogleService-Info.plist in Resources */,
 				BAE81BD225A4C79C005C43A3 /* Assets.xcassets in Resources */,
@@ -253,12 +272,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAE81C0925A4F103005C43A3 /* LogViewController.swift in Sources */,
-				BAE81BCD25A4C79B005C43A3 /* ViewController.swift in Sources */,
 				BAE81BC925A4C79B005C43A3 /* AppDelegate.swift in Sources */,
 				BAE81BE825A4D54D005C43A3 /* LaunchScreenViewController.swift in Sources */,
 				BAE81C1225A4FD9A005C43A3 /* LoginViewController.swift in Sources */,
 				BAE81C0E25A4F576005C43A3 /* Constants.swift in Sources */,
 				BAE81C1525A4FDA4005C43A3 /* SignUpViewController.swift in Sources */,
+				BAE81C3425A611D4005C43A3 /* ProfileViewController.swift in Sources */,
 				BAE81BFF25A4EBC5005C43A3 /* Utilities.swift in Sources */,
 				BAE81BCB25A4C79B005C43A3 /* SceneDelegate.swift in Sources */,
 			);

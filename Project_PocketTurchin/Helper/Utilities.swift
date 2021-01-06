@@ -56,4 +56,10 @@ class Utilities {
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(homeVC, options: .transitionFlipFromLeft)
     }
     
+    static func transitionToLogin() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let loginVC = storyBoard.instantiateViewController(identifier: "loginVC")
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginVC, options: .transitionFlipFromLeft)
+    }
+    
 }

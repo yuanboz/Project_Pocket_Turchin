@@ -24,7 +24,6 @@ class SignUpViewController: UIViewController {
     }
     
     func setUpElements() {
-        
         // Hide the error label
         errorLabel.alpha = 0
     
@@ -38,7 +37,6 @@ class SignUpViewController: UIViewController {
     
     // Check the input
     func validateFields() -> String? {
-        
         // Check if all fields are filled
         if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -57,7 +55,6 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpWapped(_ sender: UIButton) {
-        
         // Validate the fields
         let error = validateFields()
         
@@ -80,12 +77,12 @@ class SignUpViewController: UIViewController {
                 } else {
                     let db = Firestore.firestore()
                     db.collection("users").addDocument(data: ["firstName": firstName, "lastName": lastName, "uid": res!.user.uid]) { (error) in
-                        
                         if error != nil {
                             self.showError("Error saving user data")
                         }
                     }
                     //Transition to the home screen
+                    UserDefaults.standard.set(false, forKey: "guest")
                     Utilities.transitionToHome()
                 }
             }
@@ -96,11 +93,5 @@ class SignUpViewController: UIViewController {
         errorLabel.text = message
         errorLabel.alpha = 1
     }
-    
-    func transitionToHome() {
-        
-    }
-    
-
 
 }
