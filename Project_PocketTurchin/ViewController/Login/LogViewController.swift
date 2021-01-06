@@ -26,13 +26,7 @@ class LogViewController: UIViewController {
     
     @IBAction func loginAsGuestTapped(_ sender: UIButton) {
         UserDefaults.standard.set(true, forKey: "guest")
-        transitionToHome()
+        Utilities.transitionToHome()
     }
     
-    func transitionToHome() {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let homeVC = storyBoard.instantiateViewController(identifier: "homeVC")
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(homeVC, options: .transitionFlipFromLeft)
-        
-    }
 }

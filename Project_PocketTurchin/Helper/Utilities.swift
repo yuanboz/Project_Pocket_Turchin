@@ -50,4 +50,10 @@ class Utilities {
         return passwordTest.evaluate(with: password)
     }
     
+    static func transitionToHome() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let homeVC = storyBoard.instantiateViewController(identifier: "homeVC")
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(homeVC, options: .transitionFlipFromLeft)
+    }
+    
 }
