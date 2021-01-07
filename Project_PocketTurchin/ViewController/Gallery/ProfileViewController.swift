@@ -13,19 +13,26 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var imaProfile: UIImageView!
     @IBOutlet weak var signOutButton: UIButton!
-    var guest = UserDefaults.standard.bool(forKey: "guest")
+    @IBOutlet weak var adminButton: UIButton!
+    var users = UserDefaults.standard.integer(forKey: "users")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userNameLabel.text = checkGuest(guest)
+        checkUser(users)
         Utilities.styleHollowButton(signOutButton)
     }
     
-    func checkGuest(_ guest: Bool) -> String? {
-        if guest == true {
-            return "Guest"
-        } else {
-            return UserDefaults.standard.value(forKey: "username") as? String
+    func checkUser(_ users: Int) {
+        print(users)
+        switch users {
+        case 0:
+            userNameLabel.text = UserDefaults.standard.value(forKey: "username") as? String
+            adminButton.alpha = 1
+            adminButton.isUserInteractionEnabled = true
+        case 2:
+            userNameLabel.text = "Guest"
+        default:
+            userNameLabel.text = UserDefaults.standard.value(forKey: "username") as? String
         }
     }
     
@@ -34,7 +41,7 @@ class ProfileViewController: UIViewController {
     }
     
     func logoutUser() {
-        if guest == true {
+        if users == 2 {
             UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
             Utilities.transitionToLogin()
         } else {
@@ -47,6 +54,11 @@ class ProfileViewController: UIViewController {
             Utilities.transitionToLogin()
         }
     }
+    
+    @IBAction func adminButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "adminVC", sender: sender)
+    }
+    
     
 
 }

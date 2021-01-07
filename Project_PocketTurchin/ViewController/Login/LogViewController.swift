@@ -33,7 +33,8 @@ class LogViewController: UIViewController {
     }
     
     @IBAction func loginAsGuestTapped(_ sender: UIButton) {
-        UserDefaults.standard.set(true, forKey: "guest")
+        //2 means login as guest
+        UserDefaults.standard.set(2, forKey: "users")
         Utilities.transitionToHome()
     }
     
