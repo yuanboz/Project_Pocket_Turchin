@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BAB112CD25A79F1100D66CBD /* AdminUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */; };
 		BAE81BC925A4C79B005C43A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81BC825A4C79B005C43A3 /* AppDelegate.swift */; };
 		BAE81BCB25A4C79B005C43A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81BCA25A4C79B005C43A3 /* SceneDelegate.swift */; };
 		BAE81BD025A4C79B005C43A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAE81BCE25A4C79B005C43A3 /* Main.storyboard */; };
@@ -24,13 +25,13 @@
 		BAE81C3B25A649C2005C43A3 /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAE81C3A25A649C2005C43A3 /* image2.jpg */; };
 		BAE81C4D25A6585B005C43A3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C4C25A6585B005C43A3 /* HomeViewController.swift */; };
 		BAE81C5025A65869005C43A3 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C4F25A65869005C43A3 /* HomeTableViewCell.swift */; };
-		BAE81C6B25A68D12005C43A3 /* AdminMainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C6A25A68D12005C43A3 /* AdminMainPageViewController.swift */; };
 		BF287C437987D8FC5140834F /* Pods_Project_PocketTurchin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		29B64F887204433D9D4240F8 /* Pods-Project_PocketTurchin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_PocketTurchin.debug.xcconfig"; path = "Target Support Files/Pods-Project_PocketTurchin/Pods-Project_PocketTurchin.debug.xcconfig"; sourceTree = "<group>"; };
 		964BE37BD557CE476DC56881 /* Pods-Project_PocketTurchin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_PocketTurchin.release.xcconfig"; path = "Target Support Files/Pods-Project_PocketTurchin/Pods-Project_PocketTurchin.release.xcconfig"; sourceTree = "<group>"; };
+		BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUploadViewController.swift; sourceTree = "<group>"; };
 		BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_PocketTurchin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE81BC525A4C79B005C43A3 /* Project_PocketTurchin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_PocketTurchin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE81BC825A4C79B005C43A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 		BAE81C3A25A649C2005C43A3 /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
 		BAE81C4C25A6585B005C43A3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BAE81C4F25A65869005C43A3 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
-		BAE81C6A25A68D12005C43A3 /* AdminMainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMainPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +161,7 @@
 		BAE81C6925A68CEA005C43A3 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
-				BAE81C6A25A68D12005C43A3 /* AdminMainPageViewController.swift */,
+				BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -298,8 +298,8 @@
 				BAE81C1225A4FD9A005C43A3 /* LoginViewController.swift in Sources */,
 				BAE81C0E25A4F576005C43A3 /* Constants.swift in Sources */,
 				BAE81C5025A65869005C43A3 /* HomeTableViewCell.swift in Sources */,
-				BAE81C6B25A68D12005C43A3 /* AdminMainPageViewController.swift in Sources */,
 				BAE81C4D25A6585B005C43A3 /* HomeViewController.swift in Sources */,
+				BAB112CD25A79F1100D66CBD /* AdminUploadViewController.swift in Sources */,
 				BAE81C1525A4FDA4005C43A3 /* SignUpViewController.swift in Sources */,
 				BAE81C3425A611D4005C43A3 /* ProfileViewController.swift in Sources */,
 				BAE81BFF25A4EBC5005C43A3 /* Utilities.swift in Sources */,

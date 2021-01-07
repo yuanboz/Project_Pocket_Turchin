@@ -55,10 +55,33 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    // Switch to admin mode
     @IBAction func adminButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "adminVC", sender: sender)
+        let adminMode = UserDefaults.standard.bool(forKey: "adminMode")
+        if adminMode != true {
+            switchToAdminMode()
+        } else {
+            switchToUserMode()
+        }
     }
     
+    private func switchToAdminMode() {
+        self.adminButton.setTitle("Switch to User mode", for: .normal)
+        UserDefaults.standard.set(true, forKey: "adminMode")
+        normalAlert(title: "Mode Switch", message: "You're now switch to Admin mode.", actionTitle: "OK")
+    }
     
-
+    private func switchToUserMode() {
+        self.adminButton.setTitle("Switch to Admin mode", for: .normal)
+        UserDefaults.standard.set(false, forKey: "adminMode")
+        normalAlert(title: "Mode Switch", message: "You're now back to User mode.", actionTitle: "OK")
+    }
+    
+    func normalAlert(title: String, message: String, actionTitle: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }

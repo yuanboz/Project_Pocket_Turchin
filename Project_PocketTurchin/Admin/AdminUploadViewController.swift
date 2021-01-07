@@ -1,17 +1,17 @@
 //
-//  AdminMainPageViewController.swift
+//  AdminUploadViewController.swift
 //  Project_PocketTurchin
 //
-//  Created by 周元博 on 1/6/21.
+//  Created by 周元博 on 1/7/21.
 //
 
 import UIKit
 
-class AdminMainPageViewController: UIViewController {
+class AdminUploadViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.hidesBackButton = true
+
         // Do any additional setup after loading the view.
     }
     

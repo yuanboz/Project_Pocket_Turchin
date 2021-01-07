@@ -21,7 +21,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GJy-sy-O8u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="25" y="-966"/>
+            <point key="canvasLocation" x="-4491" y="-181"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EJw-GZ-ily">
@@ -118,13 +118,13 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZXw-EA-MUF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="25" y="-181"/>
+            <point key="canvasLocation" x="-328" y="-181"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="XGW-9j-TqB">
             <objects>
                 <navigationController id="kct-ET-I1Q" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="HY7-CJ-FLc"/>
+                    <tabBarItem key="tabBarItem" title="" image="hollowhome" selectedImage="filledhome" id="HY7-CJ-FLc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gRY-HQ-aOC">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -135,7 +135,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sI-AC-Eoh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-900" y="540"/>
+            <point key="canvasLocation" x="790" y="-1201"/>
         </scene>
         <!--Item-->
         <scene sceneID="rBz-yb-EDf">
@@ -152,13 +152,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1FV-IV-rDj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="25" y="540"/>
+            <point key="canvasLocation" x="790" y="-349"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="B2Q-iz-lEd">
             <objects>
                 <navigationController id="wkB-KF-I3U" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Xgd-MA-r6r"/>
+                    <tabBarItem key="tabBarItem" title="" image="hollowinfo" selectedImage="filledinfo" id="Xgd-MA-r6r"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2ky-0v-kej">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -169,7 +169,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UsY-s8-Icz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="903" y="540"/>
+            <point key="canvasLocation" x="790" y="526"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RF6-l3-GhG">
@@ -186,7 +186,23 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PKI-pV-cW4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1677" y="540"/>
+            <point key="canvasLocation" x="790" y="1373"/>
+        </scene>
+        <!--adminUploadPage-->
+        <scene sceneID="doJ-aY-dxO">
+            <objects>
+                <viewController storyboardIdentifier="adminUploadPage" title="adminUploadPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="34R-gb-xcm" customClass="AdminUploadViewController" customModule="Project_PocketTurchin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="adminUploadPage" id="Xog-cd-GxH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="peJ-zc-sIw"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3vB-d4-JiF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yk5-zh-5c5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3768" y="1027"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="7HS-yi-iuC">
@@ -236,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7SN-ge-QZZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-900.00000000000011" y="1406.9196428571429"/>
+            <point key="canvasLocation" x="1929" y="-1201"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="GDh-ic-1fs">
@@ -246,9 +262,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuH-DX-A5c">
-                                <rect key="frame" x="186" y="438" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourite Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuH-DX-A5c">
+                                <rect key="frame" x="150.5" y="437.5" width="113" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -256,12 +271,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mvm-5r-q8e"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EuH-DX-A5c" firstAttribute="centerX" secondItem="lD5-Ao-tgN" secondAttribute="centerX" id="KMu-nP-6BL"/>
+                            <constraint firstItem="EuH-DX-A5c" firstAttribute="centerY" secondItem="lD5-Ao-tgN" secondAttribute="centerY" id="Vf2-9E-1Ds"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="A1U-IR-AD0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M3G-bu-DRB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="25" y="1407"/>
+            <point key="canvasLocation" x="1929" y="-350"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="EPE-IZ-4cT">
@@ -271,9 +290,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Np-U7-iCx">
-                                <rect key="frame" x="186" y="438" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Np-U7-iCx">
+                                <rect key="frame" x="163" y="437.5" width="88.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -281,12 +299,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="StM-9x-MkA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8Np-U7-iCx" firstAttribute="centerX" secondItem="OfY-47-bVo" secondAttribute="centerX" id="Hte-hh-hNX"/>
+                            <constraint firstItem="8Np-U7-iCx" firstAttribute="centerY" secondItem="OfY-47-bVo" secondAttribute="centerY" id="RxD-iy-Lo3"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7ns-I6-Q9C"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWK-nq-192" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="903" y="1407"/>
+            <point key="canvasLocation" x="1929" y="526"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="EDc-JY-lhL">
@@ -319,7 +341,7 @@
                                 <rect key="frame" x="30" y="683" width="354" height="30"/>
                                 <state key="normal" title="Switch to Admin mode"/>
                                 <connections>
-                                    <segue destination="Tp2-z0-QHa" kind="show" id="GTB-e4-tjk"/>
+                                    <action selector="adminButtonTapped:" destination="Q6V-k4-Wl7" eventType="touchUpInside" id="pM7-9B-LcC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -350,23 +372,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9MU-4O-F07" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1677" y="1407"/>
-        </scene>
-        <!--Admin Main Page View Controller-->
-        <scene sceneID="KNe-vt-Jwb">
-            <objects>
-                <viewController id="Tp2-z0-QHa" customClass="AdminMainPageViewController" customModule="Project_PocketTurchin" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ufT-q8-0Er">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="5G5-Z0-vW0"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="NIM-DQ-Ewb"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZjZ-2T-1lR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2541" y="1407"/>
+            <point key="canvasLocation" x="1929" y="1373"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="bn9-Au-WCe">
@@ -512,11 +518,18 @@
         </scene>
     </scenes>
     <resources>
-        <image name="filleduser" width="50" height="50"/>
-        <image name="hollowuser" width="50" height="50"/>
+        <image name="filledhome" width="36" height="36"/>
+        <image name="filledinfo" width="36" height="36"/>
+        <image name="filleduser" width="36" height="36"/>
+        <image name="hollowhome" width="36" height="36"/>
+        <image name="hollowinfo" width="36" height="36"/>
+        <image name="hollowuser" width="36" height="36"/>
         <image name="profileima" width="96" height="96"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

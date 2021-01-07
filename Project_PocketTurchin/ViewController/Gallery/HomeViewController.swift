@@ -11,14 +11,23 @@ import FirebaseStorage
 class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet var galleryTable: UITableView!
+
+    var adminAddBarButton: UIBarButtonItem!
+    
     private let storage = Storage.storage()
     var imageArray = [Any]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         galleryTable.delegate = self
         galleryTable.dataSource = self
         galleryTable.separatorStyle = .none
-        // Do any additional setup after loading the view.
+        self.adminAddBarButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(adminAddBarButtonTapped))
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkAdminMode()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,5 +49,30 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.cellImage.layer.masksToBounds = true;
         return cell
     }
+    
+    func checkAdminMode() {
+        let adminMode = UserDefaults.standard.bool(forKey: "adminMode")
+        
+        if adminMode == true {
+            showAdminElements()
+        } else {
+            hideAdminElements()
+        }
+    }
+    
+    func showAdminElements() {
+        self.navigationItem.rightBarButtonItem = adminAddBarButton
+    }
+    
+    func hideAdminElements() {
+        self.navigationItem.rightBarButtonItem = nil
+    }
+    
+    @objc func adminAddBarButtonTapped(_ sender: UIBarButtonItem) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        guard let secondVC = storyBoard.instantiateViewController(withIdentifier: "adminUploadPage") as? AdminUploadViewController else {  return }
+        self.present(secondVC, animated: true, completion: nil)
+    }
+    
 
 }
