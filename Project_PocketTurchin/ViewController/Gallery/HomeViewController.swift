@@ -70,7 +70,8 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     @objc func adminAddBarButtonTapped(_ sender: UIBarButtonItem) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        guard let secondVC = storyBoard.instantiateViewController(withIdentifier: "adminUploadPage") as? AdminUploadViewController else {  return }
+        guard let secondVC = storyBoard.instantiateViewController(withIdentifier: "adminUploadPage") as? AdminUploadViewController else { return }
+        
         self.present(secondVC, animated: true, completion: nil)
     }
     

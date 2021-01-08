@@ -6,24 +6,108 @@
 //
 
 import UIKit
+import FirebaseStorage
+import Firebase
 
-class AdminUploadViewController: UIViewController {
+class AdminUploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet var uploadButton: UIButton!
+    @IBOutlet var submitButton: UIButton!
+    @IBOutlet var titleTextField: UITextField!
+    @IBOutlet var dateTextField: UITextField!
+    @IBOutlet var errorLabel: UILabel!
+    @IBOutlet var coverImageView: UIImageView!
+    
+    var coverImgUrl: String = ""
+    var artTitle: String = ""
+    var artDate: String = ""
+    
+    private let storage = Storage.storage().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpElements()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setUpElements() {
+        Utilities.styleFilledButton(uploadButton)
+        Utilities.styleFilledButton(submitButton)
+        Utilities.styleTextField(dateTextField)
+        Utilities.styleTextField(titleTextField)
     }
-    */
+    
+    @IBAction func submitButtonTapped(_ sender: UIButton) {
+        if textFieldValidate() {
+            uploadDocument()
+        }
+    }
+    
+    @IBAction func uploadButtonTapped() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+        
+        guard let imageData = image.pngData() else { return }
+        
+        let imageName = NSUUID().uuidString
+        let ref = storage.child("coverImg/\(imageName).png")
+        
+        ref.putData(imageData, metadata: nil) { ( _, err) in
+            guard err == nil else {
+                print("Failed to upload")
+                return
+            }
+            ref.downloadURL { (url, err) in
+                guard let url = url, err == nil else { return }
 
+                let urlString = url.absoluteString
+                self.coverImgUrl = urlString
+            }
+        }
+        
+        DispatchQueue.main.async {
+            self.coverImageView.image = image
+        }
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func textFieldValidate() -> Bool {
+        if titleTextField.text != nil && dateTextField.text != nil {
+            artTitle = titleTextField.text!
+            artDate = dateTextField.text!
+            return true
+        } else {
+            errorLabel.alpha = 1
+            errorLabel.text = "Please fill all the fields."
+            return false
+        }
+    }
+    
+    func uploadDocument() {
+        let db = Firestore.firestore()
+        db.collection("exhibitions").document(artTitle).setData(["exhibitonTitle":artTitle,"exhibitionDate":artDate,"exhibitionCoverImg": coverImgUrl])
+        normalAlert(title: "Upload Successfully", message: "Exhibition \(artTitle) has been uploaded.", actionTitle: "OK")
+        self.titleTextField.text = ""
+        self.dateTextField.text = ""
+    }
+    
+    func normalAlert(title: String, message: String, actionTitle: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
