@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseStorage
 import Firebase
+import FirebaseDatabase
 
 class AdminUploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -17,6 +18,8 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet var dateTextField: UITextField!
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var coverImageView: UIImageView!
+    
+    private let datebase = Database.database().reference()
     
     var coverImgUrl: String = ""
     var artTitle: String = ""
@@ -38,7 +41,7 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func submitButtonTapped(_ sender: UIButton) {
         if textFieldValidate() {
-            uploadDocument()
+            uploadToFirebase()
         }
     }
     
@@ -95,9 +98,18 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     
-    func uploadDocument() {
-        let db = Firestore.firestore()
-        db.collection("exhibitions").document(artTitle).setData(["exhibitonTitle":artTitle,"exhibitionDate":artDate,"exhibitionCoverImg": coverImgUrl])
+    func uploadToFirebase() {
+//        let db = Firestore.firestore()
+//        db.collection("exhibitions").document(artTitle).setData(["exhibitionTitle":artTitle,"exhibitionDate":artDate,"exhibitionCoverImg": coverImgUrl])
+        
+        let ref = datebase.child("exhibitions").child(artTitle)
+        let values = ["exhibitionTitle": artTitle,"exhibitionDate": artDate, "exhibitionCoverImg": coverImgUrl]
+        ref.updateChildValues(values) { (err, ref) in
+            if err != nil {
+                print(err!)
+                return
+            }
+        }
         normalAlert(title: "Upload Successfully", message: "Exhibition \(artTitle) has been uploaded.", actionTitle: "OK")
         self.titleTextField.text = ""
         self.dateTextField.text = ""

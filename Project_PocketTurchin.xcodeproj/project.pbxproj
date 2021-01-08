@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BAB112CD25A79F1100D66CBD /* AdminUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */; };
+		BAB1134025A8FE7000D66CBD /* Exhibition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB1133F25A8FE7000D66CBD /* Exhibition.swift */; };
 		BAE81BC925A4C79B005C43A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81BC825A4C79B005C43A3 /* AppDelegate.swift */; };
 		BAE81BCB25A4C79B005C43A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81BCA25A4C79B005C43A3 /* SceneDelegate.swift */; };
 		BAE81BD025A4C79B005C43A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAE81BCE25A4C79B005C43A3 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		29B64F887204433D9D4240F8 /* Pods-Project_PocketTurchin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_PocketTurchin.debug.xcconfig"; path = "Target Support Files/Pods-Project_PocketTurchin/Pods-Project_PocketTurchin.debug.xcconfig"; sourceTree = "<group>"; };
 		964BE37BD557CE476DC56881 /* Pods-Project_PocketTurchin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_PocketTurchin.release.xcconfig"; path = "Target Support Files/Pods-Project_PocketTurchin/Pods-Project_PocketTurchin.release.xcconfig"; sourceTree = "<group>"; };
 		BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUploadViewController.swift; sourceTree = "<group>"; };
+		BAB1133F25A8FE7000D66CBD /* Exhibition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exhibition.swift; sourceTree = "<group>"; };
 		BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_PocketTurchin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE81BC525A4C79B005C43A3 /* Project_PocketTurchin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_PocketTurchin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE81BC825A4C79B005C43A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BAB1133E25A8FE5300D66CBD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BAB1133F25A8FE7000D66CBD /* Exhibition.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BAE81BBC25A4C79B005C43A3 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +105,7 @@
 		BAE81BC725A4C79B005C43A3 /* Project_PocketTurchin */ = {
 			isa = PBXGroup;
 			children = (
+				BAB1133E25A8FE5300D66CBD /* Model */,
 				BAE81C3625A63DCC005C43A3 /* Media */,
 				BAE81C0125A4EC24005C43A3 /* ViewController */,
 				BAE81C6925A68CEA005C43A3 /* Admin */,
@@ -292,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAB1134025A8FE7000D66CBD /* Exhibition.swift in Sources */,
 				BAE81C0925A4F103005C43A3 /* LogViewController.swift in Sources */,
 				BAE81BC925A4C79B005C43A3 /* AppDelegate.swift in Sources */,
 				BAE81BE825A4D54D005C43A3 /* LaunchScreenViewController.swift in Sources */,

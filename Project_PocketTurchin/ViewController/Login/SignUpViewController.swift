@@ -82,6 +82,8 @@ class SignUpViewController: UIViewController {
                         }
                     }
                     //Transition to the home screen
+                    let userName = firstName + lastName.dropLast(lastName.count - 1)
+                    UserDefaults.standard.set(userName,forKey: "username")
                     UserDefaults.standard.set(false, forKey: "guest")
                     Utilities.transitionToHome()
                 }

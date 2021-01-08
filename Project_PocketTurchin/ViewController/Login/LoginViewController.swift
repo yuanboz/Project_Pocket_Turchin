@@ -76,7 +76,8 @@ class LoginViewController: UIViewController {
                                 let data = doc.data()
                                 let firstName = data["firstName"] as! String
                                 let lastName = data["lastName"] as! String
-                                let userName = firstName + lastName.dropLast(3)
+                                let userName = firstName + lastName.dropLast(lastName.count - 1)
+                        
                                 defaults.set(userName,forKey: "username")
                             }
                         }
