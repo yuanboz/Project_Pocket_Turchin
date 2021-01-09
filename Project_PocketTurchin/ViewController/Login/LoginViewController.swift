@@ -15,10 +15,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
-
+    @IBOutlet var loginView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpElements()
+        setUpGesture()
     }
     
     func setUpElements() {
@@ -29,6 +31,16 @@ class LoginViewController: UIViewController {
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
         Utilities.styleFilledButton(loginButton)
+    }
+    
+    func setUpGesture() {
+        let rightSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleRightSwipe))
+        loginView.addGestureRecognizer(rightSwipeGesture)
+        rightSwipeGesture.direction = .right
+    }
+    
+    @objc func handleRightSwipe() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func validateFields() -> String? {

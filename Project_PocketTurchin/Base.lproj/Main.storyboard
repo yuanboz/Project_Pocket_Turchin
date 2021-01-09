@@ -169,7 +169,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UsY-s8-Icz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700.0000000000002" y="525.66964285714289"/>
+            <point key="canvasLocation" x="790" y="513"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RF6-l3-GhG">
@@ -186,7 +186,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PKI-pV-cW4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700.0000000000002" y="1372.7678571428571"/>
+            <point key="canvasLocation" x="790" y="1292"/>
         </scene>
         <!--adminUploadPage-->
         <scene sceneID="doJ-aY-dxO">
@@ -433,7 +433,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWK-nq-192" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2839.130434782609" y="525.66964285714289"/>
+            <point key="canvasLocation" x="1929" y="513"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="EDc-JY-lhL">
@@ -497,7 +497,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9MU-4O-F07" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2839.130434782609" y="1372.7678571428571"/>
+            <point key="canvasLocation" x="1929" y="1292"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="bn9-Au-WCe">
@@ -545,6 +545,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ib5-eS-wd6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="gWk-MR-raH" firstAttribute="leading" secondItem="Ib5-eS-wd6" secondAttribute="leading" constant="30" id="qxc-j7-lwW"/>
                             <constraint firstItem="gWk-MR-raH" firstAttribute="top" secondItem="Ib5-eS-wd6" secondAttribute="top" constant="40" id="vAc-H6-A8K"/>
@@ -556,6 +557,7 @@
                         <outlet property="emailTextField" destination="f7K-TH-gth" id="ob4-YB-mTM"/>
                         <outlet property="errorLabel" destination="Yw4-ag-1MF" id="0k0-mR-Sxw"/>
                         <outlet property="loginButton" destination="efC-EY-cIk" id="INR-Mp-P6h"/>
+                        <outlet property="loginView" destination="wpN-4I-pzX" id="Bww-Xr-gcy"/>
                         <outlet property="passwordTextField" destination="968-gh-bRO" id="i4I-9Y-qHi"/>
                     </connections>
                 </viewController>
@@ -621,6 +623,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="05S-2K-X5O"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="zcG-JE-aan" firstAttribute="top" secondItem="05S-2K-X5O" secondAttribute="top" constant="40" id="2EU-Wt-zw2"/>
                             <constraint firstItem="05S-2K-X5O" firstAttribute="trailing" secondItem="zcG-JE-aan" secondAttribute="trailing" constant="30" id="Crt-6m-dgQ"/>
@@ -635,6 +638,7 @@
                         <outlet property="lastNameTextField" destination="pg5-IN-rC2" id="HZ6-8S-EH5"/>
                         <outlet property="passwordTextField" destination="jWB-ux-z67" id="yib-c0-sKL"/>
                         <outlet property="signUpButton" destination="6lb-3a-tb0" id="7w0-t3-ngx"/>
+                        <outlet property="signUpView" destination="cAy-SZ-OxW" id="QuR-Wg-zwJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2g-lM-LqA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

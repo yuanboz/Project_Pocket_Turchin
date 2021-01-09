@@ -17,10 +17,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
-
+    @IBOutlet var signUpView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpElements()
+        setUpGesture()
     }
     
     func setUpElements() {
@@ -33,6 +35,16 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
         Utilities.styleFilledButton(signUpButton)
+    }
+    
+    func setUpGesture() {
+        let rightSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleRightSwipe))
+        signUpView.addGestureRecognizer(rightSwipeGesture)
+        rightSwipeGesture.direction = .right
+    }
+    
+    @objc func handleRightSwipe() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     // Check the input
