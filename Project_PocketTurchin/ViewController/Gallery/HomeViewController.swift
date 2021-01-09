@@ -54,6 +54,11 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         let exhibitions = exhibition[indexPath.row]
 
+        cell.cellImage.layer.cornerRadius = 20
+        cell.cellImage.layer.masksToBounds = true
+        cell.upperView.layer.cornerRadius = 20
+        cell.upperView.layer.masksToBounds = true
+    
         cell.titleLabel.text = exhibitions.exhibitionTitle
         cell.dateLabel.text = exhibitions.exhibitionDate
         if let url = URL(string: exhibitions.exhibitionCoverImg!) {
@@ -68,9 +73,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 }
             }).resume()
         }
-//        cell.cellImage.image = UIImage(named: "image2.jpg")
-        cell.cellImage.layer.cornerRadius = 10;
-        cell.cellImage.layer.masksToBounds = true;
+       
 
         return cell
     }
