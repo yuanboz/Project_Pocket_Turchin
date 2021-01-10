@@ -10,39 +10,79 @@ import FirebaseStorage
 import Firebase
 import FirebaseDatabase
 
-class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
+class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating {
+   
     @IBOutlet var galleryTable: UITableView!
     
     var adminAddBarButton: UIBarButtonItem!
+    var searchButton: UIBarButtonItem!
+    var searchController: UISearchController!
     
     private let storage = Storage.storage()
     private let datebase = Database.database().reference()
     
     var exhibition = [Exhibition]()
+    var currentExhibition = [Exhibition]() // update table
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         galleryTable.delegate = self
         galleryTable.dataSource = self
         galleryTable.separatorStyle = .none
-        self.adminAddBarButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(adminAddBarButtonTapped))
+        setUpAdminButton()
+        setUpSearchBar()
         fetchResource()
-        
+        setUpNavigationImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         checkAdminMode()
-        
     }
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return exhibition.count
-//    }
+    func setUpAdminButton() {
+        self.adminAddBarButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(adminAddBarButtonTapped))
+    }
+    
+    func setUpNavigationImage() {
+        let logo = UIImage(named: "navigationBGImage.png")
+        let imageView = UIImageView(image: logo)
+        self.navigationItem.titleView = imageView
+    }
+    
+    func setUpSearchBar() {
+        self.searchButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(searchButtonTapped))
+        self.navigationItem.leftBarButtonItem = searchButton
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.showsCancelButton = true
+    }
+    
+    @objc func searchButtonTapped() {
+        present(searchController, animated: true, completion: nil)
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filterCurrentDataSource(searchTerm: searchText)
+        }
+    }
+
+    func filterCurrentDataSource(searchTerm: String) {
+        guard !searchTerm.isEmpty else {
+            currentExhibition = exhibition
+            galleryTable.reloadData()
+            return
+        }
+        currentExhibition = exhibition.filter { (exhibition) -> Bool in
+            (exhibition.exhibitionTitle?.lowercased().contains(searchTerm.lowercased()))!
+        }
+        galleryTable.reloadData()
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exhibition.count
+        return currentExhibition.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -51,8 +91,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: HomeTableViewCell = galleryTable.dequeueReusableCell(withIdentifier: "homeTableViewCell") as! HomeTableViewCell
-        
-        let exhibitions = exhibition[indexPath.row]
+        let exhibitions = currentExhibition[indexPath.row]
 
         cell.cellImage.layer.cornerRadius = 20
         cell.cellImage.layer.masksToBounds = true
@@ -114,6 +153,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             exhibition.exhibitionTitle = dictionary["exhibitionTitle"]
             exhibition.exhibitionDate = dictionary["exhibitionDate"]
             self.exhibition.append(exhibition)
+            self.currentExhibition = self.exhibition
             
             DispatchQueue.main.async {
                 self.galleryTable.reloadData()
