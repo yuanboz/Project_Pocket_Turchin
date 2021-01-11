@@ -5,8 +5,9 @@
 //  Created by Zack on 1/5/21.
 //
 
-import Foundation
 import UIKit
+
+let imageCache = NSCache<AnyObject, AnyObject>()
 
 class Utilities {
     

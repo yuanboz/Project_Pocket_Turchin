@@ -380,6 +380,58 @@
             </objects>
             <point key="canvasLocation" x="1928.985507246377" y="-1201.3392857142856"/>
         </scene>
+        <!--Detail Page View Controller-->
+        <scene sceneID="GqQ-v2-ott">
+            <objects>
+                <viewController storyboardIdentifier="DetailPageViewController" id="CuZ-hO-DT7" customClass="DetailPageViewController" customModule="Project_PocketTurchin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i6O-nH-YI0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nfk-Iy-a9M">
+                                <rect key="frame" x="0.0" y="44" width="414" height="518"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pIY-Wk-dxk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nfk-Iy-a9M" firstAttribute="leading" secondItem="pIY-Wk-dxk" secondAttribute="leading" id="Se6-8o-K2U"/>
+                            <constraint firstItem="pIY-Wk-dxk" firstAttribute="trailing" secondItem="nfk-Iy-a9M" secondAttribute="trailing" id="U9v-A1-Q0c"/>
+                            <constraint firstItem="pIY-Wk-dxk" firstAttribute="bottom" secondItem="nfk-Iy-a9M" secondAttribute="bottom" constant="300" id="sDA-SE-9C2"/>
+                            <constraint firstItem="nfk-Iy-a9M" firstAttribute="top" secondItem="pIY-Wk-dxk" secondAttribute="top" id="zWM-Qe-kek"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="coverImageView" destination="nfk-Iy-a9M" id="LUI-3v-shA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nJ3-En-fbX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2839" y="-1201"/>
+        </scene>
+        <!--Content View Controller-->
+        <scene sceneID="Pf8-Hz-AMI">
+            <objects>
+                <viewController storyboardIdentifier="fpc_content" id="VSt-pj-BXV" customClass="ContentViewController" customModule="Project_PocketTurchin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L4t-fp-4yN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2hV-kU-2zW">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="qrq-5B-XWY"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="20j-tG-6Wl"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vo0-u5-6cy"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3eU-Tj-d67" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3737.68115942029" y="-1201.3392857142856"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="GDh-ic-1fs">
             <objects>
@@ -654,6 +706,7 @@
         <image name="hollowhome" width="36" height="36"/>
         <image name="hollowinfo" width="36" height="36"/>
         <image name="hollowuser" width="36" height="36"/>
+        <image name="image2.jpg" width="1280" height="720"/>
         <image name="loading" width="407" height="300"/>
         <image name="profileima" width="96" height="96"/>
         <systemColor name="systemBackgroundColor">

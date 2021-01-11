@@ -85,6 +85,10 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return currentExhibition.count
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        3
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 215
     }
@@ -92,29 +96,34 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: HomeTableViewCell = galleryTable.dequeueReusableCell(withIdentifier: "homeTableViewCell") as! HomeTableViewCell
         let exhibitions = currentExhibition[indexPath.row]
-
+    
+        cell.titleLabel.text = exhibitions.exhibitionTitle
+        cell.dateLabel.text = exhibitions.exhibitionDate
+        
+        if let imageUrl = exhibitions.exhibitionCoverImg {
+            ImageService.getImage(urlString: imageUrl) { image in
+                cell.cellImage.image = image
+            }
+        }
         cell.cellImage.layer.cornerRadius = 20
         cell.cellImage.layer.masksToBounds = true
         cell.upperView.layer.cornerRadius = 20
         cell.upperView.layer.masksToBounds = true
-    
-        cell.titleLabel.text = exhibitions.exhibitionTitle
-        cell.dateLabel.text = exhibitions.exhibitionDate
-        if let url = URL(string: exhibitions.exhibitionCoverImg!) {
-            URLSession.shared.dataTask(with: url, completionHandler: {(data, _, err) in
-                if err != nil {
-                    print(err!)
-                    return
-                }
-
-                DispatchQueue.main.async {
-                    cell.cellImage.image = UIImage(data: data!)
-                }
-            }).resume()
-        }
-       
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(identifier: "DetailPageViewController") as! DetailPageViewController
+        let exhibitions = currentExhibition[indexPath.row]
+        
+        if let imageUrl = exhibitions.exhibitionCoverImg {
+            ImageService.getImage(urlString: imageUrl) { image in
+                vc.coverImage = image
+            }
+        }
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func checkAdminMode() {
