@@ -13,8 +13,7 @@ class DetailPageViewController: UIViewController, FloatingPanelControllerDelegat
     @IBOutlet var coverImageView: UIImageView!
     
     var coverImage: UIImage?
-    var exhibitionTitle: String?
-    var exhibitionDate: String?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +27,10 @@ class DetailPageViewController: UIViewController, FloatingPanelControllerDelegat
         fpc.delegate = self
         fpc.addPanel(toParent: self)
     }
+    
+  
 }
+
 
 class myPanelLandscapeLayout: FloatingPanelLayout {
     let position: FloatingPanelPosition = .bottom

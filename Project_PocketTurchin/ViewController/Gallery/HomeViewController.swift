@@ -85,9 +85,9 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return currentExhibition.count
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        3
-    }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        3
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 215
@@ -116,12 +116,15 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(identifier: "DetailPageViewController") as! DetailPageViewController
         let exhibitions = currentExhibition[indexPath.row]
+        let defaults = UserDefaults.standard
         
         if let imageUrl = exhibitions.exhibitionCoverImg {
             ImageService.getImage(urlString: imageUrl) { image in
                 vc.coverImage = image
             }
         }
+        defaults.set(exhibitions.exhibitionTitle, forKey: "exhibitionTitle")
+        defaults.set(exhibitions.exhibitionDate, forKey: "exhibitionDate")
         
         self.navigationController?.pushViewController(vc, animated: true)
     }

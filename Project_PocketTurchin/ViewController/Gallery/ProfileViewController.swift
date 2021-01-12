@@ -19,7 +19,14 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkUser(users)
+        setUpNavigationImage()
         Utilities.styleHollowButton(signOutButton)
+    }
+    
+    func setUpNavigationImage() {
+        let logo = UIImage(named: "navigationBGImage.png")
+        let imageView = UIImageView(image: logo)
+        self.navigationItem.titleView = imageView
     }
     
     func checkUser(_ users: Int) {
