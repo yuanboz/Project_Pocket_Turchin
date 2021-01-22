@@ -11,6 +11,7 @@
 		BA53C3A425ACE4FC0051FC7C /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA53C3A325ACE4FC0051FC7C /* image2.jpg */; };
 		BA53C3BF25ACE5E20051FC7C /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53C3BE25ACE5E20051FC7C /* ContentViewController.swift */; };
 		BA53C3DA25ACFAEC0051FC7C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53C3D925ACFAEC0051FC7C /* ImageService.swift */; };
+		BA9DB80525BB661F003702F6 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DB80425BB661F003702F6 /* HomePageViewController.swift */; };
 		BAB112CD25A79F1100D66CBD /* AdminUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */; };
 		BAB1134025A8FE7000D66CBD /* Exhibition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB1133F25A8FE7000D66CBD /* Exhibition.swift */; };
 		BAE81BC925A4C79B005C43A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81BC825A4C79B005C43A3 /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 		BA53C3A325ACE4FC0051FC7C /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
 		BA53C3BE25ACE5E20051FC7C /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		BA53C3D925ACFAEC0051FC7C /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		BA9DB80425BB661F003702F6 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUploadViewController.swift; sourceTree = "<group>"; };
 		BAB1133F25A8FE7000D66CBD /* Exhibition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exhibition.swift; sourceTree = "<group>"; };
 		BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_PocketTurchin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +82,21 @@
 				BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA9DB7FC25BB6140003702F6 /* Exhibition */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Exhibition;
+			sourceTree = "<group>";
+		};
+		BA9DB7FD25BB647D003702F6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BA9DB80425BB661F003702F6 /* HomePageViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		BAB1133E25A8FE5300D66CBD /* Model */ = {
@@ -141,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				BAE81BE725A4D54D005C43A3 /* LaunchScreenViewController.swift */,
+				BA9DB7FC25BB6140003702F6 /* Exhibition */,
+				BA9DB7FD25BB647D003702F6 /* Home */,
 				BAE81C0725A4F0EE005C43A3 /* Login */,
 				BAE81C3125A5508B005C43A3 /* Gallery */,
 			);
@@ -315,6 +334,7 @@
 				BAB1134025A8FE7000D66CBD /* Exhibition.swift in Sources */,
 				BA53C3DA25ACFAEC0051FC7C /* ImageService.swift in Sources */,
 				BAE81C0925A4F103005C43A3 /* LogViewController.swift in Sources */,
+				BA9DB80525BB661F003702F6 /* HomePageViewController.swift in Sources */,
 				BAE81BC925A4C79B005C43A3 /* AppDelegate.swift in Sources */,
 				BAE81BE825A4D54D005C43A3 /* LaunchScreenViewController.swift in Sources */,
 				BA53C3A025ACE46B0051FC7C /* DetailPageViewController.swift in Sources */,

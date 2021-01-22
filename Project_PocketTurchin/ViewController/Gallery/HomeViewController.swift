@@ -22,7 +22,10 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     private let datebase = Database.database().reference()
     
     var exhibition = [Exhibition]()
-    var currentExhibition = [Exhibition]() // update table
+    var currentExhibition = [Exhibition]()  // Store current exhibitions
+    var upcomingExhibition = [Exhibition]() // Store upcoming exhibitions
+    var pastExhibition = [Exhibition]()     // Store past exhibitions
+    var updateExhibition = [Exhibition]()   // update table when user search for specific exhibiton
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,10 +87,6 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentExhibition.count
     }
-    
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        3
-//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 215
@@ -174,3 +173,4 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
 
 }
+

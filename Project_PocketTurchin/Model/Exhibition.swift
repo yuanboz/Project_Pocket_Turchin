@@ -8,6 +8,7 @@
 import UIKit
 
 class Exhibition: NSObject {
+    var exhibitionType: String?
     var exhibitionCoverImg: String?
     var exhibitionTitle: String?
     var exhibitionDate: String?

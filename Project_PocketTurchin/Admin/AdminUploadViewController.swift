@@ -15,15 +15,22 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet var uploadButton: UIButton!
     @IBOutlet var submitButton: UIButton!
     @IBOutlet var titleTextField: UITextField!
-    @IBOutlet var dateTextField: UITextField!
+    @IBOutlet var authorTextField: UITextField!
+    @IBOutlet var startDataTextField: UITextField!
+    @IBOutlet var endDateTextField: UITextField!
+    @IBOutlet var galleryTextField: UITextField!
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var coverImageView: UIImageView!
     
     private let datebase = Database.database().reference()
     
     var coverImgUrl: String = ""
-    var artTitle: String = ""
-    var artDate: String = ""
+    var exhibitionTitle: String = ""
+    var exhibitionAuthor: String = ""
+    var exhibitionStartDate: String = ""
+    var exhibitionEndDate: String = ""
+    var exhibitionGallery: String = ""
+    
     
     private let storage = Storage.storage().reference()
     
@@ -35,8 +42,11 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     func setUpElements() {
         Utilities.styleFilledButton(uploadButton)
         Utilities.styleFilledButton(submitButton)
-        Utilities.styleTextField(dateTextField)
         Utilities.styleTextField(titleTextField)
+        Utilities.styleTextField(authorTextField)
+        Utilities.styleTextField(startDataTextField)
+        Utilities.styleTextField(endDateTextField)
+        Utilities.styleTextField(galleryTextField)
     }
     
     @IBAction func submitButtonTapped(_ sender: UIButton) {
@@ -87,9 +97,12 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func textFieldValidate() -> Bool {
-        if titleTextField.text != nil && dateTextField.text != nil {
-            artTitle = titleTextField.text!
-            artDate = dateTextField.text!
+        if titleTextField.text != nil && authorTextField.text != nil && startDataTextField.text != nil && endDateTextField.text != nil && galleryTextField.text != nil {
+            exhibitionTitle = titleTextField.text!
+            exhibitionAuthor = authorTextField.text!
+            exhibitionStartDate = startDataTextField.text!
+            exhibitionEndDate = endDateTextField.text!
+            exhibitionGallery = galleryTextField.text!
             return true
         } else {
             errorLabel.alpha = 1
@@ -99,20 +112,25 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func uploadToFirebase() {
-//        let db = Firestore.firestore()
-//        db.collection("exhibitions").document(artTitle).setData(["exhibitionTitle":artTitle,"exhibitionDate":artDate,"exhibitionCoverImg": coverImgUrl])
-        
-        let ref = datebase.child("exhibitions").child(artTitle)
-        let values = ["exhibitionTitle": artTitle,"exhibitionDate": artDate, "exhibitionCoverImg": coverImgUrl]
+        let ref = datebase.child("exhibitions").child(exhibitionTitle)
+        let values = ["exhibitionTitle": exhibitionTitle,
+                      "exhibitionAuthor": exhibitionAuthor,
+                      "exhibitionStartDate": exhibitionStartDate,
+                      "exhibitionEndDate": exhibitionEndDate,
+                      "exhibitionGallery": exhibitionGallery,
+                      "exhibitionCoverImg": coverImgUrl]
         ref.updateChildValues(values) { (err, ref) in
             if err != nil {
                 print(err!)
                 return
             }
         }
-        normalAlert(title: "Upload Successfully", message: "Exhibition \(artTitle) has been uploaded.", actionTitle: "OK")
+        normalAlert(title: "Upload Successfully", message: "Exhibition \(exhibitionTitle) has been uploaded.", actionTitle: "OK")
         self.titleTextField.text = ""
-        self.dateTextField.text = ""
+        self.authorTextField.text = ""
+        self.startDataTextField.text = ""
+        self.endDateTextField.text = ""
+        self.galleryTextField.text = ""
     }
     
     func normalAlert(title: String, message: String, actionTitle: String) {
