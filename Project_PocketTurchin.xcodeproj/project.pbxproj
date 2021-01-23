@@ -12,6 +12,7 @@
 		BA53C3BF25ACE5E20051FC7C /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53C3BE25ACE5E20051FC7C /* ContentViewController.swift */; };
 		BA53C3DA25ACFAEC0051FC7C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53C3D925ACFAEC0051FC7C /* ImageService.swift */; };
 		BA9DB80525BB661F003702F6 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DB80425BB661F003702F6 /* HomePageViewController.swift */; };
+		BA9DB80825BB804C003702F6 /* HomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DB80725BB804C003702F6 /* HomePageCollectionViewCell.swift */; };
 		BAB112CD25A79F1100D66CBD /* AdminUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */; };
 		BAB1134025A8FE7000D66CBD /* Exhibition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB1133F25A8FE7000D66CBD /* Exhibition.swift */; };
 		BAE81BC925A4C79B005C43A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81BC825A4C79B005C43A3 /* AppDelegate.swift */; };
@@ -28,8 +29,8 @@
 		BAE81C1825A538E6005C43A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAE81C1725A538E6005C43A3 /* GoogleService-Info.plist */; };
 		BAE81C3425A611D4005C43A3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C3325A611D4005C43A3 /* ProfileViewController.swift */; };
 		BAE81C3825A63DDA005C43A3 /* bgVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BAE81C3725A63DDA005C43A3 /* bgVideo.mp4 */; };
-		BAE81C4D25A6585B005C43A3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C4C25A6585B005C43A3 /* HomeViewController.swift */; };
-		BAE81C5025A65869005C43A3 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C4F25A65869005C43A3 /* HomeTableViewCell.swift */; };
+		BAE81C4D25A6585B005C43A3 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C4C25A6585B005C43A3 /* GalleryViewController.swift */; };
+		BAE81C5025A65869005C43A3 /* GalleryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C4F25A65869005C43A3 /* GalleryTableViewCell.swift */; };
 		BF287C437987D8FC5140834F /* Pods_Project_PocketTurchin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		BA53C3BE25ACE5E20051FC7C /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		BA53C3D925ACFAEC0051FC7C /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		BA9DB80425BB661F003702F6 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		BA9DB80725BB804C003702F6 /* HomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionViewCell.swift; sourceTree = "<group>"; };
 		BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUploadViewController.swift; sourceTree = "<group>"; };
 		BAB1133F25A8FE7000D66CBD /* Exhibition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exhibition.swift; sourceTree = "<group>"; };
 		BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_PocketTurchin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,8 +62,8 @@
 		BAE81C1725A538E6005C43A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BAE81C3325A611D4005C43A3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BAE81C3725A63DDA005C43A3 /* bgVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bgVideo.mp4; sourceTree = "<group>"; };
-		BAE81C4C25A6585B005C43A3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		BAE81C4F25A65869005C43A3 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		BAE81C4C25A6585B005C43A3 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		BAE81C4F25A65869005C43A3 /* GalleryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				BA9DB80425BB661F003702F6 /* HomePageViewController.swift */,
+				BA9DB80725BB804C003702F6 /* HomePageCollectionViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -179,8 +182,8 @@
 		BAE81C3125A5508B005C43A3 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
-				BAE81C4C25A6585B005C43A3 /* HomeViewController.swift */,
-				BAE81C4F25A65869005C43A3 /* HomeTableViewCell.swift */,
+				BAE81C4C25A6585B005C43A3 /* GalleryViewController.swift */,
+				BAE81C4F25A65869005C43A3 /* GalleryTableViewCell.swift */,
 				BA53C39F25ACE46B0051FC7C /* DetailPageViewController.swift */,
 				BA53C3BE25ACE5E20051FC7C /* ContentViewController.swift */,
 				BAE81C3325A611D4005C43A3 /* ProfileViewController.swift */,
@@ -340,9 +343,10 @@
 				BA53C3A025ACE46B0051FC7C /* DetailPageViewController.swift in Sources */,
 				BAE81C1225A4FD9A005C43A3 /* LoginViewController.swift in Sources */,
 				BAE81C0E25A4F576005C43A3 /* Constants.swift in Sources */,
-				BAE81C5025A65869005C43A3 /* HomeTableViewCell.swift in Sources */,
-				BAE81C4D25A6585B005C43A3 /* HomeViewController.swift in Sources */,
+				BAE81C5025A65869005C43A3 /* GalleryTableViewCell.swift in Sources */,
+				BAE81C4D25A6585B005C43A3 /* GalleryViewController.swift in Sources */,
 				BAB112CD25A79F1100D66CBD /* AdminUploadViewController.swift in Sources */,
+				BA9DB80825BB804C003702F6 /* HomePageCollectionViewCell.swift in Sources */,
 				BA53C3BF25ACE5E20051FC7C /* ContentViewController.swift in Sources */,
 				BAE81C1525A4FDA4005C43A3 /* SignUpViewController.swift in Sources */,
 				BAE81C3425A611D4005C43A3 /* ProfileViewController.swift in Sources */,

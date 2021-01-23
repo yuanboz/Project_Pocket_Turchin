@@ -8,8 +8,10 @@
 import UIKit
 
 class Exhibition: NSObject {
-    var exhibitionType: String?
+    var exhibitionType: Int? // 0 for past, 1 for current and 2 for upcomming
     var exhibitionCoverImg: String?
     var exhibitionTitle: String?
+    var exhibitionAuthor: String?
     var exhibitionDate: String?
+    var exhibitionGallery: String?
 }

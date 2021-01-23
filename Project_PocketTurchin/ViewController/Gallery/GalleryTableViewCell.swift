@@ -7,12 +7,14 @@
 
 import UIKit
 
-class HomeTableViewCell: UITableViewCell {
+class GalleryTableViewCell: UITableViewCell {
 
     @IBOutlet var cellImage: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var galleryLabel: UILabel!
     @IBOutlet var upperView: UIView!
+  
     
     override func awakeFromNib() {
         super.awakeFromNib()

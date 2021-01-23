@@ -112,9 +112,9 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func uploadToFirebase() {
-        let ref = datebase.child("exhibitions").child(exhibitionTitle)
+        let ref = datebase.child("exhibitions").child(exhibitionTitle as String)
         let values = ["exhibitionTitle": exhibitionTitle,
-                      "exhibitionAuthor": exhibitionAuthor,
+                      "exhibitionAuthor": exhibitionAuthor as String,
                       "exhibitionStartDate": exhibitionStartDate,
                       "exhibitionEndDate": exhibitionEndDate,
                       "exhibitionGallery": exhibitionGallery,

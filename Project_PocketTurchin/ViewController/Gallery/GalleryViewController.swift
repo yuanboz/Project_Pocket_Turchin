@@ -10,7 +10,7 @@ import FirebaseStorage
 import Firebase
 import FirebaseDatabase
 
-class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating {
+class GalleryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating {
    
     @IBOutlet var galleryTable: UITableView!
     
@@ -25,7 +25,9 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var currentExhibition = [Exhibition]()  // Store current exhibitions
     var upcomingExhibition = [Exhibition]() // Store upcoming exhibitions
     var pastExhibition = [Exhibition]()     // Store past exhibitions
-    var updateExhibition = [Exhibition]()   // update table when user search for specific exhibiton
+    var updateExhibition = [[Exhibition]]()  // update table when user search for specific exhibiton
+    var exhibitionType = ["Past Exhibitions","Current Exhibitions","Upcoming Exhibitions"]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,8 +86,25 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         galleryTable.reloadData()
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return updateExhibition.count
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel(frame: CGRect(x: 0, y: 10, width: view.frame.size.width, height: 30))
+        label.text = exhibitionType[section]
+        label.textAlignment = .center
+        label.textColor = UIColor.white
+        label.backgroundColor = UIColor.darkGray
+        return label
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentExhibition.count
+        return updateExhibition[section].count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -93,11 +112,14 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: HomeTableViewCell = galleryTable.dequeueReusableCell(withIdentifier: "homeTableViewCell") as! HomeTableViewCell
-        let exhibitions = currentExhibition[indexPath.row]
+         let cell: GalleryTableViewCell = galleryTable.dequeueReusableCell(withIdentifier: "galleryTableViewCell") as! GalleryTableViewCell
+        
+        let exhibitions = self.updateExhibition[indexPath.section][indexPath.row]
+        //let exhibitions = currentExhibition[indexPath.row]
     
         cell.titleLabel.text = exhibitions.exhibitionTitle
         cell.dateLabel.text = exhibitions.exhibitionDate
+        cell.galleryLabel.text = exhibitions.exhibitionGallery
         
         if let imageUrl = exhibitions.exhibitionCoverImg {
             ImageService.getImage(urlString: imageUrl) { image in
@@ -114,7 +136,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(identifier: "DetailPageViewController") as! DetailPageViewController
-        let exhibitions = currentExhibition[indexPath.row]
+        let exhibitions = updateExhibition[indexPath.section][indexPath.row]
         let defaults = UserDefaults.standard
         
         if let imageUrl = exhibitions.exhibitionCoverImg {
@@ -158,17 +180,82 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         let ref = datebase.child("exhibitions")
         
         ref.observe(.childAdded) { (snapshot) in
-            guard let dictionary = snapshot.value as? [String: String] else { return }
-            let exhibition = Exhibition()
-            exhibition.exhibitionCoverImg = dictionary["exhibitionCoverImg"]
-            exhibition.exhibitionTitle = dictionary["exhibitionTitle"]
-            exhibition.exhibitionDate = dictionary["exhibitionDate"]
-            self.exhibition.append(exhibition)
-            self.currentExhibition = self.exhibition
-            
-            DispatchQueue.main.async {
-                self.galleryTable.reloadData()
+            ref.observe(.value) { (DataSnapshot) in
+                guard let dictionary = snapshot.value as? [String: String] else { return }
+                let exhibition = Exhibition()
+                exhibition.exhibitionCoverImg = dictionary["exhibitionCoverImg"]
+                exhibition.exhibitionTitle = dictionary["exhibitionTitle"]
+                exhibition.exhibitionDate = dictionary["exhibitionStartDate"]! + " - " + dictionary["exhibitionEndDate"]!
+                exhibition.exhibitionDate = self.dateFormat(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+                exhibition.exhibitionGallery = dictionary["exhibitionGallery"]
+                exhibition.exhibitionType = self.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+                let type = self.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+                if type == 0 {
+                    self.pastExhibition.append(exhibition)
+                } else if type == 1 {
+                    self.currentExhibition.append(exhibition)
+                } else {
+                    self.upcomingExhibition.append(exhibition)
+                }
+                let total = self.pastExhibition.count + self.currentExhibition.count + self.upcomingExhibition.count
+                if total == DataSnapshot.childrenCount {
+                    self.updateExhibition.append(self.pastExhibition)
+                    self.updateExhibition.append(self.currentExhibition)
+                    self.updateExhibition.append(self.upcomingExhibition)
+                }
+
+                DispatchQueue.main.async {
+                    self.galleryTable.reloadData()
+                }
             }
+            
+            
+        }
+        
+//        ref.observe(.childAdded) { (snapshot) in
+//            guard let dictionary = snapshot.value as? [String: String] else { return }
+//            let exhibition = Exhibition()
+//            exhibition.exhibitionCoverImg = dictionary["exhibitionCoverImg"]
+//            exhibition.exhibitionTitle = dictionary["exhibitionTitle"]
+//            exhibition.exhibitionDate = dictionary["exhibitionStartDate"]! + " - " + dictionary["exhibitionEndDate"]!
+//            exhibition.exhibitionDate = self.dateFormat(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+//            exhibition.exhibitionGallery = dictionary["exhibitionGallery"]
+//            exhibition.exhibitionType = self.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+//            self.exhibition.append(exhibition)
+//            self.currentExhibition = self.exhibition
+//            print(self.currentExhibition)
+//
+//            DispatchQueue.main.async {
+//                self.galleryTable.reloadData()
+//            }
+            
+    }
+    
+    func dateFormat(startDate: String, endDate: String) -> String {
+        let df = DateFormatter()
+        df.dateFormat = "dd/MM/yyyy"
+        let startDate = df.date(from: startDate)
+        let endDate = df.date(from: endDate)
+        df.dateFormat = "MMM d, yyyy"
+        let strStart = df.string(from: startDate!)
+        let strEnd = df.string(from: endDate!)
+        return strStart + " - " + strEnd
+    }
+    
+    func exhibitonType(startDate: String, endDate: String) -> Int {
+        let date = Date()
+        let df = DateFormatter()
+        df.dateFormat = "dd/MM/yyyy"
+        let today = df.date(from: df.string(from: date))!
+        let start = df.date(from: startDate)!
+        let end = df.date(from: endDate)!
+        
+        if today >= start && today <= end {
+            return 1 // "Current exhibition"
+        } else if today < start {
+            return 2 //"Upcomming exhibition"
+        } else {
+            return 0 //"Past exhibition"
         }
     }
 

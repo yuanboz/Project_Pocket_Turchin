@@ -126,7 +126,7 @@
         <scene sceneID="XGW-9j-TqB">
             <objects>
                 <navigationController id="kct-ET-I1Q" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Exhibition" id="HY7-CJ-FLc"/>
+                    <tabBarItem key="tabBarItem" title="Exhibition" image="hollowexhibition" selectedImage="filledexhibition" id="HY7-CJ-FLc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gRY-HQ-aOC">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -147,17 +147,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0sx-8M-Bty">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0sx-8M-Bty">
                                 <rect key="frame" x="0.0" y="88" width="414" height="675"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IGO-Np-3oP">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IGO-Np-3oP">
                                     <size key="itemSize" width="414" height="675"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="saf-UZ-qTS">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="sliderCollectionCell" id="saf-UZ-qTS" customClass="HomePageCollectionViewCell" customModule="Project_PocketTurchin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="675"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gxu-Rw-Iiz">
@@ -176,6 +176,9 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="675"/>
+                                        <connections>
+                                            <outlet property="sliderImageView" destination="afe-6c-rGH" id="nsS-b8-RmA"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -367,10 +370,10 @@
             </objects>
             <point key="canvasLocation" x="-889.85507246376824" y="946.875"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Gallery View Controller-->
         <scene sceneID="7HS-yi-iuC">
             <objects>
-                <viewController id="qtR-Z2-PXH" customClass="HomeViewController" customModule="Project_PocketTurchin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qtR-Z2-PXH" customClass="GalleryViewController" customModule="Project_PocketTurchin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PWh-tA-O9a">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -380,7 +383,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="homeTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeTableViewCell" rowHeight="215" id="5Tx-uI-G74" customClass="HomeTableViewCell" customModule="Project_PocketTurchin" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="galleryTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="galleryTableViewCell" rowHeight="215" id="5Tx-uI-G74" customClass="GalleryTableViewCell" customModule="Project_PocketTurchin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="215"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Tx-uI-G74" id="cGb-sv-YTp">
@@ -394,19 +397,19 @@
                                                     <rect key="frame" x="10" y="5" width="374" height="205"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IUc-dc-BJl">
-                                                            <rect key="frame" x="30" y="85" width="314" height="100"/>
+                                                            <rect key="frame" x="15" y="75" width="344" height="130"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoL-7e-1LC">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="314" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="344" height="60"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="eZY-HC-Zrd"/>
+                                                                        <constraint firstAttribute="height" constant="60" id="eZY-HC-Zrd"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGx-9h-uZF">
-                                                                    <rect key="frame" x="0.0" y="35" width="314" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="65" width="344" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="PD4-fW-lGi"/>
                                                                     </constraints>
@@ -415,7 +418,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mv-iV-ghS">
-                                                                    <rect key="frame" x="0.0" y="70" width="314" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="100" width="344" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="n8d-I7-LMj"/>
                                                                     </constraints>
@@ -428,9 +431,9 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.22894472064393945" green="0.22894472064393945" blue="0.22894472064393945" alpha="0.59528867243296324" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="IUc-dc-BJl" firstAttribute="leading" secondItem="xhY-D7-cna" secondAttribute="leading" constant="30" id="6SJ-cy-YXE"/>
-                                                        <constraint firstItem="IUc-dc-BJl" firstAttribute="top" secondItem="xhY-D7-cna" secondAttribute="top" constant="85" id="EWf-ef-QLw"/>
-                                                        <constraint firstAttribute="trailing" secondItem="IUc-dc-BJl" secondAttribute="trailing" constant="30" id="bXi-LY-k3I"/>
+                                                        <constraint firstItem="IUc-dc-BJl" firstAttribute="leading" secondItem="xhY-D7-cna" secondAttribute="leading" constant="15" id="6SJ-cy-YXE"/>
+                                                        <constraint firstItem="IUc-dc-BJl" firstAttribute="top" secondItem="xhY-D7-cna" secondAttribute="top" constant="75" id="EWf-ef-QLw"/>
+                                                        <constraint firstAttribute="trailing" secondItem="IUc-dc-BJl" secondAttribute="trailing" constant="15" id="bXi-LY-k3I"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -448,6 +451,7 @@
                                         <connections>
                                             <outlet property="cellImage" destination="4kq-QC-seW" id="86U-dd-9cE"/>
                                             <outlet property="dateLabel" destination="uGx-9h-uZF" id="uDH-PO-tYH"/>
+                                            <outlet property="galleryLabel" destination="7mv-iV-ghS" id="snb-R1-abb"/>
                                             <outlet property="titleLabel" destination="xoL-7e-1LC" id="9sU-OD-Bm9"/>
                                             <outlet property="upperView" destination="xhY-D7-cna" id="W5T-Pn-vzw"/>
                                         </connections>
@@ -505,11 +509,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q54-ez-gLH">
-                                <rect key="frame" x="50" y="64" width="314" height="40"/>
+                                <rect key="frame" x="20" y="54" width="374" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="CYT-b7-Ht8"/>
+                                    <constraint firstAttribute="height" constant="50" id="CYT-b7-Ht8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -526,7 +530,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="dvB-at-N58"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -604,13 +608,13 @@
                             <constraint firstItem="Se4-Xe-Psf" firstAttribute="leading" secondItem="vo0-u5-6cy" secondAttribute="leading" id="5fp-wJ-QRU"/>
                             <constraint firstItem="vo0-u5-6cy" firstAttribute="trailing" secondItem="SVc-3l-udx" secondAttribute="trailing" id="6jJ-WI-TzP"/>
                             <constraint firstAttribute="bottom" secondItem="Se4-Xe-Psf" secondAttribute="bottom" id="8I6-mO-Ekp"/>
-                            <constraint firstItem="q54-ez-gLH" firstAttribute="top" secondItem="vo0-u5-6cy" secondAttribute="top" constant="20" id="Dqk-O9-fCL"/>
+                            <constraint firstItem="q54-ez-gLH" firstAttribute="top" secondItem="vo0-u5-6cy" secondAttribute="top" constant="10" id="Dqk-O9-fCL"/>
                             <constraint firstItem="Jcc-UJ-2Tz" firstAttribute="centerX" secondItem="L4t-fp-4yN" secondAttribute="centerX" id="FWO-vA-lrq"/>
-                            <constraint firstItem="q54-ez-gLH" firstAttribute="leading" secondItem="vo0-u5-6cy" secondAttribute="leading" constant="50" id="JTB-Xt-tTK"/>
+                            <constraint firstItem="q54-ez-gLH" firstAttribute="leading" secondItem="vo0-u5-6cy" secondAttribute="leading" constant="20" id="JTB-Xt-tTK"/>
                             <constraint firstItem="vo0-u5-6cy" firstAttribute="trailing" secondItem="IrX-Bj-Cnu" secondAttribute="trailing" constant="50" id="LSd-21-8uc"/>
                             <constraint firstItem="IrX-Bj-Cnu" firstAttribute="top" secondItem="Jcc-UJ-2Tz" secondAttribute="bottom" constant="1" id="M2V-fF-4bR"/>
                             <constraint firstItem="IrX-Bj-Cnu" firstAttribute="leading" secondItem="vo0-u5-6cy" secondAttribute="leading" constant="50" id="NS9-LN-gC2"/>
-                            <constraint firstItem="vo0-u5-6cy" firstAttribute="trailing" secondItem="q54-ez-gLH" secondAttribute="trailing" constant="50" id="OKm-jv-UPh"/>
+                            <constraint firstItem="vo0-u5-6cy" firstAttribute="trailing" secondItem="q54-ez-gLH" secondAttribute="trailing" constant="20" id="OKm-jv-UPh"/>
                             <constraint firstItem="vo0-u5-6cy" firstAttribute="trailing" secondItem="DXx-Iw-VDp" secondAttribute="trailing" constant="50" id="Ovt-bm-PHp"/>
                             <constraint firstItem="Jcc-UJ-2Tz" firstAttribute="top" secondItem="q54-ez-gLH" secondAttribute="bottom" constant="10" id="PIc-vc-cnd"/>
                             <constraint firstItem="K1O-Ck-jO9" firstAttribute="width" secondItem="SVc-3l-udx" secondAttribute="width" id="Xl2-KR-xNQ"/>
@@ -929,9 +933,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="filledexhibition" width="36" height="36"/>
         <image name="filledhome" width="36" height="36"/>
         <image name="filledinfo" width="36" height="36"/>
         <image name="filleduser" width="36" height="36"/>
+        <image name="hollowexhibition" width="36" height="36"/>
         <image name="hollowheart" width="48" height="48"/>
         <image name="hollowhome" width="36" height="36"/>
         <image name="hollowinfo" width="36" height="36"/>
