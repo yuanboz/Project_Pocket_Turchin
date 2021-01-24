@@ -15,3 +15,4 @@ class Exhibition: NSObject {
     var exhibitionDate: String?
     var exhibitionGallery: String?
 }
+

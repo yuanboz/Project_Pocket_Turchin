@@ -370,10 +370,10 @@
             </objects>
             <point key="canvasLocation" x="-889.85507246376824" y="946.875"/>
         </scene>
-        <!--Gallery View Controller-->
+        <!--Exhibition View Controller-->
         <scene sceneID="7HS-yi-iuC">
             <objects>
-                <viewController id="qtR-Z2-PXH" customClass="GalleryViewController" customModule="Project_PocketTurchin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qtR-Z2-PXH" customClass="ExhibitionViewController" customModule="Project_PocketTurchin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PWh-tA-O9a">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -383,7 +383,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="galleryTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="galleryTableViewCell" rowHeight="215" id="5Tx-uI-G74" customClass="GalleryTableViewCell" customModule="Project_PocketTurchin" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="exhibitionTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="exhibitionTableViewCell" rowHeight="215" id="5Tx-uI-G74" customClass="ExhibitionTableViewCell" customModule="Project_PocketTurchin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="215"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Tx-uI-G74" id="cGb-sv-YTp">
@@ -638,21 +638,36 @@
             </objects>
             <point key="canvasLocation" x="3786.9565217391309" y="-1100.2232142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--Gallery View Controller-->
         <scene sceneID="7Sc-ml-w7V">
             <objects>
-                <viewController id="KlV-d7-sMY" sceneMemberID="viewController">
+                <viewController id="KlV-d7-sMY" customClass="GalleryViewController" customModule="Project_PocketTurchin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VH3-7Z-6M2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zqn-2q-wCE">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="MyM-Or-7wf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Zqn-2q-wCE" firstAttribute="trailing" secondItem="MyM-Or-7wf" secondAttribute="trailing" id="IXh-qX-2Ue"/>
+                            <constraint firstItem="Zqn-2q-wCE" firstAttribute="bottom" secondItem="MyM-Or-7wf" secondAttribute="bottom" id="Mjo-eD-GcH"/>
+                            <constraint firstItem="Zqn-2q-wCE" firstAttribute="top" secondItem="MyM-Or-7wf" secondAttribute="top" id="tZX-KE-fUN"/>
+                            <constraint firstItem="Zqn-2q-wCE" firstAttribute="leading" secondItem="MyM-Or-7wf" secondAttribute="leading" id="tf3-mf-CFO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dtL-GG-SJv"/>
+                    <connections>
+                        <outlet property="galleryTableView" destination="Zqn-2q-wCE" id="7ev-Gi-MBO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pnj-TI-6GK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2393" y="579"/>
+            <point key="canvasLocation" x="2392.753623188406" y="578.57142857142856"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="EPE-IZ-4cT">
@@ -916,7 +931,7 @@
         <scene sceneID="7Vh-Zt-Y38">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pQi-dV-hZ9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Gallery" id="ZC7-qG-HAl"/>
+                    <tabBarItem key="tabBarItem" title="Gallery" image="hollowgallery" selectedImage="filledgallery" id="ZC7-qG-HAl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nP7-cP-eP7">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -934,10 +949,12 @@
     </scenes>
     <resources>
         <image name="filledexhibition" width="36" height="36"/>
+        <image name="filledgallery" width="36" height="36"/>
         <image name="filledhome" width="36" height="36"/>
         <image name="filledinfo" width="36" height="36"/>
         <image name="filleduser" width="36" height="36"/>
         <image name="hollowexhibition" width="36" height="36"/>
+        <image name="hollowgallery" width="36" height="36"/>
         <image name="hollowheart" width="48" height="48"/>
         <image name="hollowhome" width="36" height="36"/>
         <image name="hollowinfo" width="36" height="36"/>

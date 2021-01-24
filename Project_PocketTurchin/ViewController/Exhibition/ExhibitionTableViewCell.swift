@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GalleryTableViewCell: UITableViewCell {
+class ExhibitionTableViewCell: UITableViewCell {
 
     @IBOutlet var cellImage: UIImageView!
     @IBOutlet var titleLabel: UILabel!

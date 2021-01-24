@@ -11,6 +11,7 @@
 		BA53C3A425ACE4FC0051FC7C /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA53C3A325ACE4FC0051FC7C /* image2.jpg */; };
 		BA53C3BF25ACE5E20051FC7C /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53C3BE25ACE5E20051FC7C /* ContentViewController.swift */; };
 		BA53C3DA25ACFAEC0051FC7C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53C3D925ACFAEC0051FC7C /* ImageService.swift */; };
+		BA69096425BDEEE3009AC917 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA69096325BDEEE3009AC917 /* GalleryViewController.swift */; };
 		BA9DB80525BB661F003702F6 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DB80425BB661F003702F6 /* HomePageViewController.swift */; };
 		BA9DB80825BB804C003702F6 /* HomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DB80725BB804C003702F6 /* HomePageCollectionViewCell.swift */; };
 		BAB112CD25A79F1100D66CBD /* AdminUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */; };
@@ -29,8 +30,8 @@
 		BAE81C1825A538E6005C43A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAE81C1725A538E6005C43A3 /* GoogleService-Info.plist */; };
 		BAE81C3425A611D4005C43A3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C3325A611D4005C43A3 /* ProfileViewController.swift */; };
 		BAE81C3825A63DDA005C43A3 /* bgVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BAE81C3725A63DDA005C43A3 /* bgVideo.mp4 */; };
-		BAE81C4D25A6585B005C43A3 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C4C25A6585B005C43A3 /* GalleryViewController.swift */; };
-		BAE81C5025A65869005C43A3 /* GalleryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C4F25A65869005C43A3 /* GalleryTableViewCell.swift */; };
+		BAE81C4D25A6585B005C43A3 /* ExhibitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C4C25A6585B005C43A3 /* ExhibitionViewController.swift */; };
+		BAE81C5025A65869005C43A3 /* ExhibitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C4F25A65869005C43A3 /* ExhibitionTableViewCell.swift */; };
 		BF287C437987D8FC5140834F /* Pods_Project_PocketTurchin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		BA53C3A325ACE4FC0051FC7C /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
 		BA53C3BE25ACE5E20051FC7C /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		BA53C3D925ACFAEC0051FC7C /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		BA69096325BDEEE3009AC917 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		BA9DB80425BB661F003702F6 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		BA9DB80725BB804C003702F6 /* HomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionViewCell.swift; sourceTree = "<group>"; };
 		BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUploadViewController.swift; sourceTree = "<group>"; };
@@ -62,8 +64,8 @@
 		BAE81C1725A538E6005C43A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BAE81C3325A611D4005C43A3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BAE81C3725A63DDA005C43A3 /* bgVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bgVideo.mp4; sourceTree = "<group>"; };
-		BAE81C4C25A6585B005C43A3 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
-		BAE81C4F25A65869005C43A3 /* GalleryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTableViewCell.swift; sourceTree = "<group>"; };
+		BAE81C4C25A6585B005C43A3 /* ExhibitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionViewController.swift; sourceTree = "<group>"; };
+		BAE81C4F25A65869005C43A3 /* ExhibitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +88,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BA69096225BDEE41009AC917 /* Detail page */ = {
+			isa = PBXGroup;
+			children = (
+				BA53C39F25ACE46B0051FC7C /* DetailPageViewController.swift */,
+				BA53C3BE25ACE5E20051FC7C /* ContentViewController.swift */,
+			);
+			path = "Detail page";
+			sourceTree = "<group>";
+		};
 		BA9DB7FC25BB6140003702F6 /* Exhibition */ = {
 			isa = PBXGroup;
 			children = (
+				BAE81C4C25A6585B005C43A3 /* ExhibitionViewController.swift */,
+				BAE81C4F25A65869005C43A3 /* ExhibitionTableViewCell.swift */,
 			);
 			path = Exhibition;
 			sourceTree = "<group>";
@@ -134,6 +147,7 @@
 				BAB1133E25A8FE5300D66CBD /* Model */,
 				BAE81C3625A63DCC005C43A3 /* Media */,
 				BAE81C0125A4EC24005C43A3 /* ViewController */,
+				BAE81C0725A4F0EE005C43A3 /* Login */,
 				BAE81C6925A68CEA005C43A3 /* Admin */,
 				BAE81BFD25A4EB95005C43A3 /* Helper */,
 				BAE81BC825A4C79B005C43A3 /* AppDelegate.swift */,
@@ -162,9 +176,10 @@
 			children = (
 				BAE81BE725A4D54D005C43A3 /* LaunchScreenViewController.swift */,
 				BA9DB7FC25BB6140003702F6 /* Exhibition */,
-				BA9DB7FD25BB647D003702F6 /* Home */,
-				BAE81C0725A4F0EE005C43A3 /* Login */,
 				BAE81C3125A5508B005C43A3 /* Gallery */,
+				BA9DB7FD25BB647D003702F6 /* Home */,
+				BA69096225BDEE41009AC917 /* Detail page */,
+				BAE81C3325A611D4005C43A3 /* ProfileViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -182,11 +197,7 @@
 		BAE81C3125A5508B005C43A3 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
-				BAE81C4C25A6585B005C43A3 /* GalleryViewController.swift */,
-				BAE81C4F25A65869005C43A3 /* GalleryTableViewCell.swift */,
-				BA53C39F25ACE46B0051FC7C /* DetailPageViewController.swift */,
-				BA53C3BE25ACE5E20051FC7C /* ContentViewController.swift */,
-				BAE81C3325A611D4005C43A3 /* ProfileViewController.swift */,
+				BA69096325BDEEE3009AC917 /* GalleryViewController.swift */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -339,12 +350,13 @@
 				BAE81C0925A4F103005C43A3 /* LogViewController.swift in Sources */,
 				BA9DB80525BB661F003702F6 /* HomePageViewController.swift in Sources */,
 				BAE81BC925A4C79B005C43A3 /* AppDelegate.swift in Sources */,
+				BA69096425BDEEE3009AC917 /* GalleryViewController.swift in Sources */,
 				BAE81BE825A4D54D005C43A3 /* LaunchScreenViewController.swift in Sources */,
 				BA53C3A025ACE46B0051FC7C /* DetailPageViewController.swift in Sources */,
 				BAE81C1225A4FD9A005C43A3 /* LoginViewController.swift in Sources */,
 				BAE81C0E25A4F576005C43A3 /* Constants.swift in Sources */,
-				BAE81C5025A65869005C43A3 /* GalleryTableViewCell.swift in Sources */,
-				BAE81C4D25A6585B005C43A3 /* GalleryViewController.swift in Sources */,
+				BAE81C5025A65869005C43A3 /* ExhibitionTableViewCell.swift in Sources */,
+				BAE81C4D25A6585B005C43A3 /* ExhibitionViewController.swift in Sources */,
 				BAB112CD25A79F1100D66CBD /* AdminUploadViewController.swift in Sources */,
 				BA9DB80825BB804C003702F6 /* HomePageCollectionViewCell.swift in Sources */,
 				BA53C3BF25ACE5E20051FC7C /* ContentViewController.swift in Sources */,

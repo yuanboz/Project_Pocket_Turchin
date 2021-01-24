@@ -23,6 +23,7 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet var coverImageView: UIImageView!
     
     private let datebase = Database.database().reference()
+    private let db = Firestore.firestore()
     
     var coverImgUrl: String = ""
     var exhibitionTitle: String = ""
@@ -112,6 +113,7 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func uploadToFirebase() {
+        db.collection("gallery").document(exhibitionGallery.lowercased()).setData([exhibitionTitle: exhibitionStartDate + "-" + exhibitionEndDate], merge: true)
         let ref = datebase.child("exhibitions").child(exhibitionTitle as String)
         let values = ["exhibitionTitle": exhibitionTitle,
                       "exhibitionAuthor": exhibitionAuthor as String,
