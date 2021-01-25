@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA38B83B25BF580B00E6533F /* ExhibitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA38B83A25BF580B00E6533F /* ExhibitionsViewController.swift */; };
 		BA53C3A025ACE46B0051FC7C /* DetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53C39F25ACE46B0051FC7C /* DetailPageViewController.swift */; };
 		BA53C3A425ACE4FC0051FC7C /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA53C3A325ACE4FC0051FC7C /* image2.jpg */; };
 		BA53C3BF25ACE5E20051FC7C /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53C3BE25ACE5E20051FC7C /* ContentViewController.swift */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		29B64F887204433D9D4240F8 /* Pods-Project_PocketTurchin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_PocketTurchin.debug.xcconfig"; path = "Target Support Files/Pods-Project_PocketTurchin/Pods-Project_PocketTurchin.debug.xcconfig"; sourceTree = "<group>"; };
 		964BE37BD557CE476DC56881 /* Pods-Project_PocketTurchin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_PocketTurchin.release.xcconfig"; path = "Target Support Files/Pods-Project_PocketTurchin/Pods-Project_PocketTurchin.release.xcconfig"; sourceTree = "<group>"; };
+		BA38B83A25BF580B00E6533F /* ExhibitionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionsViewController.swift; sourceTree = "<group>"; };
 		BA53C39F25ACE46B0051FC7C /* DetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewController.swift; sourceTree = "<group>"; };
 		BA53C3A325ACE4FC0051FC7C /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
 		BA53C3BE25ACE5E20051FC7C /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				BAE81C4C25A6585B005C43A3 /* ExhibitionViewController.swift */,
 				BAE81C4F25A65869005C43A3 /* ExhibitionTableViewCell.swift */,
+				BA38B83A25BF580B00E6533F /* ExhibitionsViewController.swift */,
 			);
 			path = Exhibition;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				BAE81BC925A4C79B005C43A3 /* AppDelegate.swift in Sources */,
 				BA69096425BDEEE3009AC917 /* GalleryViewController.swift in Sources */,
 				BAE81BE825A4D54D005C43A3 /* LaunchScreenViewController.swift in Sources */,
+				BA38B83B25BF580B00E6533F /* ExhibitionsViewController.swift in Sources */,
 				BA53C3A025ACE46B0051FC7C /* DetailPageViewController.swift in Sources */,
 				BAE81C1225A4FD9A005C43A3 /* LoginViewController.swift in Sources */,
 				BAE81C0E25A4F576005C43A3 /* Constants.swift in Sources */,

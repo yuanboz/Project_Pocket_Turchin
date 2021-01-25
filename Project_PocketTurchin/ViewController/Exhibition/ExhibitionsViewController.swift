@@ -10,7 +10,7 @@ import FirebaseStorage
 import Firebase
 import FirebaseDatabase
 
-class ExhibitionViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating {
+class ExhibitionsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating {
    
     @IBOutlet var galleryTable: UITableView!
     
