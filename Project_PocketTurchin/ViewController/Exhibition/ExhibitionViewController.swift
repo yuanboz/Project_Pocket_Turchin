@@ -43,6 +43,7 @@ class ExhibitionViewController: UIViewController,UITableViewDelegate,UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         checkAdminMode()
+        //fetchExhibitions()
     }
     
     func setUpAdminButton() {
@@ -126,8 +127,6 @@ class ExhibitionViewController: UIViewController,UITableViewDelegate,UITableView
          let cell: ExhibitionTableViewCell = galleryTable.dequeueReusableCell(withIdentifier: "exhibitionTableViewCell") as! ExhibitionTableViewCell
         
         let exhibitions = self.updateExhibition[indexPath.section][indexPath.row]
-        //let exhibitions = currentExhibition[indexPath.row]
-        print(exhibitions)
     
         cell.titleLabel.text = exhibitions.exhibitionTitle
         cell.dateLabel.text = exhibitions.exhibitionDate
@@ -237,7 +236,6 @@ class ExhibitionViewController: UIViewController,UITableViewDelegate,UITableView
     
     func fetchExhibitions() {
         let ref = database.child("exhibitions")
-        print("1")
         ref.observe(.childAdded) { (snapshot) in
             ref.observe(.value) { (DataSnapshot) in
                 guard let dictionary = snapshot.value as? [String: String] else { return }
@@ -253,7 +251,7 @@ class ExhibitionViewController: UIViewController,UITableViewDelegate,UITableView
                     self.pastExhibition.append(exhibition)
                 } else if type == 1 {
                     self.currentExhibition.append(exhibition)
-                } else if type == 3{
+                } else if type == 2{
                     self.upcomingExhibition.append(exhibition)
                 }
                 let total = self.pastExhibition.count + self.currentExhibition.count + self.upcomingExhibition.count
@@ -269,7 +267,6 @@ class ExhibitionViewController: UIViewController,UITableViewDelegate,UITableView
                         self.exhibition.append(self.pastExhibition)
                     }
                     self.updateExhibition = self.exhibition
-                    print(self.updateExhibition)
                 }
                 
                 DispatchQueue.main.async {

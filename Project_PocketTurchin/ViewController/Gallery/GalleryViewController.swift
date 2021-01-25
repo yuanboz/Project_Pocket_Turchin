@@ -34,7 +34,7 @@ class GalleryViewController: UIViewController, UITableViewDataSource,UITableView
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellID)
         }
-        cell?.textLabel?.text = self.gallery[indexPath.row]
+        cell?.textLabel?.text = self.gallery[indexPath.row].capitalized
         return cell!
     }
     
