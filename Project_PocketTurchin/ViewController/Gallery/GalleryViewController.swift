@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseDatabase
+//import FirebaseDatabase
 import Firebase
 
 class GalleryViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
@@ -16,6 +16,7 @@ class GalleryViewController: UIViewController, UITableViewDataSource,UITableView
     private let db = Firestore.firestore()
     
     var gallery = [String]()
+    var exhibitions = [String:String]()
     let cellID = "cellID"
     
     override func viewDidLoad() {
@@ -27,6 +28,15 @@ class GalleryViewController: UIViewController, UITableViewDataSource,UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return gallery.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(identifier: "GalleryExhibitionVC") as! GalleryExhibitionVC
+        vc.gallery = self.gallery
+        vc.index = indexPath.row
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
