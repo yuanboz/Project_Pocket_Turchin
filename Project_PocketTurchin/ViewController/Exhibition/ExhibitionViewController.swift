@@ -186,54 +186,6 @@ class ExhibitionViewController: UIViewController,UITableViewDelegate,UITableView
         self.present(secondVC, animated: true, completion: nil)
     }
     
-    // Fetch resources from firebase
-//    func fetchResource() {
-//        let ref = database.child("exhibitions")
-//
-//        ref.observe(.childAdded) { (snapshot) in
-//            ref.observe(.value) { (DataSnapshot) in
-//                guard let dictionary = snapshot.value as? [String: String] else { return }
-//                let exhibition = Exhibition()
-//                exhibition.exhibitionCoverImg = dictionary["exhibitionCoverImg"]
-//                exhibition.exhibitionTitle = dictionary["exhibitionTitle"]
-//                exhibition.exhibitionDate = dictionary["exhibitionStartDate"]! + " - " + dictionary["exhibitionEndDate"]!
-//                exhibition.exhibitionDate = self.dateFormat(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
-//                exhibition.exhibitionGallery = dictionary["exhibitionGallery"]
-//                exhibition.exhibitionType = self.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
-//                let type = self.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
-//                if type == 0 {
-//                    self.pastExhibition.append(exhibition)
-//                } else if type == 1 {
-//                    self.currentExhibition.append(exhibition)
-//                } else if type == 3{
-//                    self.upcomingExhibition.append(exhibition)
-//                }
-//                let total = self.pastExhibition.count + self.currentExhibition.count + self.upcomingExhibition.count
-//                if total == DataSnapshot.childrenCount {
-//                    if self.exhibition.count == 3 {
-//                        self.exhibition.removeAll()
-//                        self.exhibition.append(self.currentExhibition)
-//                        self.exhibition.append(self.upcomingExhibition)
-//                        self.exhibition.append(self.pastExhibition)
-//                    } else {
-//                        self.exhibition.append(self.currentExhibition)
-//                        self.exhibition.append(self.upcomingExhibition)
-//                        self.exhibition.append(self.pastExhibition)
-//                    }
-//                    self.updateExhibition = self.exhibition
-//                    print(self.updateExhibition)
-//                }
-//
-//                DispatchQueue.main.async {
-//                    self.galleryTable.reloadData()
-//                }
-//            }
-//        }
-//
-//    }
-    
-    
-    
     func fetchExhibitions() {
         let ref = database.child("exhibitions")
         ref.observe(.childAdded) { (snapshot) in
@@ -274,7 +226,6 @@ class ExhibitionViewController: UIViewController,UITableViewDelegate,UITableView
                 }
             }
         }
-        print("1")
     }
     
     func dateFormat(startDate: String, endDate: String) -> String {
@@ -306,4 +257,3 @@ class ExhibitionViewController: UIViewController,UITableViewDelegate,UITableView
     }
 
 }
-

@@ -9,6 +9,7 @@ import UIKit
 
 class HomePageCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var sliderImageView: UIImageView!
+    @IBOutlet var slideImageView: UIImageView!
+    
     
 }
