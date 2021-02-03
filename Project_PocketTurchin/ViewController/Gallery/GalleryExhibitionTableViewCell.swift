@@ -11,7 +11,8 @@ class GalleryExhibitionTableViewCell: UITableViewCell {
     
     @IBOutlet var exhibitionName: UILabel!
     @IBOutlet var exhibitionDate: UILabel!
-
+    @IBOutlet var galleryExhibitionImageVIew: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

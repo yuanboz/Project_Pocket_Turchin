@@ -19,6 +19,7 @@
 		BA9DB80825BB804C003702F6 /* HomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DB80725BB804C003702F6 /* HomePageCollectionViewCell.swift */; };
 		BAB112CD25A79F1100D66CBD /* AdminUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */; };
 		BAB1134025A8FE7000D66CBD /* Exhibition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB1133F25A8FE7000D66CBD /* Exhibition.swift */; };
+		BAE2598625C8C47A00BEB020 /* dateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE2598525C8C47A00BEB020 /* dateHelper.swift */; };
 		BAE81BC925A4C79B005C43A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81BC825A4C79B005C43A3 /* AppDelegate.swift */; };
 		BAE81BCB25A4C79B005C43A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81BCA25A4C79B005C43A3 /* SceneDelegate.swift */; };
 		BAE81BD025A4C79B005C43A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAE81BCE25A4C79B005C43A3 /* Main.storyboard */; };
@@ -27,7 +28,6 @@
 		BAE81BE825A4D54D005C43A3 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81BE725A4D54D005C43A3 /* LaunchScreenViewController.swift */; };
 		BAE81BFF25A4EBC5005C43A3 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81BFE25A4EBC5005C43A3 /* Utilities.swift */; };
 		BAE81C0925A4F103005C43A3 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C0825A4F103005C43A3 /* LogViewController.swift */; };
-		BAE81C0E25A4F576005C43A3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C0D25A4F576005C43A3 /* Constants.swift */; };
 		BAE81C1225A4FD9A005C43A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C1125A4FD9A005C43A3 /* LoginViewController.swift */; };
 		BAE81C1525A4FDA4005C43A3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C1425A4FDA4005C43A3 /* SignUpViewController.swift */; };
 		BAE81C1825A538E6005C43A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAE81C1725A538E6005C43A3 /* GoogleService-Info.plist */; };
@@ -54,6 +54,7 @@
 		BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUploadViewController.swift; sourceTree = "<group>"; };
 		BAB1133F25A8FE7000D66CBD /* Exhibition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exhibition.swift; sourceTree = "<group>"; };
 		BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_PocketTurchin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAE2598525C8C47A00BEB020 /* dateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateHelper.swift; sourceTree = "<group>"; };
 		BAE81BC525A4C79B005C43A3 /* Project_PocketTurchin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_PocketTurchin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE81BC825A4C79B005C43A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAE81BCA25A4C79B005C43A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		BAE81BE725A4D54D005C43A3 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		BAE81BFE25A4EBC5005C43A3 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		BAE81C0825A4F103005C43A3 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
-		BAE81C0D25A4F576005C43A3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BAE81C1125A4FD9A005C43A3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BAE81C1425A4FDA4005C43A3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BAE81C1725A538E6005C43A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -171,9 +171,9 @@
 		BAE81BFD25A4EB95005C43A3 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				BAE81C0D25A4F576005C43A3 /* Constants.swift */,
 				BAE81BFE25A4EBC5005C43A3 /* Utilities.swift */,
 				BA53C3D925ACFAEC0051FC7C /* ImageService.swift */,
+				BAE2598525C8C47A00BEB020 /* dateHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -365,11 +365,11 @@
 				BA38B83B25BF580B00E6533F /* ExhibitionsViewController.swift in Sources */,
 				BA53C3A025ACE46B0051FC7C /* DetailPageViewController.swift in Sources */,
 				BAE81C1225A4FD9A005C43A3 /* LoginViewController.swift in Sources */,
-				BAE81C0E25A4F576005C43A3 /* Constants.swift in Sources */,
 				BAE81C5025A65869005C43A3 /* ExhibitionTableViewCell.swift in Sources */,
 				BAE81C4D25A6585B005C43A3 /* ExhibitionViewController.swift in Sources */,
 				BAB112CD25A79F1100D66CBD /* AdminUploadViewController.swift in Sources */,
 				BA9DB80825BB804C003702F6 /* HomePageCollectionViewCell.swift in Sources */,
+				BAE2598625C8C47A00BEB020 /* dateHelper.swift in Sources */,
 				BA53C3BF25ACE5E20051FC7C /* ContentViewController.swift in Sources */,
 				BAE81C1525A4FDA4005C43A3 /* SignUpViewController.swift in Sources */,
 				BA3EACA125C22E1F00C0304F /* GalleryExhibitionVC.swift in Sources */,

@@ -10,6 +10,7 @@ import Firebase
 class GalleryExhibitionVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet var galleryExhibitionTableView: UITableView!
+
     
     var gallery = [String]()
     var galleryName: String = ""
@@ -34,7 +35,7 @@ class GalleryExhibitionVC: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 215
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

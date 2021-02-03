@@ -13,6 +13,7 @@ class HomePageViewController: UIViewController,UICollectionViewDelegate,UICollec
     
     @IBOutlet var slideCollectionView: UICollectionView!
     @IBOutlet var pageControl: UIPageControl!
+    @IBOutlet var exploreButton: UIButton!
     
     private let database = Database.database().reference()
     
@@ -27,6 +28,7 @@ class HomePageViewController: UIViewController,UICollectionViewDelegate,UICollec
         slideCollectionView.delegate = self
         slideCollectionView.dataSource = self
         fetchExhibitions()
+        setUpNavigationImage()
         pageControl.numberOfPages = currentExhibition.count
     }
     
@@ -88,13 +90,12 @@ class HomePageViewController: UIViewController,UICollectionViewDelegate,UICollec
                 exhibition.exhibitionCoverImg = dictionary["exhibitionCoverImg"]
                 exhibition.exhibitionTitle = dictionary["exhibitionTitle"]
                 exhibition.exhibitionDate = dictionary["exhibitionStartDate"]! + " - " + dictionary["exhibitionEndDate"]!
-                exhibition.exhibitionDate = self.dateFormat(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+                exhibition.exhibitionDate = dateHelper.dateFormat(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
                 exhibition.exhibitionGallery = dictionary["exhibitionGallery"]
-                exhibition.exhibitionType = self.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
-                let type = self.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+                exhibition.exhibitionType = dateHelper.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+                let type = dateHelper.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
                 if type == 1 {
                     self.currentExhibition.append(exhibition)
-                    print(self.currentExhibition)
                 }
             }
             
@@ -104,29 +105,11 @@ class HomePageViewController: UIViewController,UICollectionViewDelegate,UICollec
         }
     }
     
-    func dateFormat(startDate: String, endDate: String) -> String {
-        let df = DateFormatter()
-        df.dateFormat = "dd/MM/yyyy"
-        let startDate = df.date(from: startDate)
-        let endDate = df.date(from: endDate)
-        df.dateFormat = "MMM d, yyyy"
-        let strStart = df.string(from: startDate!)
-        let strEnd = df.string(from: endDate!)
-        return strStart + " - " + strEnd
+    func setUpNavigationImage() {
+        let logo = UIImage(named: "navigationBGImage.png")
+        let imageView = UIImageView(image: logo)
+        self.navigationItem.titleView = imageView
     }
     
-    func exhibitonType(startDate: String, endDate: String) -> Int {
-        let date = Date()
-        let df = DateFormatter()
-        df.dateFormat = "dd/MM/yyyy"
-        let today = df.date(from: df.string(from: date))!
-        let start = df.date(from: startDate)!
-        let end = df.date(from: endDate)!
-        
-        if today >= start && today <= end {
-            return 1 // "Current exhibition"
-        } else {
-            return 2
-        }
-    }
+    
 }

@@ -195,10 +195,10 @@ class ExhibitionViewController: UIViewController,UITableViewDelegate,UITableView
                 exhibition.exhibitionCoverImg = dictionary["exhibitionCoverImg"]
                 exhibition.exhibitionTitle = dictionary["exhibitionTitle"]
                 exhibition.exhibitionDate = dictionary["exhibitionStartDate"]! + " - " + dictionary["exhibitionEndDate"]!
-                exhibition.exhibitionDate = self.dateFormat(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+                exhibition.exhibitionDate = dateHelper.dateFormat(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
                 exhibition.exhibitionGallery = dictionary["exhibitionGallery"]
-                exhibition.exhibitionType = self.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
-                let type = self.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+                exhibition.exhibitionType = dateHelper.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+                let type = dateHelper.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
                 if type == 0 {
                     self.pastExhibition.append(exhibition)
                 } else if type == 1 {
@@ -228,32 +228,5 @@ class ExhibitionViewController: UIViewController,UITableViewDelegate,UITableView
         }
     }
     
-    func dateFormat(startDate: String, endDate: String) -> String {
-        let df = DateFormatter()
-        df.dateFormat = "dd/MM/yyyy"
-        let startDate = df.date(from: startDate)
-        let endDate = df.date(from: endDate)
-        df.dateFormat = "MMM d, yyyy"
-        let strStart = df.string(from: startDate!)
-        let strEnd = df.string(from: endDate!)
-        return strStart + " - " + strEnd
-    }
-    
-    func exhibitonType(startDate: String, endDate: String) -> Int {
-        let date = Date()
-        let df = DateFormatter()
-        df.dateFormat = "dd/MM/yyyy"
-        let today = df.date(from: df.string(from: date))!
-        let start = df.date(from: startDate)!
-        let end = df.date(from: endDate)!
-        
-        if today >= start && today <= end {
-            return 1 // "Current exhibition"
-        } else if today < start {
-            return 2 //"Upcomming exhibition"
-        } else {
-            return 0 //"Past exhibition"
-        }
-    }
 
 }
