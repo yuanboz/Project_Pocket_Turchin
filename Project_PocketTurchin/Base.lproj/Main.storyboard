@@ -625,16 +625,16 @@
                                                     <rect key="frame" x="10" y="0.0" width="374" height="205"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJL-2X-FgN">
-                                                    <rect key="frame" x="107" y="47.5" width="200" height="120"/>
+                                                    <rect key="frame" x="87" y="37.5" width="240" height="140"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKd-V2-7Da">
-                                                            <rect key="frame" x="20" y="20" width="160" height="20.5"/>
+                                                            <rect key="frame" x="20" y="20" width="200" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMD-et-VcS">
-                                                            <rect key="frame" x="20" y="84.5" width="160" height="20.5"/>
+                                                            <rect key="frame" x="20" y="104.5" width="200" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -649,8 +649,8 @@
                                                         <constraint firstItem="BKd-V2-7Da" firstAttribute="leading" secondItem="WJL-2X-FgN" secondAttribute="leading" constant="20" id="gg6-3a-WUj"/>
                                                         <constraint firstItem="BKd-V2-7Da" firstAttribute="top" secondItem="WJL-2X-FgN" secondAttribute="top" constant="20" id="jS9-xY-qL2"/>
                                                         <constraint firstAttribute="bottom" secondItem="AMD-et-VcS" secondAttribute="bottom" constant="15" id="jvM-sg-tje"/>
-                                                        <constraint firstAttribute="width" constant="200" id="nSC-KA-lir"/>
-                                                        <constraint firstAttribute="height" constant="120" id="xgv-bO-SUU"/>
+                                                        <constraint firstAttribute="width" constant="240" id="nSC-KA-lir"/>
+                                                        <constraint firstAttribute="height" constant="140" id="xgv-bO-SUU"/>
                                                         <constraint firstItem="AMD-et-VcS" firstAttribute="leading" secondItem="WJL-2X-FgN" secondAttribute="leading" constant="20" id="xop-1g-UHt"/>
                                                     </constraints>
                                                 </view>

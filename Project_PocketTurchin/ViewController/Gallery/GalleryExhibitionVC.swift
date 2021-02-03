@@ -6,20 +6,32 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class GalleryExhibitionVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet var galleryExhibitionTableView: UITableView!
 
-    
     var gallery = [String]()
     var galleryName: String = ""
     var index: Int = 0
     var exhibition = [String]()
     var date = [String]()
+    var exhibitionTitle = [String]()
+    var exhibitionImg = [String]()
+    var exhibitionDate = [String]()
     let cellID = "cellID"
     
+    
+    var exhibitions = [[Exhibition]]()
+    var currentExhibition = [Exhibition]()  // Store current exhibitions
+    var upcomingExhibition = [Exhibition]() // Store upcoming exhibitions
+    var pastExhibition = [Exhibition]()     // Store past exhibitions
+    var updateExhibition = [[Exhibition]]()  // update table when user search for specific exhibiton
+    
     private let db = Firestore.firestore()
+    
+    private let database = Database.database().reference()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +52,12 @@ class GalleryExhibitionVC: UIViewController,UITableViewDataSource,UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GalleryExhibitionTableViewCell = galleryExhibitionTableView.dequeueReusableCell(withIdentifier: "galleryExhibitionTableViewCell") as! GalleryExhibitionTableViewCell
-        cell.exhibitionName.text = exhibition[indexPath.row]
-        cell.exhibitionDate.text = date[indexPath.row]
+//        cell.exhibitionName.text = exhibitionTitle[indexPath.row]
+//        cell.exhibitionDate.text = exhibitionDate[indexPath.row]
+//        let imageUrl = exhibitionImg[indexPath.row]
+//        ImageService.getImage(urlString: imageUrl) { image in
+//            cell.galleryExhibitionImageVIew.image = image
+//        }
         
         return cell
     }
@@ -53,12 +69,27 @@ class GalleryExhibitionVC: UIViewController,UITableViewDataSource,UITableViewDel
             for (key,value) in docDate {
                 self.exhibition.append(key as! String)
                 self.date.append(value as! String)
+                let ref = self.database.child("exhibitions").child(key as! String)
+                ref.observe(.childAdded, with: { (snapshot) in
+                    print(value)
+//                    let title = value?["exhibitionTitle"] as! String
+//                    let url = value?["exhibitionCoverImg"] as! String
+//                    let startDate = value?["exhibitionStartDate"] as! String
+//                    let endDate = value?["exhibitionEndDate"] as! String
+//                    let date = dateHelper.dateFormat(startDate: startDate, endDate: endDate)
+//                    self.exhibitionTitle.append(title)
+//                    self.exhibitionImg.append(url)
+//                    self.exhibitionDate.append(date)
+//                    print(self.exhibitionTitle)
+                })
+                
+                DispatchQueue.main.async {
+                    self.galleryExhibitionTableView.reloadData()
+                }
             }
-            DispatchQueue.main.async {
-                self.galleryExhibitionTableView.reloadData()
-            }
-            //print(self.exhibition,self.date)
         }
     }
-
+    
+    
 }
+
