@@ -13,16 +13,13 @@ class HomePageViewController: UIViewController,UICollectionViewDelegate,UICollec
     
     @IBOutlet var slideCollectionView: UICollectionView!
     @IBOutlet var pageControl: UIPageControl!
-    @IBOutlet var exploreButton: UIButton!
     
     private let database = Database.database().reference()
     
     var currentExhibition = [Exhibition]()  // Store current exhibitions
-    
     var currentIndex = 0
     var timer: Timer!
     
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         slideCollectionView.delegate = self
@@ -48,7 +45,6 @@ class HomePageViewController: UIViewController,UICollectionViewDelegate,UICollec
     }
     
     @objc func timerAction() {
-        
         let nextPosition = (currentIndex < currentExhibition.count - 1) ? currentIndex + 1 : 0
         slideCollectionView.scrollToItem(at: IndexPath(item: nextPosition, section: 0), at: .centeredHorizontally, animated: true)
     }
@@ -66,12 +62,10 @@ class HomePageViewController: UIViewController,UICollectionViewDelegate,UICollec
                 cell.slideImageView.image = image
             }
         }
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
         return CGSize(width: slideCollectionView.frame.width, height: slideCollectionView.frame.height)
     }
     
@@ -79,7 +73,6 @@ class HomePageViewController: UIViewController,UICollectionViewDelegate,UICollec
         currentIndex = Int(scrollView.contentOffset.x / slideCollectionView.frame.size.width)
         pageControl.currentPage = currentIndex
     }
-    
     
     func fetchExhibitions() {
         let ref = database.child("exhibitions")
