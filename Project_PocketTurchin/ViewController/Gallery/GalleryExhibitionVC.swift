@@ -6,19 +6,27 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class GalleryExhibitionVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet var galleryExhibitionTableView: UITableView!
-    
+
     var gallery = [String]()
     var galleryName: String = ""
     var index: Int = 0
-    var exhibition = [String]()
-    var date = [String]()
     let cellID = "cellID"
     
+    
+    var exhibitions = [Exhibition]()
+    //var currentExhibition = [Exhibition]()  // Store current exhibitions
+    //var upcomingExhibition = [Exhibition]() // Store upcoming exhibitions
+    //var pastExhibition = [Exhibition]()     // Store past exhibitions
+    //var updateExhibition = [[Exhibition]]()  // update table when user search for specific exhibiton
+    
     private let db = Firestore.firestore()
+    
+    private let database = Database.database().reference()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,34 +38,47 @@ class GalleryExhibitionVC: UIViewController,UITableViewDataSource,UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exhibition.count
+        return exhibitions.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 215
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GalleryExhibitionTableViewCell = galleryExhibitionTableView.dequeueReusableCell(withIdentifier: "galleryExhibitionTableViewCell") as! GalleryExhibitionTableViewCell
-        cell.exhibitionName.text = exhibition[indexPath.row]
-        cell.exhibitionDate.text = date[indexPath.row]
-        
+        let exhibition = self.exhibitions[indexPath.row]
+        cell.exhibitionName.text = exhibition.exhibitionTitle
+        cell.exhibitionDate.text = exhibition.exhibitionDate
+        if let imageUrl = exhibition.exhibitionCoverImg {
+            ImageService.getImage(urlString: imageUrl) { (image) in
+                cell.galleryExhibitionImageVIew.image = image
+            }
+        }
         return cell
     }
     
     func fetchExhibitions() {
-        db.collection("gallery").document(galleryName.lowercased()).getDocument { (doc, err) in
-            guard let doc = doc, err == nil else { return }
-            let docDate = doc.data()! as NSDictionary
-            for (key,value) in docDate {
-                self.exhibition.append(key as! String)
-                self.date.append(value as! String)
+        let ref = self.database.child("exhibitions")
+        ref.observe(.childAdded) { (snapshot) in
+            guard let dictionary = snapshot.value as? [String: String] else { return }
+            let exhibition = Exhibition()
+            exhibition.exhibitionCoverImg = dictionary["exhibitionCoverImg"]
+            exhibition.exhibitionTitle = dictionary["exhibitionTitle"]
+            exhibition.exhibitionDate = dictionary["exhibitionStartDate"]! + " - " + dictionary["exhibitionEndDate"]!
+            exhibition.exhibitionDate = dateHelper.dateFormat(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+            exhibition.exhibitionGallery = dictionary["exhibitionGallery"]
+            exhibition.exhibitionType = dateHelper.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+            //let type = dateHelper.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+            let thisGallery = self.galleryName.lowercased()
+            if exhibition.exhibitionGallery?.lowercased() == thisGallery {
+                self.exhibitions.append(exhibition)
             }
             DispatchQueue.main.async {
                 self.galleryExhibitionTableView.reloadData()
             }
-            //print(self.exhibition,self.date)
         }
     }
-
+    
 }
+

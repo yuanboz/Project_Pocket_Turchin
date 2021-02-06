@@ -7,8 +7,6 @@
 
 import UIKit
 
-let imageCache = NSCache<AnyObject, AnyObject>()
-
 class Utilities {
     
     static func styleTextField(_ textfield:UITextField) {

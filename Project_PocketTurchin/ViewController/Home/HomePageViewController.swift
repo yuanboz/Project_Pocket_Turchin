@@ -9,79 +9,100 @@ import UIKit
 import FirebaseStorage
 import FirebaseDatabase
 
-class HomePageViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
-
-    @IBOutlet var sliderCollectionView: UICollectionView!
-    @IBOutlet var sliderPageController: UIPageControl!
+class HomePageViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
-    private let storage = Storage.storage()
-    private let datebase = Database.database().reference()
+    @IBOutlet var slideCollectionView: UICollectionView!
+    @IBOutlet var pageControl: UIPageControl!
     
-    var homeSliderImage = [Exhibition]()
+    private let database = Database.database().reference()
+    
+    var currentExhibition = [Exhibition]()  // Store current exhibitions
+    var currentIndex = 0
+    var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sliderCollectionView.delegate = self
-        sliderCollectionView.dataSource = self
-        fetchResource()
-        print("1")
+        slideCollectionView.delegate = self
+        slideCollectionView.dataSource = self
+        fetchExhibitions()
+        setUpNavigationImage()
+        pageControl.numberOfPages = currentExhibition.count
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        slideTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        timer.invalidate()
+    }
+    
+    
+    func slideTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+    }
+    
+    @objc func timerAction() {
+        let nextPosition = (currentIndex < currentExhibition.count - 1) ? currentIndex + 1 : 0
+        slideCollectionView.scrollToItem(at: IndexPath(item: nextPosition, section: 0), at: .centeredHorizontally, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return homeSliderImage.count
+        return currentExhibition.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: HomePageCollectionViewCell = sliderCollectionView.dequeueReusableCell(withReuseIdentifier: "sliderCollectionCell", for: indexPath) as! HomePageCollectionViewCell
-        let exhibitions = homeSliderImage[indexPath.row]
+        let cell: HomePageCollectionViewCell = slideCollectionView.dequeueReusableCell(withReuseIdentifier: "slideCell", for: indexPath) as! HomePageCollectionViewCell
+        let exhibitions = self.currentExhibition[indexPath.item]
         
         if let imageUrl = exhibitions.exhibitionCoverImg {
             ImageService.getImage(urlString: imageUrl) { image in
-                cell.sliderImageView.image = image
+                cell.slideImageView.image = image
             }
         }
-        
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: slideCollectionView.frame.width, height: slideCollectionView.frame.height)
+    }
     
-    // Fetch resources from firebase
-    func fetchResource() {
-        let ref = datebase.child("exhibitions")
-        
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        currentIndex = Int(scrollView.contentOffset.x / slideCollectionView.frame.size.width)
+        pageControl.currentPage = currentIndex
+    }
+    
+    func fetchExhibitions() {
+        let ref = database.child("exhibitions")
         ref.observe(.childAdded) { (snapshot) in
-            guard let dictionary = snapshot.value as? [String: String] else { return }
-            let exhibition = Exhibition()
-            print(dictionary.values)
-            exhibition.exhibitionCoverImg = dictionary["exhibitionCoverImg"]
-            exhibition.exhibitionTitle = dictionary["exhibitionTitle"]
-            exhibition.exhibitionDate = dictionary["exhibitionDate"]
-            self.homeSliderImage.append(exhibition)
-
+            ref.observe(.value) { (DataSnapshot) in
+                guard let dictionary = snapshot.value as? [String: String] else { return }
+                let exhibition = Exhibition()
+                exhibition.exhibitionCoverImg = dictionary["exhibitionCoverImg"]
+                exhibition.exhibitionTitle = dictionary["exhibitionTitle"]
+                exhibition.exhibitionDate = dictionary["exhibitionStartDate"]! + " - " + dictionary["exhibitionEndDate"]!
+                exhibition.exhibitionDate = dateHelper.dateFormat(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+                exhibition.exhibitionGallery = dictionary["exhibitionGallery"]
+                exhibition.exhibitionType = dateHelper.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+                let type = dateHelper.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+                if type == 1 {
+                    self.currentExhibition.append(exhibition)
+                }
+            }
+            
             DispatchQueue.main.async {
-                self.sliderCollectionView.reloadData()
+                self.slideCollectionView.reloadData()
             }
         }
     }
-
-}
-
-extension HomePageViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    func setUpNavigationImage() {
+        let logo = UIImage(named: "navigationBGImage.png")
+        let imageView = UIImageView(image: logo)
+        self.navigationItem.titleView = imageView
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = sliderCollectionView.frame.size
-        return CGSize(width: size.width, height: size.height)
-    }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
-    }
 }
