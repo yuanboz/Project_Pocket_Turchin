@@ -17,6 +17,7 @@
 		BA69096425BDEEE3009AC917 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA69096325BDEEE3009AC917 /* GalleryViewController.swift */; };
 		BA9DB80525BB661F003702F6 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DB80425BB661F003702F6 /* HomePageViewController.swift */; };
 		BA9DB80825BB804C003702F6 /* HomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DB80725BB804C003702F6 /* HomePageCollectionViewCell.swift */; };
+		BAABE45F25D077E200D83DA3 /* ContentViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAABE45E25D077E200D83DA3 /* ContentViewCollectionViewCell.swift */; };
 		BAB112CD25A79F1100D66CBD /* AdminUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */; };
 		BAB1134025A8FE7000D66CBD /* Exhibition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB1133F25A8FE7000D66CBD /* Exhibition.swift */; };
 		BAE2598625C8C47A00BEB020 /* dateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE2598525C8C47A00BEB020 /* dateHelper.swift */; };
@@ -51,6 +52,7 @@
 		BA69096325BDEEE3009AC917 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		BA9DB80425BB661F003702F6 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		BA9DB80725BB804C003702F6 /* HomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionViewCell.swift; sourceTree = "<group>"; };
+		BAABE45E25D077E200D83DA3 /* ContentViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUploadViewController.swift; sourceTree = "<group>"; };
 		BAB1133F25A8FE7000D66CBD /* Exhibition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exhibition.swift; sourceTree = "<group>"; };
 		BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_PocketTurchin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +101,7 @@
 			children = (
 				BA53C39F25ACE46B0051FC7C /* DetailPageViewController.swift */,
 				BA53C3BE25ACE5E20051FC7C /* ContentViewController.swift */,
+				BAABE45E25D077E200D83DA3 /* ContentViewCollectionViewCell.swift */,
 			);
 			path = "Detail page";
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAABE45F25D077E200D83DA3 /* ContentViewCollectionViewCell.swift in Sources */,
 				BAB1134025A8FE7000D66CBD /* Exhibition.swift in Sources */,
 				BA3EACA425C23C0600C0304F /* GalleryExhibitionTableViewCell.swift in Sources */,
 				BA53C3DA25ACFAEC0051FC7C /* ImageService.swift in Sources */,
