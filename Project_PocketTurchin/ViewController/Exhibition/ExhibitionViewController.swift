@@ -157,6 +157,7 @@ class ExhibitionViewController: UIViewController,UITableViewDelegate,UITableView
         }
         defaults.set(exhibitions.exhibitionTitle, forKey: "exhibitionTitle")
         defaults.set(exhibitions.exhibitionDate, forKey: "exhibitionDate")
+        defaults.set(exhibitions.exhibitionAuthor,forKey: "exhibitionAuthor")
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -198,6 +199,7 @@ class ExhibitionViewController: UIViewController,UITableViewDelegate,UITableView
                 exhibition.exhibitionDate = dateHelper.dateFormat(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
                 exhibition.exhibitionGallery = dictionary["exhibitionGallery"]
                 exhibition.exhibitionType = dateHelper.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
+                exhibition.exhibitionAuthor = dictionary["exhibitionAuthor"]
                 let type = dateHelper.exhibitonType(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
                 if type == 0 {
                     self.pastExhibition.append(exhibition)

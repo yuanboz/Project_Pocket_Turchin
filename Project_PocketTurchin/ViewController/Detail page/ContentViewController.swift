@@ -25,6 +25,8 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
     
     var exhibitionDate: String?
     
+    var exhibitionAuthor: String?
+    
     var liked: Bool = false
     
     let cellScale: CGFloat = 0.6
@@ -50,8 +52,10 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
     func setUpInfo() {
         exhibitionTitle = UserDefaults.standard.value(forKey: "exhibitionTitle") as? String
         exhibitionDate = UserDefaults.standard.value(forKey: "exhibitionDate") as? String
+        exhibitionAuthor = UserDefaults.standard.value(forKey: "exhibitionAuthor") as? String
         exhibitionTitleLabel.text = exhibitionTitle
         exhibitionDateLabel.text = exhibitionDate
+        exhibitionAuthorLabel.text = exhibitionAuthor
     }
     
     func likedButtonAnimation() {
