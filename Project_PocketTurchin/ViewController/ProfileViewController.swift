@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var imaProfile: UIImageView!
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var adminButton: UIButton!
+    @IBOutlet var adminBarItem: UIBarButtonItem!
     var users = UserDefaults.standard.integer(forKey: "users")
     
     override func viewDidLoad() {
@@ -36,10 +37,14 @@ class ProfileViewController: UIViewController {
             userNameLabel.text = UserDefaults.standard.value(forKey: "username") as? String
             adminButton.alpha = 1
             adminButton.isUserInteractionEnabled = true
+            self.navigationItem.rightBarButtonItem = adminBarItem
+            
         case 2:
             userNameLabel.text = "Guest"
+            self.navigationItem.rightBarButtonItem = adminBarItem
         default:
             userNameLabel.text = UserDefaults.standard.value(forKey: "username") as? String
+            self.navigationItem.rightBarButtonItem = nil
         }
     }
     

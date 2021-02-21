@@ -21,6 +21,8 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet var galleryTextField: UITextField!
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var coverImageView: UIImageView!
+    @IBOutlet var moreInfoButton: UIButton!
+    @IBOutlet var moreImageButton: UIButton!
     
     private let datebase = Database.database().reference()
     private let db = Firestore.firestore()
@@ -43,6 +45,8 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     func setUpElements() {
         Utilities.styleFilledButton(uploadButton)
         Utilities.styleFilledButton(submitButton)
+        Utilities.styleFilledButton(moreInfoButton)
+        Utilities.styleFilledButton(moreImageButton)
         Utilities.styleTextField(titleTextField)
         Utilities.styleTextField(authorTextField)
         Utilities.styleTextField(startDataTextField)
@@ -98,7 +102,7 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func textFieldValidate() -> Bool {
-        if titleTextField.text != nil && authorTextField.text != nil && startDataTextField.text != nil && endDateTextField.text != nil && galleryTextField.text != nil {
+        if titleTextField.text != "" && authorTextField.text != "" && startDataTextField.text != "" && endDateTextField.text != "" && galleryTextField.text != "" {
             exhibitionTitle = titleTextField.text!
             exhibitionAuthor = authorTextField.text!
             exhibitionStartDate = startDataTextField.text!
@@ -142,4 +146,12 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
         
         self.present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func addInfoButtonWasTapped(_ sender: UIButton) {
+        //let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard?.instantiateViewController(identifier: "addMoreInfo") as? AdminAddInfoViewController else { return }
+        vc.newEventTitle = titleTextField.text!
+        self.present(vc, animated: true, completion: nil)
+    }
+    
 }
