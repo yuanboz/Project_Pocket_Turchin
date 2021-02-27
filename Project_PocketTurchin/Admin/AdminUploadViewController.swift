@@ -23,7 +23,9 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet var coverImageView: UIImageView!
     @IBOutlet var moreInfoButton: UIButton!
     @IBOutlet var moreImageButton: UIButton!
-    var pickerView = UIPickerView()
+    private var pickerView = UIPickerView()
+    private var datePicker_start: UIDatePicker?
+    private var datePicker_end: UIDatePicker?
     
     private let datebase = Database.database().reference()
     private let db = Firestore.firestore()
@@ -46,7 +48,43 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
         pickerView.delegate = self
         pickerView.dataSource = self
         setUpElements()
+        setupDatePicker()
     }
+    
+    func setupDatePicker() {
+        datePicker_start = UIDatePicker()
+        datePicker_start?.preferredDatePickerStyle = .wheels
+        datePicker_start?.datePickerMode = .date
+        
+        datePicker_end = UIDatePicker()
+        datePicker_end?.preferredDatePickerStyle = .wheels
+        datePicker_end?.datePickerMode = .date
+        
+        datePicker_start?.addTarget(self, action: #selector(startDateChanged(datePicker:)), for: .valueChanged)
+        datePicker_end?.addTarget(self, action: #selector(endDateChanged(datePicker:)), for: .valueChanged)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
+        startDataTextField.inputView = datePicker_start
+        endDateTextField.inputView = datePicker_end
+    }
+    
+    @objc func startDateChanged(datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        startDataTextField.text = dateFormatter.string(from: datePicker.date)
+    }
+    
+    @objc func endDateChanged(datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        endDateTextField.text = dateFormatter.string(from: datePicker.date)
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
