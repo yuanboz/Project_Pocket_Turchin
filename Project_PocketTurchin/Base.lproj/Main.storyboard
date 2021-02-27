@@ -308,7 +308,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gallery" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xqG-Vd-upt">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select the Gallery" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xqG-Vd-upt">
                                         <rect key="frame" x="0.0" y="240" width="374" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="wEv-6w-xsi"/>
@@ -617,9 +617,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="187" id="lrY-lZ-weo"/>
                                                 </constraints>
-                                                <mutableString key="text">Christina Laurel is a paper artist creating installations and two-dimensional art, all with a Japanese aesthetic. Her mission is to create an “exhale” moment, an oasis that offers a respite and refuge from our daily sensory overload. Suspended lace panels support a migrating pattern of butterflies that cast shadows and respond to air movement. Perambulating – whether with
+                                                <string key="text">Christina Laurel is a paper artist creating installations and two-dimensional art, all with a Japanese aesthetic. Her mission is to create an “exhale” moment, an oasis that offers a respite and refuge from our daily sensory overload. Suspended lace panels support a migrating pattern of butterflies that cast shadows and respond to air movement. Perambulating – whether with
 shoes, walker or wheelchair – through the suspended cocoons and grounded totems of “Refugium,” the viewer will become a part of the installation and a part of the art.Christina Laurel is a paper artist creating installations and two-dimensional art, all with a Japanese aesthetic. Her mission is to create an “exhale” moment, an oasis that offers a respite and refuge from our daily sensory overload. Suspended lace panels support a migrating pattern of butterflies that cast shadows and respond to air movement. Perambulating – whether with
-shoes, walker or wheelchair – through the suspended cocoons and grounded totems of “Refugium,” the viewer will become a part of the installation and a part of the art.</mutableString>
+shoes, walker or wheelchair – through the suspended cocoons and grounded totems of “Refugium,” the viewer will become a part of the installation and a part of the art.</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

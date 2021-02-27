@@ -24,6 +24,7 @@ class GalleryViewController: UIViewController, UITableViewDataSource,UITableView
         galleryTableView.delegate = self
         galleryTableView.dataSource = self
         fetchGallery()
+        setUpNavigationImage()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,7 +49,11 @@ class GalleryViewController: UIViewController, UITableViewDataSource,UITableView
         return cell!
     }
     
-    
+    func setUpNavigationImage() {
+        let logo = UIImage(named: "navigationBGImage.png")
+        let imageView = UIImageView(image: logo)
+        self.navigationItem.titleView = imageView
+    }
     
     func fetchGallery() {
         db.collection("gallery").getDocuments { (snapshot, err) in

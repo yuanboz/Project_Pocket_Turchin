@@ -13,11 +13,11 @@ class dateHelper {
     static func dateFormat(startDate: String, endDate: String) -> String {
         let df = DateFormatter()
         df.dateFormat = "dd/MM/yyyy"
-        let startDate = df.date(from: startDate)
-        let endDate = df.date(from: endDate)
+        let startDate = df.date(from: startDate)!
+        let endDate = df.date(from: endDate)!
         df.dateFormat = "MMM d, yyyy"
-        let strStart = df.string(from: startDate!)
-        let strEnd = df.string(from: endDate!)
+        let strStart = df.string(from: startDate)
+        let strEnd = df.string(from: endDate)
         return strStart + " - " + strEnd
     }
     

@@ -17,12 +17,7 @@ class GalleryExhibitionVC: UIViewController,UITableViewDataSource,UITableViewDel
     var index: Int = 0
     let cellID = "cellID"
     
-    
     var exhibitions = [Exhibition]()
-    //var currentExhibition = [Exhibition]()  // Store current exhibitions
-    //var upcomingExhibition = [Exhibition]() // Store upcoming exhibitions
-    //var pastExhibition = [Exhibition]()     // Store past exhibitions
-    //var updateExhibition = [[Exhibition]]()  // update table when user search for specific exhibiton
     
     private let db = Firestore.firestore()
     
@@ -58,6 +53,21 @@ class GalleryExhibitionVC: UIViewController,UITableViewDataSource,UITableViewDel
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(identifier: "DetailPageViewController") as! DetailPageViewController
+        let defaults = UserDefaults.standard
+        if let imageUrl = exhibitions[indexPath.row].exhibitionCoverImg {
+            ImageService.getImage(urlString: imageUrl) { (image) in
+                vc.coverImage = image
+            }
+        }
+        defaults.set(exhibitions[indexPath.row].exhibitionTitle, forKey: "exhibitionTitle")
+        defaults.set(exhibitions[indexPath.row].exhibitionDate, forKey: "exhibitionDate")
+        defaults.set(exhibitions[indexPath.row].exhibitionAuthor, forKey: "exhibitionAuthor")
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func fetchExhibitions() {
         let ref = self.database.child("exhibitions")
         ref.observe(.childAdded) { (snapshot) in
@@ -65,6 +75,7 @@ class GalleryExhibitionVC: UIViewController,UITableViewDataSource,UITableViewDel
             let exhibition = Exhibition()
             exhibition.exhibitionCoverImg = dictionary["exhibitionCoverImg"]
             exhibition.exhibitionTitle = dictionary["exhibitionTitle"]
+            exhibition.exhibitionAuthor = dictionary["exhibitionAuthor"]
             exhibition.exhibitionDate = dictionary["exhibitionStartDate"]! + " - " + dictionary["exhibitionEndDate"]!
             exhibition.exhibitionDate = dateHelper.dateFormat(startDate: dictionary["exhibitionStartDate"]!, endDate: dictionary["exhibitionEndDate"]!)
             exhibition.exhibitionGallery = dictionary["exhibitionGallery"]

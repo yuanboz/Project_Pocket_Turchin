@@ -10,7 +10,7 @@ import FirebaseStorage
 import Firebase
 import FirebaseDatabase
 
-class AdminUploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AdminUploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDataSource,UIPickerViewDelegate {
 
     @IBOutlet var uploadButton: UIButton!
     @IBOutlet var submitButton: UIButton!
@@ -23,9 +23,12 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet var coverImageView: UIImageView!
     @IBOutlet var moreInfoButton: UIButton!
     @IBOutlet var moreImageButton: UIButton!
+    var pickerView = UIPickerView()
     
     private let datebase = Database.database().reference()
     private let db = Firestore.firestore()
+    
+    let galleryList = ["Community Gallery","Gallery A", "Gallery B","Main Gallery","Mayer Gallery","Mezzanine Gallery"]
     
     var coverImgUrl: String = ""
     var exhibitionTitle: String = ""
@@ -34,12 +37,32 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     var exhibitionEndDate: String = ""
     var exhibitionGallery: String = ""
     
-    
     private let storage = Storage.storage().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        galleryTextField.inputView = pickerView
+        galleryTextField.textAlignment = .left
+        pickerView.delegate = self
+        pickerView.dataSource = self
         setUpElements()
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return galleryList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return galleryList[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        galleryTextField.text = galleryList[row]
+        galleryTextField.resignFirstResponder()
     }
     
     func setUpElements() {
@@ -148,7 +171,6 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func addInfoButtonWasTapped(_ sender: UIButton) {
-        //let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard?.instantiateViewController(identifier: "addMoreInfo") as? AdminAddInfoViewController else { return }
         vc.newEventTitle = titleTextField.text!
         self.present(vc, animated: true, completion: nil)
