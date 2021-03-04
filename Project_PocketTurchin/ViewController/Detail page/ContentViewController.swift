@@ -6,26 +6,25 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class ContentViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     @IBOutlet var exhibitionTitleLabel: UILabel!
-    
     @IBOutlet var exhibitionAuthorLabel: UILabel!
-    
     @IBOutlet var exhibitionDateLabel: UILabel!
-    
     @IBOutlet var likedButton: UIButton!
-    
-    @IBOutlet var exhibitionDescriptionTextView: UITextView!
-    
     @IBOutlet var slideCollectionView: UICollectionView!
+    @IBOutlet var exhibitionDescriptionTextView: UITextView!
+    @IBOutlet var aboutAuthorTextView: UITextView!
+    
+    private let database = Database.database().reference()
     
     var exhibitionTitle: String?
-    
     var exhibitionDate: String?
-    
     var exhibitionAuthor: String?
+    var exhibitionDescription: String?
+    var exhibitionAboutAuthor: String?
     
     var liked: Bool = false
     
@@ -36,6 +35,7 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
         slideCollectionView.delegate = self
         slideCollectionView.dataSource = self
         setUpInfo()
+        fetchData()
 
         let screenSize = UIScreen.main.bounds.size
         let cellWidth = floor(screenSize.width * cellScale)
@@ -99,8 +99,18 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
         targetContentOffset.pointee = offset
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: slideCollectionView.frame.width, height: slideCollectionView.frame.height)
-//    }
+    func fetchData() {
+        let ref = database.child("exhibitions").child(self.exhibitionTitle!)
+        
+        ref.observeSingleEvent(of: .value) { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let description = value?["exhibitionDescription"] as! String
+            let aboutauthor = value?["aboutAuthor"] as! String
+            self.exhibitionDescription = description
+            self.exhibitionDescriptionTextView.text = self.exhibitionDescription
+            self.exhibitionAboutAuthor = aboutauthor
+            self.aboutAuthorTextView.text = self.exhibitionAboutAuthor
+        }
+    }
 
 }
