@@ -38,6 +38,7 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     var exhibitionStartDate: String = ""
     var exhibitionEndDate: String = ""
     var exhibitionGallery: String = ""
+    var count = 0
     
     private let storage = Storage.storage().reference()
     
@@ -117,7 +118,18 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func submitButtonTapped(_ sender: UIButton) {
         if textFieldValidate() {
-            uploadToFirebase()
+            if count == 0 {
+                count += 1
+                normalAlert(title: "Review Page", message: "Please review the information", actionTitle: "OK")
+            } else {
+                uploadToFirebase()
+                count = 0
+                self.titleTextField.text = ""
+                self.authorTextField.text = ""
+                self.startDataTextField.text = ""
+                self.endDateTextField.text = ""
+                self.galleryTextField.text = ""
+            }
         }
     }
     
@@ -193,11 +205,6 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
             }
         }
         normalAlert(title: "Upload Successfully", message: "Exhibition \(exhibitionTitle) has been uploaded.", actionTitle: "OK")
-        self.titleTextField.text = ""
-        self.authorTextField.text = ""
-        self.startDataTextField.text = ""
-        self.endDateTextField.text = ""
-        self.galleryTextField.text = ""
     }
     
     func normalAlert(title: String, message: String, actionTitle: String) {
@@ -210,7 +217,7 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func addInfoButtonWasTapped(_ sender: UIButton) {
         guard let vc = storyboard?.instantiateViewController(identifier: "addMoreInfo") as? AdminAddInfoViewController else { return }
-        vc.newEventTitle = titleTextField.text!
+        vc.newEventTitle = exhibitionTitle
         self.present(vc, animated: true, completion: nil)
     }
     
