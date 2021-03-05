@@ -10,12 +10,7 @@ import FirebaseStorage
 import Firebase
 import FirebaseDatabase
 
-
-protocol ModalDelegate {
-    func changeValue(value: Bool)
-}
-
-class AdminUploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDataSource,UIPickerViewDelegate,ModalDelegate {
+class AdminUploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDataSource,UIPickerViewDelegate {
 
     @IBOutlet var uploadButton: UIButton!
     @IBOutlet var submitButton: UIButton!
@@ -122,7 +117,6 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func submitButtonTapped(_ sender: UIButton) {
-        //guard let review = UserDefaults.standard.value(forKey: "needReview") else { return }
         if UserDefaults.standard.value(forKey: "needReview") != nil {
             needReview = UserDefaults.standard.value(forKey: "needReview") as! Bool
         }
@@ -138,12 +132,8 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
             }
             if needReview == false{
                 uploadToFirebase()
-                needReview = false
-                self.titleTextField.text = ""
-                self.authorTextField.text = ""
-                self.startDataTextField.text = ""
-                self.endDateTextField.text = ""
-                self.galleryTextField.text = ""
+                clearData()
+                UserDefaults.standard.setValue(true, forKey: "needReview")
             }
         }
     }
@@ -208,7 +198,7 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
         db.collection("gallery").document(exhibitionGallery.lowercased()).setData([exhibitionTitle: exhibitionStartDate + "-" + exhibitionEndDate], merge: true)
         let ref = datebase.child("exhibitions").child(exhibitionTitle as String)
         let values = ["exhibitionTitle": exhibitionTitle,
-                      "exhibitionAuthor": exhibitionAuthor as String,
+                      "exhibitionAuthor": exhibitionAuthor,
                       "exhibitionStartDate": exhibitionStartDate,
                       "exhibitionEndDate": exhibitionEndDate,
                       "exhibitionGallery": exhibitionGallery,
@@ -236,8 +226,12 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
         self.present(vc, animated: true, completion: nil)
     }
     
-    func changeValue(value: Bool) {
-        needReview = value
+    func clearData() {
+        titleTextField.text = ""
+        authorTextField.text = ""
+        startDataTextField.text = ""
+        endDateTextField.text = ""
+        galleryTextField.text = ""
     }
     
 }

@@ -23,12 +23,9 @@ class AdminReviewPageViewController: UIViewController {
     var e_endDate: String = ""
     var e_gallery: String = ""
     
-    var delegate: ModalDelegate?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
-        
     }
     
     @IBAction func backWasTapped(_ sender: UIButton) {
