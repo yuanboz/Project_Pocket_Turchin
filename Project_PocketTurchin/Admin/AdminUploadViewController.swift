@@ -10,7 +10,12 @@ import FirebaseStorage
 import Firebase
 import FirebaseDatabase
 
-class AdminUploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDataSource,UIPickerViewDelegate {
+
+protocol ModalDelegate {
+    func changeValue(value: Bool)
+}
+
+class AdminUploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDataSource,UIPickerViewDelegate,ModalDelegate {
 
     @IBOutlet var uploadButton: UIButton!
     @IBOutlet var submitButton: UIButton!
@@ -38,7 +43,7 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     var exhibitionStartDate: String = ""
     var exhibitionEndDate: String = ""
     var exhibitionGallery: String = ""
-    var count = 0
+    var needReview: Bool = true
     
     private let storage = Storage.storage().reference()
     
@@ -51,6 +56,7 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
         setUpElements()
         setupDatePicker()
     }
+    
     
     func setupDatePicker() {
         datePicker_start = UIDatePicker()
@@ -86,7 +92,6 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
         view.endEditing(true)
     }
     
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -117,13 +122,23 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func submitButtonTapped(_ sender: UIButton) {
+        //guard let review = UserDefaults.standard.value(forKey: "needReview") else { return }
+        if UserDefaults.standard.value(forKey: "needReview") != nil {
+            needReview = UserDefaults.standard.value(forKey: "needReview") as! Bool
+        }
         if textFieldValidate() {
-            if count == 0 {
-                count += 1
-                normalAlert(title: "Review Page", message: "Please review the information", actionTitle: "OK")
-            } else {
+            if needReview == true {
+                guard let vc = storyboard?.instantiateViewController(identifier: "reviewpage") as? AdminReviewPageViewController else { return }
+                vc.e_title = exhibitionTitle
+                vc.e_author = exhibitionAuthor
+                vc.e_startDate = exhibitionStartDate
+                vc.e_endDate = exhibitionEndDate
+                vc.e_gallery = exhibitionGallery
+                self.present(vc, animated: true, completion: nil)
+            }
+            if needReview == false{
                 uploadToFirebase()
-                count = 0
+                needReview = false
                 self.titleTextField.text = ""
                 self.authorTextField.text = ""
                 self.startDataTextField.text = ""
@@ -219,6 +234,10 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
         guard let vc = storyboard?.instantiateViewController(identifier: "addMoreInfo") as? AdminAddInfoViewController else { return }
         vc.newEventTitle = exhibitionTitle
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    func changeValue(value: Bool) {
+        needReview = value
     }
     
 }
