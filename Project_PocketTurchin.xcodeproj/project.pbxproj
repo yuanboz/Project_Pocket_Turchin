@@ -40,6 +40,7 @@
 		BAE81C3825A63DDA005C43A3 /* bgVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BAE81C3725A63DDA005C43A3 /* bgVideo.mp4 */; };
 		BAE81C4D25A6585B005C43A3 /* ExhibitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C4C25A6585B005C43A3 /* ExhibitionViewController.swift */; };
 		BAE81C5025A65869005C43A3 /* ExhibitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C4F25A65869005C43A3 /* ExhibitionTableViewCell.swift */; };
+		BAEDDE3025F199A7009CB2AB /* AdminReviewPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDE2F25F199A7009CB2AB /* AdminReviewPageViewController.swift */; };
 		BF287C437987D8FC5140834F /* Pods_Project_PocketTurchin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		BAE81C3725A63DDA005C43A3 /* bgVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bgVideo.mp4; sourceTree = "<group>"; };
 		BAE81C4C25A6585B005C43A3 /* ExhibitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionViewController.swift; sourceTree = "<group>"; };
 		BAE81C4F25A65869005C43A3 /* ExhibitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionTableViewCell.swift; sourceTree = "<group>"; };
+		BAEDDE2F25F199A7009CB2AB /* AdminReviewPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReviewPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 				BA9DBD3125DD9CF0009D0557 /* AdminEditTableViewCell.swift */,
 				BA9DBD3525DD9F29009D0557 /* AdminButtonViewController.swift */,
 				BA9DBD3825DDA5C3009D0557 /* AdminAddInfoViewController.swift */,
+				BAEDDE2F25F199A7009CB2AB /* AdminReviewPageViewController.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAABE45F25D077E200D83DA3 /* ContentViewCollectionViewCell.swift in Sources */,
+				BAEDDE3025F199A7009CB2AB /* AdminReviewPageViewController.swift in Sources */,
 				BA9DBD3225DD9CF0009D0557 /* AdminEditTableViewCell.swift in Sources */,
 				BAB1134025A8FE7000D66CBD /* Exhibition.swift in Sources */,
 				BA3EACA425C23C0600C0304F /* GalleryExhibitionTableViewCell.swift in Sources */,

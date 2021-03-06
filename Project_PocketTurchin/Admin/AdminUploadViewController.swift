@@ -23,7 +23,9 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet var coverImageView: UIImageView!
     @IBOutlet var moreInfoButton: UIButton!
     @IBOutlet var moreImageButton: UIButton!
-    var pickerView = UIPickerView()
+    private var pickerView = UIPickerView()
+    private var datePicker_start: UIDatePicker?
+    private var datePicker_end: UIDatePicker?
     
     private let datebase = Database.database().reference()
     private let db = Firestore.firestore()
@@ -36,6 +38,7 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     var exhibitionStartDate: String = ""
     var exhibitionEndDate: String = ""
     var exhibitionGallery: String = ""
+    var needReview: Bool = true
     
     private let storage = Storage.storage().reference()
     
@@ -46,6 +49,42 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
         pickerView.delegate = self
         pickerView.dataSource = self
         setUpElements()
+        setupDatePicker()
+    }
+    
+    
+    func setupDatePicker() {
+        datePicker_start = UIDatePicker()
+        datePicker_start?.preferredDatePickerStyle = .wheels
+        datePicker_start?.datePickerMode = .date
+        
+        datePicker_end = UIDatePicker()
+        datePicker_end?.preferredDatePickerStyle = .wheels
+        datePicker_end?.datePickerMode = .date
+        
+        datePicker_start?.addTarget(self, action: #selector(startDateChanged(datePicker:)), for: .valueChanged)
+        datePicker_end?.addTarget(self, action: #selector(endDateChanged(datePicker:)), for: .valueChanged)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
+        startDataTextField.inputView = datePicker_start
+        endDateTextField.inputView = datePicker_end
+    }
+    
+    @objc func startDateChanged(datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        startDataTextField.text = dateFormatter.string(from: datePicker.date)
+    }
+    
+    @objc func endDateChanged(datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        endDateTextField.text = dateFormatter.string(from: datePicker.date)
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -78,8 +117,24 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func submitButtonTapped(_ sender: UIButton) {
+        if UserDefaults.standard.value(forKey: "needReview") != nil {
+            needReview = UserDefaults.standard.value(forKey: "needReview") as! Bool
+        }
         if textFieldValidate() {
-            uploadToFirebase()
+            if needReview == true {
+                guard let vc = storyboard?.instantiateViewController(identifier: "reviewpage") as? AdminReviewPageViewController else { return }
+                vc.e_title = exhibitionTitle
+                vc.e_author = exhibitionAuthor
+                vc.e_startDate = exhibitionStartDate
+                vc.e_endDate = exhibitionEndDate
+                vc.e_gallery = exhibitionGallery
+                self.present(vc, animated: true, completion: nil)
+            }
+            if needReview == false{
+                uploadToFirebase()
+                clearData()
+                UserDefaults.standard.setValue(true, forKey: "needReview")
+            }
         }
     }
     
@@ -143,7 +198,7 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
         db.collection("gallery").document(exhibitionGallery.lowercased()).setData([exhibitionTitle: exhibitionStartDate + "-" + exhibitionEndDate], merge: true)
         let ref = datebase.child("exhibitions").child(exhibitionTitle as String)
         let values = ["exhibitionTitle": exhibitionTitle,
-                      "exhibitionAuthor": exhibitionAuthor as String,
+                      "exhibitionAuthor": exhibitionAuthor,
                       "exhibitionStartDate": exhibitionStartDate,
                       "exhibitionEndDate": exhibitionEndDate,
                       "exhibitionGallery": exhibitionGallery,
@@ -155,11 +210,6 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
             }
         }
         normalAlert(title: "Upload Successfully", message: "Exhibition \(exhibitionTitle) has been uploaded.", actionTitle: "OK")
-        self.titleTextField.text = ""
-        self.authorTextField.text = ""
-        self.startDataTextField.text = ""
-        self.endDateTextField.text = ""
-        self.galleryTextField.text = ""
     }
     
     func normalAlert(title: String, message: String, actionTitle: String) {
@@ -172,8 +222,16 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func addInfoButtonWasTapped(_ sender: UIButton) {
         guard let vc = storyboard?.instantiateViewController(identifier: "addMoreInfo") as? AdminAddInfoViewController else { return }
-        vc.newEventTitle = titleTextField.text!
+        vc.newEventTitle = exhibitionTitle
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    func clearData() {
+        titleTextField.text = ""
+        authorTextField.text = ""
+        startDataTextField.text = ""
+        endDateTextField.text = ""
+        galleryTextField.text = ""
     }
     
 }
