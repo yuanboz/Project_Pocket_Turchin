@@ -15,6 +15,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet var adminCodeTextFIeld: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet var signUpView: UIView!
@@ -34,6 +35,7 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(lastNameTextField)
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
+        Utilities.styleTextField(adminCodeTextFIeld)
         Utilities.styleFilledButton(signUpButton)
     }
     
@@ -79,7 +81,7 @@ class SignUpViewController: UIViewController {
             let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
+            let role = checkAdmin(adminCodeTextFIeld.text!)
             // Create the user
             Auth.auth().createUser(withEmail: email, password: password) { (res, err) in
                 
@@ -88,7 +90,7 @@ class SignUpViewController: UIViewController {
                     self.showError("Error creating user")
                 } else {
                     let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: ["firstName": firstName, "lastName": lastName, "uid": res!.user.uid]) { (error) in
+                    db.collection("users").addDocument(data: ["firstName": firstName, "lastName": lastName, "uid": res!.user.uid, "role": role]) { (error) in
                         if error != nil {
                             self.showError("Error saving user data")
                         }
@@ -106,6 +108,15 @@ class SignUpViewController: UIViewController {
     func showError(_ message:String) {
         errorLabel.text = message
         errorLabel.alpha = 1
+    }
+    
+    func checkAdmin(_ role:String) -> String {
+        if (role == "turchincAdmin" ){
+            return "admin"
+        } else {
+            return "member"
+        }
+        
     }
 
 }

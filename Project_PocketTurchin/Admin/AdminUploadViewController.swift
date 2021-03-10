@@ -131,6 +131,7 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
                 self.present(vc, animated: true, completion: nil)
             }
             if needReview == false{
+                UserDefaults.standard.setValue(true, forKey: "needReview")
                 uploadToFirebase()
                 clearData()
                 UserDefaults.standard.setValue(true, forKey: "needReview")

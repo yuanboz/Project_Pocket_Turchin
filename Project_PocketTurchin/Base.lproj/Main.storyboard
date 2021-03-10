@@ -143,7 +143,6 @@
         <!--Admin Review Page View Controller-->
         <scene sceneID="ptr-0H-QrZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fvb-5t-n0g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="reviewpage" id="IAH-Ei-GJg" customClass="AdminReviewPageViewController" customModule="Project_PocketTurchin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Di7-25-XLS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -249,6 +248,7 @@
                         <outlet property="titleLabel" destination="b3R-68-h9g" id="jaq-F6-kAc"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fvb-5t-n0g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-890" y="1615"/>
         </scene>
@@ -1267,7 +1267,7 @@ shoes, walker or wheelchair – through the suspended cocoons and grounded totem
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zcG-JE-aan">
-                                <rect key="frame" x="30" y="84" width="354" height="370.5"/>
+                                <rect key="frame" x="30" y="84" width="354" height="440.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="44d-ec-Xj4">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -1289,8 +1289,16 @@ shoes, walker or wheelchair – through the suspended cocoons and grounded totem
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lb-3a-tb0">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Administrator code(option)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kKU-3b-gIJ">
                                         <rect key="frame" x="0.0" y="280" width="354" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="qJI-di-H4j"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lb-3a-tb0">
+                                        <rect key="frame" x="0.0" y="350" width="354" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Gfa-Gz-lpT"/>
                                         </constraints>
@@ -1300,7 +1308,7 @@ shoes, walker or wheelchair – through the suspended cocoons and grounded totem
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hog-G1-z6w">
-                                        <rect key="frame" x="0.0" y="350" width="354" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="420" width="354" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
@@ -1325,6 +1333,7 @@ shoes, walker or wheelchair – through the suspended cocoons and grounded totem
                     </view>
                     <navigationItem key="navigationItem" id="FFc-JC-Fsg"/>
                     <connections>
+                        <outlet property="adminCodeTextFIeld" destination="kKU-3b-gIJ" id="NtG-vW-yRz"/>
                         <outlet property="emailTextField" destination="gpP-rL-83f" id="PS6-mM-eYJ"/>
                         <outlet property="errorLabel" destination="Hog-G1-z6w" id="P3p-3u-ddv"/>
                         <outlet property="firstNameTextField" destination="44d-ec-Xj4" id="BkT-fD-N4U"/>

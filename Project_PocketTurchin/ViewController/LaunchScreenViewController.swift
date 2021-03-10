@@ -46,9 +46,10 @@ class LaunchScreenViewController: UIViewController {
                 self.imageView.alpha = 0
             }, completion: { done in
                 if done {
+                    UserDefaults.standard.set("guest",forKey: "username")
                     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                    let loginVC = storyBoard.instantiateViewController(identifier: "loginVC")
-                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginVC, options: .transitionCrossDissolve)
+                    let homeVC = storyBoard.instantiateViewController(identifier: "homeVC")
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(homeVC, options: .transitionCrossDissolve)
                 }
             })
         })
