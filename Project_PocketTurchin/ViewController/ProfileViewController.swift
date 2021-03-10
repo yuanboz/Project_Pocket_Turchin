@@ -38,9 +38,11 @@ class ProfileViewController: UIViewController {
             adminButton.alpha = 1
             adminButton.isUserInteractionEnabled = true
             self.navigationItem.rightBarButtonItem = adminBarItem
+            signOutButton.setTitle("Sign out", for: .normal)
             
         case 2:
-            userNameLabel.text = "Guest"
+            userNameLabel.text = "guest"
+            signOutButton.setTitle("Login", for: .normal)
             self.navigationItem.rightBarButtonItem = adminBarItem
         default:
             userNameLabel.text = UserDefaults.standard.value(forKey: "username") as? String
@@ -96,4 +98,5 @@ class ProfileViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
+    
 }
