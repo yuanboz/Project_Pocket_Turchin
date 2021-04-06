@@ -878,6 +878,7 @@ shoes, walker or wheelchair – through the suspended cocoons and grounded totem
                         <outlet property="exhibitionDateLabel" destination="DXx-Iw-VDp" id="sFf-nx-CZY"/>
                         <outlet property="exhibitionDescriptionTextView" destination="2UR-VV-NJD" id="6tk-TI-uoy"/>
                         <outlet property="exhibitionTitleLabel" destination="q54-ez-gLH" id="Z0k-kB-W32"/>
+                        <outlet property="likeLabel" destination="5ja-sx-I6h" id="fCY-qZ-AI5"/>
                         <outlet property="likedButton" destination="yhV-kN-Mqe" id="n31-3z-nWu"/>
                         <outlet property="slideCollectionView" destination="rY7-lc-arU" id="lOe-X5-ydS"/>
                     </connections>

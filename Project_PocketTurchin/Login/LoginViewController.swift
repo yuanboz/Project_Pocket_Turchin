@@ -72,13 +72,6 @@ class LoginViewController: UIViewController {
                     // Save username and user type to UserDefaults
                     let defaults = UserDefaults.standard
                     let uid = res!.user.uid
-//                    if uid == "o5V6LyYCVacCRJXUK4ExLMKjGTQ2" {
-//                        // 0 means login as admin
-//                        defaults.set(0, forKey: "users")
-//                    } else {
-//                        // 1 means login as users
-//                        defaults.set(1, forKey: "users")
-//                    }
                     let db = Firestore.firestore()
                     db.collection("users").whereField("uid",isEqualTo: uid).getDocuments { (querySnapshot, err) in
                         if let err = err {
