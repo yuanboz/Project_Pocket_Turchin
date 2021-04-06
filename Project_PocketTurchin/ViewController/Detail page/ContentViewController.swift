@@ -7,7 +7,7 @@
 
 import UIKit
 import FirebaseDatabase
-import FirebaseStorage
+import Firebase
 
 class ContentViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
@@ -21,16 +21,19 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
     @IBOutlet var likeLabel: UILabel!
     
     private let database = Database.database().reference()
+    private let db = Firestore.firestore()
     
     var exhibitionTitle: String?
     var exhibitionDate: String?
     var exhibitionAuthor: String?
     var exhibitionDescription: String?
     var exhibitionAboutAuthor: String?
+    var username: String?
     var exhibitionLiked: Int = 0
     
     var liked: Bool = false
     var likedStatus: Bool = false
+    var likedExhibition = [String]()
     
     let cellScale: CGFloat = 0.6
 
@@ -40,6 +43,7 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
         slideCollectionView.dataSource = self
         setUpInfo()
         fetchData()
+        
 
         let screenSize = UIScreen.main.bounds.size
         let cellWidth = floor(screenSize.width * cellScale)
@@ -51,14 +55,12 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
         layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
         slideCollectionView.contentInset = UIEdgeInsets(top: insertY, left: insertX, bottom: insertY, right: insertX)
         
-        let username = UserDefaults.standard.value(forKey: "username") as! String
-        print(username)
-        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         checkLikeStatus()
     }
+
     
     func setUpInfo() {
         exhibitionTitle = UserDefaults.standard.value(forKey: "exhibitionTitle") as? String
@@ -119,15 +121,35 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
             self.aboutAuthorTextView.text = self.exhibitionAboutAuthor
             self.likeLabel.text = "\(self.exhibitionLiked)"
         }
+        
+        guard let uid = UserDefaults.standard.value(forKey: "uid") as? String else { return }
+        db.collection("users").whereField("uid", isEqualTo: uid).getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for doc in querySnapshot!.documents {
+                    let data = doc.data()
+                    let likedExhibition = data["liked"] as! [String]
+                    self.likedExhibition = likedExhibition
+                    print(self.likedExhibition)
+                }
+            }
+        }
+        
+    
+        username = UserDefaults.standard.value(forKey: "username") as? String
     }
     
     func updateLiked(like: Bool) {
         let ref = database.child("exhibitions").child(self.exhibitionTitle!)
+        let uid = UserDefaults.standard.value(forKey: "uid") as! String
         if like != true {
             liked = true
             likedButton.setImage(UIImage(named: "filledheart"), for: .normal)
             self.exhibitionLiked += 1
             self.likeLabel.text = String(self.exhibitionLiked)
+            
+            self.likedExhibition.append(self.exhibitionTitle!)
             
             likedStatus = true
         } else {
@@ -140,20 +162,38 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
             }
             self.likeLabel.text = String(self.exhibitionLiked)
             
+            self.likedExhibition = self.likedExhibition.filter{$0 != self.exhibitionTitle!}
+            
             likedStatus = false
         }
         ref.updateChildValues(["liked":String(self.exhibitionLiked)])
+        db.collection("users").document(uid).setData(["liked": self.likedExhibition],merge: true)
         UserDefaults.standard.setValue(likedStatus, forKey: "likeStatus" + self.exhibitionTitle!)
     }
     
     func checkLikeStatus() {
-        if let status = UserDefaults.standard.value(forKey: "likeStatus" + self.exhibitionTitle!) {
-            if status as! Bool == false {
-                liked = false
-                likedButton.setImage(UIImage(named: "hollowheart"), for: .normal)
-            } else {
+      
+        if username != "guest" {
+            print("not guest")
+            //print(self.likedExhibition)
+            if self.likedExhibition.contains(self.exhibitionTitle!) {
+                print("contains")
                 liked = true
                 likedButton.setImage(UIImage(named: "filledheart"), for: .normal)
+            } else {
+                print("not contains")
+                liked = false
+                likedButton.setImage(UIImage(named: "hollowheart"), for: .normal)
+            }
+        } else {
+            if let status = UserDefaults.standard.value(forKey: "likeStatus" + self.exhibitionTitle!) {
+                if status as! Bool == false {
+                    liked = false
+                    likedButton.setImage(UIImage(named: "hollowheart"), for: .normal)
+                } else {
+                    liked = true
+                    likedButton.setImage(UIImage(named: "filledheart"), for: .normal)
+                }
             }
         }
     }

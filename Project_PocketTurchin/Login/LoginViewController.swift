@@ -72,6 +72,7 @@ class LoginViewController: UIViewController {
                     // Save username and user type to UserDefaults
                     let defaults = UserDefaults.standard
                     let uid = res!.user.uid
+                    defaults.set(uid,forKey: "uid")
                     let db = Firestore.firestore()
                     db.collection("users").whereField("uid",isEqualTo: uid).getDocuments { (querySnapshot, err) in
                         if let err = err {

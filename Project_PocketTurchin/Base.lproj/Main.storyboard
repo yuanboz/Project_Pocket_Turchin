@@ -732,6 +732,7 @@
                                     <constraint firstItem="5ja-sx-I6h" firstAttribute="leading" secondItem="yhV-kN-Mqe" secondAttribute="trailing" constant="10" id="K5w-L9-dsn"/>
                                     <constraint firstItem="yhV-kN-Mqe" firstAttribute="centerY" secondItem="SVc-3l-udx" secondAttribute="centerY" id="XGd-Yz-ojY"/>
                                     <constraint firstItem="yhV-kN-Mqe" firstAttribute="leading" secondItem="SVc-3l-udx" secondAttribute="leading" constant="20" id="k7C-yq-DBe"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5ja-sx-I6h" secondAttribute="trailing" constant="20" symbolic="YES" id="oQB-Tb-nnT"/>
                                     <constraint firstAttribute="height" constant="50" id="xop-Ir-3hv"/>
                                 </constraints>
                             </view>
