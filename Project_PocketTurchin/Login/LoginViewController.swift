@@ -82,7 +82,7 @@ class LoginViewController: UIViewController {
                                 let data = doc.data()
                                 let firstName = data["firstName"] as! String
                                 let lastName = data["lastName"] as! String
-                                let userName = firstName + lastName.dropLast(lastName.count - 1)
+                                let userName = firstName + lastName.dropLast(lastName.count - 1).uppercased()
                                 let role = data["role"] as! String
                                 if (role == "admin") {
                                     // 0 means login as admin

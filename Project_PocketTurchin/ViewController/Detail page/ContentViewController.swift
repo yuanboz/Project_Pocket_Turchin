@@ -19,6 +19,9 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
     @IBOutlet var exhibitionDescriptionTextView: UITextView!
     @IBOutlet var aboutAuthorTextView: UITextView!
     @IBOutlet var likeLabel: UILabel!
+    @IBOutlet var commentButton: UIButton!
+    @IBOutlet var commentTextField: UITextField!
+    @IBOutlet var sendButton: UIButton!
     
     private let database = Database.database().reference()
     private let db = Firestore.firestore()
@@ -28,8 +31,9 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
     var exhibitionAuthor: String?
     var exhibitionDescription: String?
     var exhibitionAboutAuthor: String?
-    var username: String?
+    var username: String = "guest"
     var exhibitionLiked: Int = 0
+    var commentArray = [String]()
     
     var liked: Bool = false
     var likedStatus: Bool = false
@@ -54,7 +58,7 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
         let layout = slideCollectionView!.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
         slideCollectionView.contentInset = UIEdgeInsets(top: insertY, left: insertX, bottom: insertY, right: insertX)
-        
+        print(username)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -69,6 +73,11 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
         exhibitionTitleLabel.text = exhibitionTitle
         exhibitionDateLabel.text = exhibitionDate
         exhibitionAuthorLabel.text = exhibitionAuthor
+        commentTextField.isHidden = true
+        commentTextField.isUserInteractionEnabled = false
+        Utilities.styleTextField(commentTextField)
+        sendButton.isHidden = true
+        sendButton.isUserInteractionEnabled = false
     }
     
     func likedButtonAnimation() {
@@ -78,6 +87,40 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
     @IBAction func likedButtonTapped(_ sender: UIButton) {
         likedButtonAnimation()
     }
+    
+    @IBAction func commentButtonTapped(_ sender: UIButton) {
+        if username == "guest" {
+            let alert = UIAlertController(title: "No permission", message: "Guest cannot leave a comment", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            commentTextField.isHidden = false
+            commentTextField.isUserInteractionEnabled = true
+            sendButton.isHidden = false
+            sendButton.isUserInteractionEnabled = true
+        }
+    }
+    
+    @IBAction func sendButtonTapped(_ sender: UIButton) {
+        if commentTextField.text == "" {
+            let alert = UIAlertController(title: "Add a comment...", message: "Please leave a comment before post", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            self.commentArray.append(commentTextField.text!)
+            db.collection("comments").document(exhibitionTitle!).setData([username: self.commentArray],merge: true)
+            
+            let alert = UIAlertController(title: "Post successfully", message: "You've posted 1 message successfully", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+        // Clear the comment field
+        commentTextField.text = ""
+    }
+    
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -135,14 +178,22 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
                 }
             }
         }
-        
     
-        username = UserDefaults.standard.value(forKey: "username") as? String
+        username = (UserDefaults.standard.value(forKey: "username") as! String)
+        let docRef = db.collection("comments").document(exhibitionTitle!)
+        
+        docRef.getDocument { (document, err) in
+            if let doc = document {
+                guard let data = doc.data() else { return }
+                guard let comment = data[self.username] else { return }
+                self.commentArray = comment as! [String]
+                print(self.commentArray)
+            }
+        }
     }
     
     func updateLiked(like: Bool) {
         let ref = database.child("exhibitions").child(self.exhibitionTitle!)
-        let uid = UserDefaults.standard.value(forKey: "uid") as! String
         if like != true {
             liked = true
             likedButton.setImage(UIImage(named: "filledheart"), for: .normal)
@@ -167,7 +218,10 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
             likedStatus = false
         }
         ref.updateChildValues(["liked":String(self.exhibitionLiked)])
-        db.collection("users").document(uid).setData(["liked": self.likedExhibition],merge: true)
+        if let uid = UserDefaults.standard.value(forKey: "uid") as? String {
+            db.collection("users").document(uid).setData(["liked": self.likedExhibition],merge: true)
+        }
+        
         UserDefaults.standard.setValue(likedStatus, forKey: "likeStatus" + self.exhibitionTitle!)
     }
     

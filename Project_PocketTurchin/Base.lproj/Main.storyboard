@@ -706,10 +706,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVc-3l-udx">
-                                <rect key="frame" x="0.0" y="208" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="208" width="414" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhV-kN-Mqe">
-                                        <rect key="frame" x="20" y="1" width="48" height="48"/>
+                                        <rect key="frame" x="5" y="16" width="48" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="BcG-OF-LMj"/>
                                             <constraint firstAttribute="width" constant="48" id="Mtc-Wh-coj"/>
@@ -720,24 +720,51 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ja-sx-I6h">
-                                        <rect key="frame" x="78" y="14.5" width="10.5" height="21"/>
+                                        <rect key="frame" x="58" y="29.5" width="10.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vG9-Um-ati">
+                                        <rect key="frame" x="88.5" y="22" width="36" height="36"/>
+                                        <state key="normal" image="comment"/>
+                                        <connections>
+                                            <action selector="commentButtonTapped:" destination="VSt-pj-BXV" eventType="touchUpInside" id="HLc-EI-2HH"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TDJ-dy-1bd">
+                                        <rect key="frame" x="139.5" y="23" width="200" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="NE4-TB-o9A"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qda-fb-Kzq">
+                                        <rect key="frame" x="344.5" y="22" width="36" height="36"/>
+                                        <state key="normal" image="send"/>
+                                        <connections>
+                                            <action selector="sendButtonTapped:" destination="VSt-pj-BXV" eventType="touchUpInside" id="Zng-d7-2LF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1669377447" green="0.17213191959999999" blue="0.1809131353" alpha="0.64524210790000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="qda-fb-Kzq" firstAttribute="leading" secondItem="TDJ-dy-1bd" secondAttribute="trailing" constant="5" id="3Tn-97-ul3"/>
+                                    <constraint firstItem="TDJ-dy-1bd" firstAttribute="centerY" secondItem="SVc-3l-udx" secondAttribute="centerY" id="6fF-Ge-exk"/>
                                     <constraint firstItem="5ja-sx-I6h" firstAttribute="centerY" secondItem="SVc-3l-udx" secondAttribute="centerY" id="7Ja-rJ-N2D"/>
-                                    <constraint firstItem="5ja-sx-I6h" firstAttribute="leading" secondItem="yhV-kN-Mqe" secondAttribute="trailing" constant="10" id="K5w-L9-dsn"/>
+                                    <constraint firstItem="5ja-sx-I6h" firstAttribute="leading" secondItem="yhV-kN-Mqe" secondAttribute="trailing" constant="5" id="K5w-L9-dsn"/>
+                                    <constraint firstItem="vG9-Um-ati" firstAttribute="centerY" secondItem="SVc-3l-udx" secondAttribute="centerY" id="PxI-z1-QLF"/>
+                                    <constraint firstItem="TDJ-dy-1bd" firstAttribute="leading" secondItem="vG9-Um-ati" secondAttribute="trailing" constant="15" id="Si5-xf-Gm8"/>
                                     <constraint firstItem="yhV-kN-Mqe" firstAttribute="centerY" secondItem="SVc-3l-udx" secondAttribute="centerY" id="XGd-Yz-ojY"/>
-                                    <constraint firstItem="yhV-kN-Mqe" firstAttribute="leading" secondItem="SVc-3l-udx" secondAttribute="leading" constant="20" id="k7C-yq-DBe"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5ja-sx-I6h" secondAttribute="trailing" constant="20" symbolic="YES" id="oQB-Tb-nnT"/>
-                                    <constraint firstAttribute="height" constant="50" id="xop-Ir-3hv"/>
+                                    <constraint firstItem="qda-fb-Kzq" firstAttribute="centerY" secondItem="SVc-3l-udx" secondAttribute="centerY" id="Y4Q-kl-EiR"/>
+                                    <constraint firstItem="yhV-kN-Mqe" firstAttribute="leading" secondItem="SVc-3l-udx" secondAttribute="leading" constant="5" id="k7C-yq-DBe"/>
+                                    <constraint firstItem="vG9-Um-ati" firstAttribute="leading" secondItem="5ja-sx-I6h" secondAttribute="trailing" constant="20" id="uKP-CG-czp"/>
+                                    <constraint firstAttribute="height" constant="80" id="xop-Ir-3hv"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Se4-Xe-Psf">
-                                <rect key="frame" x="0.0" y="266" width="414" height="1234"/>
+                                <rect key="frame" x="0.0" y="296" width="414" height="1204"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1O-Ck-jO9">
                                         <rect key="frame" x="0.0" y="8" width="414" height="1216"/>
@@ -875,12 +902,15 @@ shoes, walker or wheelchair – through the suspended cocoons and grounded totem
                     <size key="freeformSize" width="414" height="1500"/>
                     <connections>
                         <outlet property="aboutAuthorTextView" destination="3cP-jO-ubp" id="VrS-Lh-tHa"/>
+                        <outlet property="commentButton" destination="vG9-Um-ati" id="Lnb-zM-by3"/>
+                        <outlet property="commentTextField" destination="TDJ-dy-1bd" id="T0D-Ho-yjI"/>
                         <outlet property="exhibitionAuthorLabel" destination="IrX-Bj-Cnu" id="VdA-Ua-wDc"/>
                         <outlet property="exhibitionDateLabel" destination="DXx-Iw-VDp" id="sFf-nx-CZY"/>
                         <outlet property="exhibitionDescriptionTextView" destination="2UR-VV-NJD" id="6tk-TI-uoy"/>
                         <outlet property="exhibitionTitleLabel" destination="q54-ez-gLH" id="Z0k-kB-W32"/>
                         <outlet property="likeLabel" destination="5ja-sx-I6h" id="fCY-qZ-AI5"/>
                         <outlet property="likedButton" destination="yhV-kN-Mqe" id="n31-3z-nWu"/>
+                        <outlet property="sendButton" destination="qda-fb-Kzq" id="52Y-l9-mKl"/>
                         <outlet property="slideCollectionView" destination="rY7-lc-arU" id="lOe-X5-ydS"/>
                     </connections>
                 </viewController>
@@ -1619,6 +1649,7 @@ shoes, walker or wheelchair – through the suspended cocoons and grounded totem
     </scenes>
     <resources>
         <image name="Art" width="2560" height="1707"/>
+        <image name="comment" width="36" height="36"/>
         <image name="filledexhibition" width="36" height="36"/>
         <image name="filledgallery" width="36" height="36"/>
         <image name="filledhome" width="36" height="36"/>
@@ -1632,6 +1663,7 @@ shoes, walker or wheelchair – through the suspended cocoons and grounded totem
         <image name="hollowuser" width="36" height="36"/>
         <image name="loading" width="407" height="300"/>
         <image name="profileima" width="96" height="96"/>
+        <image name="send" width="36" height="36"/>
         <image name="visit" width="1280" height="854"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
