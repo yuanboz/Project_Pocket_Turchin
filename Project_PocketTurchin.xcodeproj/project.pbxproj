@@ -15,6 +15,8 @@
 		BA53C3BF25ACE5E20051FC7C /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53C3BE25ACE5E20051FC7C /* ContentViewController.swift */; };
 		BA53C3DA25ACFAEC0051FC7C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53C3D925ACFAEC0051FC7C /* ImageService.swift */; };
 		BA69096425BDEEE3009AC917 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA69096325BDEEE3009AC917 /* GalleryViewController.swift */; };
+		BA8F1769261FD5AB000F9506 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F1768261FD5AB000F9506 /* CommentViewController.swift */; };
+		BA8F176C261FD7F6000F9506 /* CommentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F176B261FD7F6000F9506 /* CommentDetailVC.swift */; };
 		BA9DB80525BB661F003702F6 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DB80425BB661F003702F6 /* HomePageViewController.swift */; };
 		BA9DB80825BB804C003702F6 /* HomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DB80725BB804C003702F6 /* HomePageCollectionViewCell.swift */; };
 		BA9DBD2F25DD94A9009D0557 /* AdminEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DBD2E25DD94A9009D0557 /* AdminEditViewController.swift */; };
@@ -55,6 +57,8 @@
 		BA53C3BE25ACE5E20051FC7C /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		BA53C3D925ACFAEC0051FC7C /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		BA69096325BDEEE3009AC917 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		BA8F1768261FD5AB000F9506 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		BA8F176B261FD7F6000F9506 /* CommentDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDetailVC.swift; sourceTree = "<group>"; };
 		BA9DB80425BB661F003702F6 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		BA9DB80725BB804C003702F6 /* HomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionViewCell.swift; sourceTree = "<group>"; };
 		BA9DBD2E25DD94A9009D0557 /* AdminEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEditViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +118,15 @@
 				BAABE45E25D077E200D83DA3 /* ContentViewCollectionViewCell.swift */,
 			);
 			path = "Detail page";
+			sourceTree = "<group>";
+		};
+		BA8F1766261FD55C000F9506 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				BA8F1768261FD5AB000F9506 /* CommentViewController.swift */,
+				BA8F176B261FD7F6000F9506 /* CommentDetailVC.swift */,
+			);
+			path = Comment;
 			sourceTree = "<group>";
 		};
 		BA9DB7FC25BB6140003702F6 /* Exhibition */ = {
@@ -198,6 +211,7 @@
 				BA9DB7FC25BB6140003702F6 /* Exhibition */,
 				BAE81C3125A5508B005C43A3 /* Gallery */,
 				BA9DB7FD25BB647D003702F6 /* Home */,
+				BA8F1766261FD55C000F9506 /* Comment */,
 				BA69096225BDEE41009AC917 /* Detail page */,
 				BAE81C3325A611D4005C43A3 /* ProfileViewController.swift */,
 			);
@@ -381,6 +395,7 @@
 				BAE81C0925A4F103005C43A3 /* LogViewController.swift in Sources */,
 				BA9DBD3925DDA5C3009D0557 /* AdminAddInfoViewController.swift in Sources */,
 				BA9DB80525BB661F003702F6 /* HomePageViewController.swift in Sources */,
+				BA8F176C261FD7F6000F9506 /* CommentDetailVC.swift in Sources */,
 				BA9DBD2F25DD94A9009D0557 /* AdminEditViewController.swift in Sources */,
 				BA9DBD3625DD9F29009D0557 /* AdminButtonViewController.swift in Sources */,
 				BAE81BC925A4C79B005C43A3 /* AppDelegate.swift in Sources */,
@@ -395,6 +410,7 @@
 				BA9DB80825BB804C003702F6 /* HomePageCollectionViewCell.swift in Sources */,
 				BAE2598625C8C47A00BEB020 /* dateHelper.swift in Sources */,
 				BA53C3BF25ACE5E20051FC7C /* ContentViewController.swift in Sources */,
+				BA8F1769261FD5AB000F9506 /* CommentViewController.swift in Sources */,
 				BAE81C1525A4FDA4005C43A3 /* SignUpViewController.swift in Sources */,
 				BA3EACA125C22E1F00C0304F /* GalleryExhibitionVC.swift in Sources */,
 				BAE81C3425A611D4005C43A3 /* ProfileViewController.swift in Sources */,

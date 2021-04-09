@@ -172,7 +172,7 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
             } else {
                 for doc in querySnapshot!.documents {
                     let data = doc.data()
-                    let likedExhibition = data["liked"] as! [String]
+                    guard let likedExhibition = data["liked"] as? [String] else { return }
                     self.likedExhibition = likedExhibition
                     print(self.likedExhibition)
                 }
@@ -187,7 +187,7 @@ class ContentViewController: UIViewController,UICollectionViewDelegate,UICollect
                 guard let data = doc.data() else { return }
                 guard let comment = data[self.username] else { return }
                 self.commentArray = comment as! [String]
-                print(self.commentArray)
+                //print(self.commentArray)
             }
         }
     }
