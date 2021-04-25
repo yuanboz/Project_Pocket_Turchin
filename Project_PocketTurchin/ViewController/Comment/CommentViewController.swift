@@ -44,6 +44,10 @@ class CommentViewController: UIViewController,UITableViewDataSource,UITableViewD
         }
         let exhibition = self.gallery[indexPath.row]
         cell?.textLabel?.text = exhibition.capitalized
+        
+        DispatchQueue.main.async {
+            self.commentTableView.reloadData()
+        }
         return cell!
     }
     

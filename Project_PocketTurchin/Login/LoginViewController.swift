@@ -21,6 +21,12 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setUpElements()
         setUpGesture()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func setUpElements() {

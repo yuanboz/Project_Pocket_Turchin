@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280FD22DEDE1F12B7D886FFC /* Pods_Project_PocketTurchin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817D024185A8310C6B1EE3FE /* Pods_Project_PocketTurchin.framework */; };
 		BA38B83B25BF580B00E6533F /* ExhibitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA38B83A25BF580B00E6533F /* ExhibitionsViewController.swift */; };
 		BA3EACA125C22E1F00C0304F /* GalleryExhibitionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3EACA025C22E1F00C0304F /* GalleryExhibitionVC.swift */; };
 		BA3EACA425C23C0600C0304F /* GalleryExhibitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3EACA325C23C0600C0304F /* GalleryExhibitionTableViewCell.swift */; };
@@ -43,12 +44,12 @@
 		BAE81C4D25A6585B005C43A3 /* ExhibitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C4C25A6585B005C43A3 /* ExhibitionViewController.swift */; };
 		BAE81C5025A65869005C43A3 /* ExhibitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C4F25A65869005C43A3 /* ExhibitionTableViewCell.swift */; };
 		BAEDDE3025F199A7009CB2AB /* AdminReviewPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDE2F25F199A7009CB2AB /* AdminReviewPageViewController.swift */; };
-		BF287C437987D8FC5140834F /* Pods_Project_PocketTurchin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		29B64F887204433D9D4240F8 /* Pods-Project_PocketTurchin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_PocketTurchin.debug.xcconfig"; path = "Target Support Files/Pods-Project_PocketTurchin/Pods-Project_PocketTurchin.debug.xcconfig"; sourceTree = "<group>"; };
-		964BE37BD557CE476DC56881 /* Pods-Project_PocketTurchin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_PocketTurchin.release.xcconfig"; path = "Target Support Files/Pods-Project_PocketTurchin/Pods-Project_PocketTurchin.release.xcconfig"; sourceTree = "<group>"; };
+		5205C67C3E110349E633C7DB /* Pods-Project_PocketTurchin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_PocketTurchin.release.xcconfig"; path = "Target Support Files/Pods-Project_PocketTurchin/Pods-Project_PocketTurchin.release.xcconfig"; sourceTree = "<group>"; };
+		817D024185A8310C6B1EE3FE /* Pods_Project_PocketTurchin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_PocketTurchin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFB97360C2D0A0AFE0538AAA /* Pods-Project_PocketTurchin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_PocketTurchin.debug.xcconfig"; path = "Target Support Files/Pods-Project_PocketTurchin/Pods-Project_PocketTurchin.debug.xcconfig"; sourceTree = "<group>"; };
 		BA38B83A25BF580B00E6533F /* ExhibitionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionsViewController.swift; sourceTree = "<group>"; };
 		BA3EACA025C22E1F00C0304F /* GalleryExhibitionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryExhibitionVC.swift; sourceTree = "<group>"; };
 		BA3EACA325C23C0600C0304F /* GalleryExhibitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryExhibitionTableViewCell.swift; sourceTree = "<group>"; };
@@ -68,7 +69,6 @@
 		BAABE45E25D077E200D83DA3 /* ContentViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUploadViewController.swift; sourceTree = "<group>"; };
 		BAB1133F25A8FE7000D66CBD /* Exhibition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exhibition.swift; sourceTree = "<group>"; };
-		BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_PocketTurchin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE2598525C8C47A00BEB020 /* dateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateHelper.swift; sourceTree = "<group>"; };
 		BAE81BC525A4C79B005C43A3 /* Project_PocketTurchin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_PocketTurchin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE81BC825A4C79B005C43A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,17 +95,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF287C437987D8FC5140834F /* Pods_Project_PocketTurchin.framework in Frameworks */,
+				280FD22DEDE1F12B7D886FFC /* Pods_Project_PocketTurchin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B8949B6F790EF98C18882064 /* Frameworks */ = {
+		44FAE6C09CFFAC7714C6C608 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */,
+				817D024185A8310C6B1EE3FE /* Pods_Project_PocketTurchin.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -162,7 +162,7 @@
 				BAE81BC725A4C79B005C43A3 /* Project_PocketTurchin */,
 				BAE81BC625A4C79B005C43A3 /* Products */,
 				FC4D4077D7381E8D0901173E /* Pods */,
-				B8949B6F790EF98C18882064 /* Frameworks */,
+				44FAE6C09CFFAC7714C6C608 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -263,8 +263,8 @@
 		FC4D4077D7381E8D0901173E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				29B64F887204433D9D4240F8 /* Pods-Project_PocketTurchin.debug.xcconfig */,
-				964BE37BD557CE476DC56881 /* Pods-Project_PocketTurchin.release.xcconfig */,
+				AFB97360C2D0A0AFE0538AAA /* Pods-Project_PocketTurchin.debug.xcconfig */,
+				5205C67C3E110349E633C7DB /* Pods-Project_PocketTurchin.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -276,11 +276,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAE81BD925A4C79C005C43A3 /* Build configuration list for PBXNativeTarget "Project_PocketTurchin" */;
 			buildPhases = (
-				464BE0F3935BD04CD08908B4 /* [CP] Check Pods Manifest.lock */,
+				1EE0A6FA014BF6F9FBCD35C4 /* [CP] Check Pods Manifest.lock */,
 				BAE81BC125A4C79B005C43A3 /* Sources */,
 				BAE81BC225A4C79B005C43A3 /* Frameworks */,
 				BAE81BC325A4C79B005C43A3 /* Resources */,
-				B115144A29A2C0409304F91B /* [CP] Embed Pods Frameworks */,
+				8724D7D8F23E5CB0109EF937 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -340,7 +340,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		464BE0F3935BD04CD08908B4 /* [CP] Check Pods Manifest.lock */ = {
+		1EE0A6FA014BF6F9FBCD35C4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -362,7 +362,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B115144A29A2C0409304F91B /* [CP] Embed Pods Frameworks */ = {
+		8724D7D8F23E5CB0109EF937 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -559,7 +559,7 @@
 		};
 		BAE81BDA25A4C79C005C43A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29B64F887204433D9D4240F8 /* Pods-Project_PocketTurchin.debug.xcconfig */;
+			baseConfigurationReference = AFB97360C2D0A0AFE0538AAA /* Pods-Project_PocketTurchin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -579,7 +579,7 @@
 		};
 		BAE81BDB25A4C79C005C43A3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 964BE37BD557CE476DC56881 /* Pods-Project_PocketTurchin.release.xcconfig */;
+			baseConfigurationReference = 5205C67C3E110349E633C7DB /* Pods-Project_PocketTurchin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

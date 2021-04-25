@@ -31,6 +31,7 @@ class HomePageViewController: UIViewController,UICollectionViewDelegate,UICollec
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        //fetchExhibitions()
         slideTimer()
     }
     
@@ -55,11 +56,14 @@ class HomePageViewController: UIViewController,UICollectionViewDelegate,UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HomePageCollectionViewCell = slideCollectionView.dequeueReusableCell(withReuseIdentifier: "slideCell", for: indexPath) as! HomePageCollectionViewCell
-        let exhibitions = self.currentExhibition[indexPath.item]
         
-        if let imageUrl = exhibitions.exhibitionCoverImg {
+        if let imageUrl = self.currentExhibition[indexPath.item].exhibitionCoverImg {
             ImageService.getImage(urlString: imageUrl) { image in
                 cell.slideImageView.image = image
+            }
+            
+            DispatchQueue.main.async {
+                self.slideCollectionView.reloadData()
             }
         }
         return cell
@@ -75,6 +79,7 @@ class HomePageViewController: UIViewController,UICollectionViewDelegate,UICollec
     }
     
     func fetchExhibitions() {
+        self.currentExhibition.removeAll()
         let ref = database.child("exhibitions")
         ref.observe(.childAdded) { (snapshot) in
             ref.observe(.value) { (DataSnapshot) in
