@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280FD22DEDE1F12B7D886FFC /* Pods_Project_PocketTurchin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817D024185A8310C6B1EE3FE /* Pods_Project_PocketTurchin.framework */; };
 		BA38B83B25BF580B00E6533F /* ExhibitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA38B83A25BF580B00E6533F /* ExhibitionsViewController.swift */; };
 		BA3EACA125C22E1F00C0304F /* GalleryExhibitionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3EACA025C22E1F00C0304F /* GalleryExhibitionVC.swift */; };
 		BA3EACA425C23C0600C0304F /* GalleryExhibitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3EACA325C23C0600C0304F /* GalleryExhibitionTableViewCell.swift */; };
@@ -15,6 +16,8 @@
 		BA53C3BF25ACE5E20051FC7C /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53C3BE25ACE5E20051FC7C /* ContentViewController.swift */; };
 		BA53C3DA25ACFAEC0051FC7C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53C3D925ACFAEC0051FC7C /* ImageService.swift */; };
 		BA69096425BDEEE3009AC917 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA69096325BDEEE3009AC917 /* GalleryViewController.swift */; };
+		BA8F1769261FD5AB000F9506 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F1768261FD5AB000F9506 /* CommentViewController.swift */; };
+		BA8F176C261FD7F6000F9506 /* CommentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F176B261FD7F6000F9506 /* CommentDetailVC.swift */; };
 		BA9DB80525BB661F003702F6 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DB80425BB661F003702F6 /* HomePageViewController.swift */; };
 		BA9DB80825BB804C003702F6 /* HomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DB80725BB804C003702F6 /* HomePageCollectionViewCell.swift */; };
 		BA9DBD2F25DD94A9009D0557 /* AdminEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DBD2E25DD94A9009D0557 /* AdminEditViewController.swift */; };
@@ -41,12 +44,12 @@
 		BAE81C4D25A6585B005C43A3 /* ExhibitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C4C25A6585B005C43A3 /* ExhibitionViewController.swift */; };
 		BAE81C5025A65869005C43A3 /* ExhibitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE81C4F25A65869005C43A3 /* ExhibitionTableViewCell.swift */; };
 		BAEDDE3025F199A7009CB2AB /* AdminReviewPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDE2F25F199A7009CB2AB /* AdminReviewPageViewController.swift */; };
-		BF287C437987D8FC5140834F /* Pods_Project_PocketTurchin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		29B64F887204433D9D4240F8 /* Pods-Project_PocketTurchin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_PocketTurchin.debug.xcconfig"; path = "Target Support Files/Pods-Project_PocketTurchin/Pods-Project_PocketTurchin.debug.xcconfig"; sourceTree = "<group>"; };
-		964BE37BD557CE476DC56881 /* Pods-Project_PocketTurchin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_PocketTurchin.release.xcconfig"; path = "Target Support Files/Pods-Project_PocketTurchin/Pods-Project_PocketTurchin.release.xcconfig"; sourceTree = "<group>"; };
+		5205C67C3E110349E633C7DB /* Pods-Project_PocketTurchin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_PocketTurchin.release.xcconfig"; path = "Target Support Files/Pods-Project_PocketTurchin/Pods-Project_PocketTurchin.release.xcconfig"; sourceTree = "<group>"; };
+		817D024185A8310C6B1EE3FE /* Pods_Project_PocketTurchin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_PocketTurchin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFB97360C2D0A0AFE0538AAA /* Pods-Project_PocketTurchin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_PocketTurchin.debug.xcconfig"; path = "Target Support Files/Pods-Project_PocketTurchin/Pods-Project_PocketTurchin.debug.xcconfig"; sourceTree = "<group>"; };
 		BA38B83A25BF580B00E6533F /* ExhibitionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionsViewController.swift; sourceTree = "<group>"; };
 		BA3EACA025C22E1F00C0304F /* GalleryExhibitionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryExhibitionVC.swift; sourceTree = "<group>"; };
 		BA3EACA325C23C0600C0304F /* GalleryExhibitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryExhibitionTableViewCell.swift; sourceTree = "<group>"; };
@@ -55,6 +58,8 @@
 		BA53C3BE25ACE5E20051FC7C /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		BA53C3D925ACFAEC0051FC7C /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		BA69096325BDEEE3009AC917 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		BA8F1768261FD5AB000F9506 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		BA8F176B261FD7F6000F9506 /* CommentDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDetailVC.swift; sourceTree = "<group>"; };
 		BA9DB80425BB661F003702F6 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		BA9DB80725BB804C003702F6 /* HomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionViewCell.swift; sourceTree = "<group>"; };
 		BA9DBD2E25DD94A9009D0557 /* AdminEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEditViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +69,6 @@
 		BAABE45E25D077E200D83DA3 /* ContentViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		BAB112CC25A79F1100D66CBD /* AdminUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUploadViewController.swift; sourceTree = "<group>"; };
 		BAB1133F25A8FE7000D66CBD /* Exhibition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exhibition.swift; sourceTree = "<group>"; };
-		BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_PocketTurchin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE2598525C8C47A00BEB020 /* dateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateHelper.swift; sourceTree = "<group>"; };
 		BAE81BC525A4C79B005C43A3 /* Project_PocketTurchin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_PocketTurchin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE81BC825A4C79B005C43A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,17 +95,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF287C437987D8FC5140834F /* Pods_Project_PocketTurchin.framework in Frameworks */,
+				280FD22DEDE1F12B7D886FFC /* Pods_Project_PocketTurchin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B8949B6F790EF98C18882064 /* Frameworks */ = {
+		44FAE6C09CFFAC7714C6C608 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BAC37747BD6DB58AC36EB986 /* Pods_Project_PocketTurchin.framework */,
+				817D024185A8310C6B1EE3FE /* Pods_Project_PocketTurchin.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,6 +118,15 @@
 				BAABE45E25D077E200D83DA3 /* ContentViewCollectionViewCell.swift */,
 			);
 			path = "Detail page";
+			sourceTree = "<group>";
+		};
+		BA8F1766261FD55C000F9506 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				BA8F1768261FD5AB000F9506 /* CommentViewController.swift */,
+				BA8F176B261FD7F6000F9506 /* CommentDetailVC.swift */,
+			);
+			path = Comment;
 			sourceTree = "<group>";
 		};
 		BA9DB7FC25BB6140003702F6 /* Exhibition */ = {
@@ -149,7 +162,7 @@
 				BAE81BC725A4C79B005C43A3 /* Project_PocketTurchin */,
 				BAE81BC625A4C79B005C43A3 /* Products */,
 				FC4D4077D7381E8D0901173E /* Pods */,
-				B8949B6F790EF98C18882064 /* Frameworks */,
+				44FAE6C09CFFAC7714C6C608 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,6 +211,7 @@
 				BA9DB7FC25BB6140003702F6 /* Exhibition */,
 				BAE81C3125A5508B005C43A3 /* Gallery */,
 				BA9DB7FD25BB647D003702F6 /* Home */,
+				BA8F1766261FD55C000F9506 /* Comment */,
 				BA69096225BDEE41009AC917 /* Detail page */,
 				BAE81C3325A611D4005C43A3 /* ProfileViewController.swift */,
 			);
@@ -249,8 +263,8 @@
 		FC4D4077D7381E8D0901173E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				29B64F887204433D9D4240F8 /* Pods-Project_PocketTurchin.debug.xcconfig */,
-				964BE37BD557CE476DC56881 /* Pods-Project_PocketTurchin.release.xcconfig */,
+				AFB97360C2D0A0AFE0538AAA /* Pods-Project_PocketTurchin.debug.xcconfig */,
+				5205C67C3E110349E633C7DB /* Pods-Project_PocketTurchin.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -262,11 +276,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAE81BD925A4C79C005C43A3 /* Build configuration list for PBXNativeTarget "Project_PocketTurchin" */;
 			buildPhases = (
-				464BE0F3935BD04CD08908B4 /* [CP] Check Pods Manifest.lock */,
+				1EE0A6FA014BF6F9FBCD35C4 /* [CP] Check Pods Manifest.lock */,
 				BAE81BC125A4C79B005C43A3 /* Sources */,
 				BAE81BC225A4C79B005C43A3 /* Frameworks */,
 				BAE81BC325A4C79B005C43A3 /* Resources */,
-				B115144A29A2C0409304F91B /* [CP] Embed Pods Frameworks */,
+				8724D7D8F23E5CB0109EF937 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -326,7 +340,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		464BE0F3935BD04CD08908B4 /* [CP] Check Pods Manifest.lock */ = {
+		1EE0A6FA014BF6F9FBCD35C4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -348,7 +362,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B115144A29A2C0409304F91B /* [CP] Embed Pods Frameworks */ = {
+		8724D7D8F23E5CB0109EF937 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -381,6 +395,7 @@
 				BAE81C0925A4F103005C43A3 /* LogViewController.swift in Sources */,
 				BA9DBD3925DDA5C3009D0557 /* AdminAddInfoViewController.swift in Sources */,
 				BA9DB80525BB661F003702F6 /* HomePageViewController.swift in Sources */,
+				BA8F176C261FD7F6000F9506 /* CommentDetailVC.swift in Sources */,
 				BA9DBD2F25DD94A9009D0557 /* AdminEditViewController.swift in Sources */,
 				BA9DBD3625DD9F29009D0557 /* AdminButtonViewController.swift in Sources */,
 				BAE81BC925A4C79B005C43A3 /* AppDelegate.swift in Sources */,
@@ -395,6 +410,7 @@
 				BA9DB80825BB804C003702F6 /* HomePageCollectionViewCell.swift in Sources */,
 				BAE2598625C8C47A00BEB020 /* dateHelper.swift in Sources */,
 				BA53C3BF25ACE5E20051FC7C /* ContentViewController.swift in Sources */,
+				BA8F1769261FD5AB000F9506 /* CommentViewController.swift in Sources */,
 				BAE81C1525A4FDA4005C43A3 /* SignUpViewController.swift in Sources */,
 				BA3EACA125C22E1F00C0304F /* GalleryExhibitionVC.swift in Sources */,
 				BAE81C3425A611D4005C43A3 /* ProfileViewController.swift in Sources */,
@@ -543,7 +559,7 @@
 		};
 		BAE81BDA25A4C79C005C43A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29B64F887204433D9D4240F8 /* Pods-Project_PocketTurchin.debug.xcconfig */;
+			baseConfigurationReference = AFB97360C2D0A0AFE0538AAA /* Pods-Project_PocketTurchin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -563,7 +579,7 @@
 		};
 		BAE81BDB25A4C79C005C43A3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 964BE37BD557CE476DC56881 /* Pods-Project_PocketTurchin.release.xcconfig */;
+			baseConfigurationReference = 5205C67C3E110349E633C7DB /* Pods-Project_PocketTurchin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

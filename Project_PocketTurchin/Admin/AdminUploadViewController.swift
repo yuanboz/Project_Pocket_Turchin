@@ -38,6 +38,7 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
     var exhibitionStartDate: String = ""
     var exhibitionEndDate: String = ""
     var exhibitionGallery: String = ""
+    var exhibitionLike: Int = 0
     var needReview: Bool = true
     
     private let storage = Storage.storage().reference()
@@ -131,6 +132,7 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
                 self.present(vc, animated: true, completion: nil)
             }
             if needReview == false{
+                UserDefaults.standard.setValue(true, forKey: "needReview")
                 uploadToFirebase()
                 clearData()
                 UserDefaults.standard.setValue(true, forKey: "needReview")
@@ -202,7 +204,8 @@ class AdminUploadViewController: UIViewController, UIImagePickerControllerDelega
                       "exhibitionStartDate": exhibitionStartDate,
                       "exhibitionEndDate": exhibitionEndDate,
                       "exhibitionGallery": exhibitionGallery,
-                      "exhibitionCoverImg": coverImgUrl]
+                      "exhibitionCoverImg": coverImgUrl,
+                      "liked": String(exhibitionLike)]
         ref.updateChildValues(values) { (err, ref) in
             if err != nil {
                 print(err!)

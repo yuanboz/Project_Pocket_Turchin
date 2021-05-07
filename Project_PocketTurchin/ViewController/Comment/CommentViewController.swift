@@ -1,30 +1,28 @@
 //
-//  GalleryViewController.swift
+//  CommentViewController.swift
 //  Project_PocketTurchin
 //
-//  Created by 周元博 on 1/24/21.
+//  Created by 周元博 on 4/8/21.
 //
 
 import UIKit
-//import FirebaseDatabase
 import Firebase
 
-class GalleryViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
+class CommentViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
-    @IBOutlet var galleryTableView: UITableView!
+    @IBOutlet var commentTableView: UITableView!
     
     private let db = Firestore.firestore()
     
     var gallery = [String]()
-    //var exhibitions = [String:String]()
     let cellID = "cellID"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        galleryTableView.delegate = self
-        galleryTableView.dataSource = self
-        fetchGallery()
+        commentTableView.delegate = self
+        commentTableView.dataSource = self
         setUpNavigationImage()
+        fetchExhibition()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,22 +30,27 @@ class GalleryViewController: UIViewController, UITableViewDataSource,UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(identifier: "GalleryExhibitionVC") as! GalleryExhibitionVC
-        vc.gallery = self.gallery
-        vc.index = indexPath.row
+        let vc = storyboard?.instantiateViewController(identifier: "CommentDetailVC") as! CommentDetailVC
+        vc.exhibition = self.gallery[indexPath.row]
         
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = galleryTableView.dequeueReusableCell(withIdentifier: cellID)
+        var cell = commentTableView.dequeueReusableCell(withIdentifier: cellID)
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellID)
         }
-        cell?.textLabel?.text = self.gallery[indexPath.row].capitalized
+        let exhibition = self.gallery[indexPath.row]
+        cell?.textLabel?.text = exhibition.capitalized
+        
+        DispatchQueue.main.async {
+            self.commentTableView.reloadData()
+        }
         return cell!
     }
+    
     
     func setUpNavigationImage() {
         let logo = UIImage(named: "navigationBGImage.png")
@@ -55,8 +58,8 @@ class GalleryViewController: UIViewController, UITableViewDataSource,UITableView
         self.navigationItem.titleView = imageView
     }
     
-    func fetchGallery() {
-        db.collection("gallery").getDocuments { (snapshot, err) in
+    func fetchExhibition() {
+        db.collection("comments").getDocuments { (snapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -66,10 +69,8 @@ class GalleryViewController: UIViewController, UITableViewDataSource,UITableView
             }
             
             DispatchQueue.main.async {
-                self.galleryTableView.reloadData()
+                self.commentTableView.reloadData()
             }
         }
     }
-            
-
 }

@@ -43,7 +43,6 @@ class ExhibitionViewController: UIViewController,UITableViewDelegate,UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         checkAdminMode()
-        //fetchExhibitions()
     }
     
     func setUpAdminButton() {
